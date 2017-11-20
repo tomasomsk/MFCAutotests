@@ -35,5 +35,4 @@ public class _750_27_PDDB_2 extends BaseTest{
         assertEquals(responseFromMfc.getResult().getCode(), "NO_DATA");
         assertEquals(responseFromMfc.getResult().getErrorDescr(), "В ИС ММЦ недостаточно данных на запрошенную дату.");
     }
-
 }
