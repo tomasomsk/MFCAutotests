@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    targetNamespace="http://mmc.mos.ru/mmc/dashboard"
+    xmlns="http://mmc.mos.ru/mmc/dashboard"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified"
+    >
+ 
+<!--
+** Пространство имен электронного сервиса ИС ММЦ для Дэшборд
+** Версия 0.6
+-->
+
+  <!--
+  ** Запрос аналитических данных по работе ММЦ
+  -->
+
+  <xsd:element name="mainMmcStatsRequest" type="MainMmcStatsRequestType"/>
+
+  <xsd:complexType name="MainMmcStatsRequestType">
+    <xsd:annotation>
+      <xsd:documentation>Запрос аналитических данных по работе ММЦ</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="periodStart" type="xsd:date" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Дата, за которую запрашивается статистика (время подразумевается "8:00")</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+
+  <!--
+  ** Ответ...
+  -->
+
+  <xsd:element name="mainMmcStatsResponse" type="MainMmcStatsResponseType"/>
+
+  <xsd:complexType name="MainMmcStatsResponseType">
+    <xsd:annotation>
+      <xsd:documentation>Аналитических данные по работе ММЦ</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="result" type="ResponseType" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Результат обработки запроса</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="item" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:annotation>
+            <xsd:documentation>Статистический показатель</xsd:documentation>
+          </xsd:annotation>
+          <xsd:attribute name="name" type="xsd:string" use="required">
+            <xsd:annotation>
+              <xsd:documentation>Наименование показателя</xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+          <xsd:attribute name="value" type="xsd:float" use="required">
+            <xsd:annotation>
+              <xsd:documentation>Значение показателя</xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- *************************************************** -->
+
+  <!--
+  ** Обшие типы
+  -->
+
+  <xsd:complexType name="ResponseType">
+    <xsd:annotation>
+      <xsd:documentation>Результат обработки запроса</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="code" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Код обработки запроса</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="OK">
+            <xsd:annotation>
+              <xsd:documentation>Запрос обработан успешно</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="NO_DATA">
+            <xsd:annotation>
+              <xsd:documentation>Отсутствуют данные за запрошенный период</xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="errorId" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Идентификатор ошибки (GUID)</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="errorDescr" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Описание ошибки</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+
+</xsd:schema>

@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="750-27 Передача данных о работе ММЦ в Дэшборд" verbose="1" >
+
+    <test name="ПДДБ-01 Неуспешная передача ежедневных аналитических данных в Дэшборд (Валидация данных запроса завершена ошибкой)">
+        <classes>
+            <class name="com.luxoft.tests._750_27.pddb._750_27_PDDB_1"/>
+        </classes>
+    </test>
+
+    <test name="ПДДБ-02 Неуспешная передача аналитических данных в Дэшборд (в системе недостаточно данных для передачи в Дэшборд)">
+        <classes>
+            <class name="com.luxoft.tests._750_27.pddb._750_27_PDDB_2"/>
+        </classes>
+    </test>
+
+    <test name="ПДДБ-03 Успешная передача аналитических данных в дэшборд">
+        <classes>
+            <class name="com.luxoft.tests._750_27.pddb._750_27_PDDB_3"/>
+        </classes>
+    </test>
+
+</suite>

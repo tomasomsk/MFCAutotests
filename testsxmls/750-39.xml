@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="750-39 Функции администрирования страховых компаний" verbose="1" >
+
+    <test name="АССК-01-03 Настройка списка страховых компаний">
+        <classes>
+            <class name="com.luxoft.tests._750_39.assk._750_39_ASSK_01_03"/>
+        </classes>
+    </test>
+
+</suite>

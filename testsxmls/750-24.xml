@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="750-24 Требования к ручному вводу и просмотру данных отчетности" verbose="1" >
+
+    <test name="MMC-SAU-01 Авторизация">
+        <classes>
+            <class name="com.luxoft.tests._750_24.sau._750_24_SAU_01"/>
+        </classes>
+    </test>
+
+</suite>

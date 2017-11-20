@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "titles",
+      "date",
+      "details"
+    ],
+    "properties": {
+      "id": {
+        "type": "integer",
+        "description": "Идентификатор показателя. Совпадает с идентификатором показателя в main_info.schema"
+      },
+      "titles": {
+        "type": "array",
+        "description": "Массив читабельных названий колонок для таблицы. Минимальное количество колонок - две, иначе таблица не получится",
+        "minItems": 2,
+        "items": {
+          "type": "string"
+        }
+      },
+      "date": {
+       "type": "string",
+       "description": "Дата актуальности значения показателя в формате dd.mm.yyyyy"
+      },
+      "details": {
+        "type": "array",
+        "description": "Массив значений для столбцов таблицы",
+        "required": [
+          "id",
+          "parameter",
+          "value"
+        ],
+        "items": {
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "Идентификатор значения. Должен быть уникальным среди всех уровней иерархии - как среди элементов массива, в котором находится, так и среди всех возможных дочерних значений"
+            },
+            "parameter": {
+              "type": "string",
+              "description": "Наименование для строки"
+            },
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Значение для первой колонки со значением"
+            },
+            "value1": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Значение для второй колонки со значением"
+            },
+            "value2": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Значение для третьей колонки со значением"
+            },
+            "value3": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Значение для четвертой колонки со значением"
+            },
+            "value4": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Значение для пятой колонки со значением"
+            },
+            "value5": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Значение для шестой колонки со значением"
+            },
+            "value6": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Значение для седьмой колонки со значением"
+            }
+          }
+        }
+      }
+    }
+  }
+}

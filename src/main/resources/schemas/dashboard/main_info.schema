@@ -1,0 +1,201 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "description": "Описание группы показателей",
+    "required": [
+      "id",
+      "name",
+      "indicators"
+    ],
+    "properties": {
+      "id": {
+        "type": "integer",
+        "description": "Уникальный идентификатор группы показателей",
+        "uniqueValue": true
+      },
+      "name": {
+        "type": "string",
+        "description": "Наименование группы показателей"
+      },
+      "indicators": {
+        "type": "array",
+        "description": "Описание наименований показателей, методики расчета, даты актуальности значений, дополнительной информации о показателе",
+        "items": {
+          "type": "object",
+          "required": [
+            "id",
+            "name",
+            "isInProgress",
+            "dateInProgress",
+            "date",
+            "valueGroups"
+          ],
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "Уникальный идентификатор показателя",
+              "uniqueValue": true
+            },
+            "name": {
+              "type": "string",
+              "description": "Наименование показателя"
+            },
+            "isInProgress": {
+              "type": "boolean",
+              "description": "Признак того, что показатель находится в раработке"
+            },
+            "dateInProgress": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Дата окончания разработки, если показатель находится в разработке. Указывается, если поле isInProgress = true"
+            },
+            "hint": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Методика расчета показателя"
+            },
+            "date": {
+              "type": "string",
+              "description": "Дата актуальности значения показателя в формате dd.mm.yyyyy"
+            },
+            "extraInfo": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Дополнительная информация о показателе"
+            },
+            "valueGroups": {
+              "type": "array",
+              "description": "Описание значений показателей",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "name",
+                  "values"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": "Уникальный идентификатор групп значений показателя",
+                    "uniqueValue": true
+                  },
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Наименование группы значений показателей"
+                  },
+                  "values": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "typeName",
+                        "dynamicsVector",
+                        "value"
+                      ],
+                      "properties": {
+                        "type": {
+                          "type": "integer",
+                          "description": "Идентификатор типа значения показателей, если значения одного и тогоже наименования показателя передаются в разных единицах измерения"
+                        },
+                        "typeName": {
+                          "type": "string",
+                          "description": "Наименование типа значения показателей"
+                        },
+                        "units": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "Единица измерения значения показателя"
+                        },
+                        "valueDescription": {
+                          "type": "string",
+                          "description": "Описание значения показателя"
+                        },
+                        "dynamicsVector": {
+                          "type": "string",
+                          "enum": [
+                            "positive",
+                            "negative",
+                            "any_deviation",
+                            "POSITIVE",
+                            "NEGATIVE",
+                            "ANY_DEVIATION"
+                          ],
+                          "description": "Характеристика текущего значения показателя: positive - будет зеленое, negative - будет красное, any_deviation - будет серое"
+                        },
+                        "value": {
+                          "type": [
+                            "number",
+                            "null"
+                          ],
+                          "description": "Значение показателя"
+                        },
+                        "dynamics": {
+                          "type": "array",
+                          "description": "Описание изменения значений показателей",
+                          "items": {
+                            "type": "object",
+                            "required": [
+                              "id",
+                              "period",
+                              "value",
+                              "date",
+                              "dynamicsVector"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "description": "Уникальный идентификатор изменения значения показателя",
+                                "uniqueValue": true
+                              },
+                              "period": {
+                                "type": "string",
+                                "description": "Наименование периода, за который передается изменение значения показателя"
+                              },
+                              "value": {
+                                "type": "number",
+                                "description": "Значения изменения показателя"
+                              },
+                              "date": {
+                                "type": "string",
+                                "description": "Дата, на которую актуальна изменение значение показателя в формате dd.mm.yyy"
+                              },
+                              "dynamicsVector": {
+                                "enum": [
+                                  "positive",
+                                  "negative",
+                                  "any_deviation",
+                                  "POSITIVE",
+                                  "NEGATIVE",
+                                  "ANY_DEVIATION"
+                                ],
+                                "description": "Характеристика динамики изменения значения показателя: positive - будет зеленое, negative - будет красное, any_deviation - будет серое"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
