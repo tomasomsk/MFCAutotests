@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2706b0b-e23c-4530-b3b4-8f31224cf27d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/luxoft/mfcautotests/services/dashboard/dashboardsupportservice/application/Resource.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/luxoft/mfcautotests/services/dashboard/dashboardsupportservice/ru/mos/mmc/mmc/dashboard/MainMmcStatsRequestType.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/luxoft/mfcautotests/services/dashboard/dashboardsupportservice/ru/mos/mmc/mmc/dashboard/MainMmcStatsResponseType.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/luxoft/mfcautotests/services/dashboard/dashboardsupportservice/ru/mos/mmc/mmc/dashboard/ObjectFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/luxoft/mfcautotests/services/dashboard/dashboardsupportservice/ru/mos/mmc/mmc/dashboard/ResponseType.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/luxoft/mfcautotests/services/dashboard/dashboardsupportservice/ru/mos/mmc/mmc/dashboard/package-info.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/luxoft/tests/_750_27/pddb/_750_27_PDDB_2.java" afterPath="$PROJECT_DIR$/src/test/java/com/luxoft/tests/_750_27/pddb/_750_27_PDDB_2.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -315,67 +319,6 @@
             <path>
               <item name="MFCAutotests" type="b2602c69:ProjectViewProjectNode" />
               <item name="MFCAutotests" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MFCAutotests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MFCAutotests" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MFCAutotests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MFCAutotests" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mfcautotests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MFCAutotests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MFCAutotests" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MFCAutotests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MFCAutotests" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MFCAutotests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MFCAutotests" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="luxoft" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MFCAutotests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MFCAutotests" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="luxoft" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MFCAutotests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MFCAutotests" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="luxoft" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="pddb" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MFCAutotests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MFCAutotests" type="462c0819:PsiDirectoryNode" />
               <item name="testsxmls" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -396,17 +339,17 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\OneDrive\JAVA\Projects\MFCAutotests\src\main\resources\sql\dashboard" />
-      <recent name="D:\OneDrive\JAVA\Projects\MFCAutotests\src\main\resources\sql" />
-      <recent name="D:\OneDrive\JAVA\Projects\MFCAutotests\src\main\java\com\luxoft\mfcautotests\services\dashboard\dashboardsupportservice" />
-      <recent name="D:\OneDrive\JAVA\Projects\MFCAutotests" />
-      <recent name="D:\OneDrive\JAVA\Projects\MFCAutotests\src\main\tests.xml" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.luxoft.mfcautotests.services.dashboard" />
       <recent name="com.luxoft" />
       <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\OneDrive\JAVA\Projects\MFCAutotests\testsxmls" />
+      <recent name="D:\OneDrive\JAVA\Projects\MFCAutotests\src\main\resources\drivers\x32" />
+      <recent name="D:\OneDrive\JAVA\Projects\MFCAutotests" />
+      <recent name="D:\OneDrive\JAVA\Projects\MFCAutotests\src\main\resources" />
+      <recent name="D:\OneDrive\JAVA\Projects\MFCAutotests\src\main\resources\schemas\dashboard" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.luxoft.tests._750_24.sau" />
@@ -415,12 +358,12 @@
       <recent name="com.luxoft.tests._750_27.pddb" />
       <recent name="com.luxoft.mfcautotests.utils" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\OneDrive\JAVA\Projects\MFCAutotests\testsxmls" />
-      <recent name="D:\OneDrive\JAVA\Projects\MFCAutotests\src\main\resources\drivers\x32" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\OneDrive\JAVA\Projects\MFCAutotests\src\main\resources\sql\dashboard" />
+      <recent name="D:\OneDrive\JAVA\Projects\MFCAutotests\src\main\resources\sql" />
+      <recent name="D:\OneDrive\JAVA\Projects\MFCAutotests\src\main\java\com\luxoft\mfcautotests\services\dashboard\dashboardsupportservice" />
       <recent name="D:\OneDrive\JAVA\Projects\MFCAutotests" />
-      <recent name="D:\OneDrive\JAVA\Projects\MFCAutotests\src\main\resources" />
-      <recent name="D:\OneDrive\JAVA\Projects\MFCAutotests\src\main\resources\schemas\dashboard" />
+      <recent name="D:\OneDrive\JAVA\Projects\MFCAutotests\src\main\tests.xml" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -748,7 +691,7 @@
       <workItem from="1509709023721" duration="29641000" />
       <workItem from="1510141418235" duration="1938000" />
       <workItem from="1510143488977" duration="48749000" />
-      <workItem from="1511166852695" duration="90000" />
+      <workItem from="1511166852695" duration="193000" />
     </task>
     <task id="LOCAL-00001" summary="TestingFrameworkMFC">
       <created>1505367218553</created>
@@ -813,7 +756,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510665628281</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="750_24 (in progress), 750_27 (complete), 750_39 (complete)">
+      <created>1511166957564</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1511166957609</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -849,11 +799,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="370236000" />
+    <option name="totallyTimeSpent" value="370339000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -865,12 +814,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3220697" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10520833" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3220697" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3220697" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15520833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15520833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
