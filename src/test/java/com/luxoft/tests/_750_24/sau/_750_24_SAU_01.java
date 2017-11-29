@@ -1,18 +1,17 @@
 package com.luxoft.tests._750_24.sau;
 
 import com.luxoft.BaseTest;
-import com.luxoft.mfcautotests.model.Role;
 import com.luxoft.mfcautotests.model.User;
 import com.luxoft.mfcautotests.pages.LoginPage;
-import com.luxoft.mfcautotests.pages.StatsAdminPage;
-import com.luxoft.mfcautotests.pages.StatsUserPage;
+import com.luxoft.mfcautotests.pages.stats.StatsAdminPage;
+import com.luxoft.mfcautotests.pages.stats.StatsUserPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.Title;
-
+import static com.luxoft.mfcautotests.model.Role.*;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class _750_24_SAU_01 extends BaseTest {
@@ -37,7 +36,7 @@ public class _750_24_SAU_01 extends BaseTest {
     @Stories("MMC-SAU-01 Авторизация")
     public void authorizationWithRoleStatsAdmin() {
         navHelper.openArmStatsAdmin()
-                .loginWithRole(Role.STATS_ADMIN);
+                .loginWithRole(STATS_ADMIN);
 
         assertTrue(statsAdminPage.isElementsInConditionForStatsAdmin());
     }
@@ -48,7 +47,7 @@ public class _750_24_SAU_01 extends BaseTest {
     @Stories("MMC-SAU-01 Авторизация")
     public void authorizationWithRoleStatsUser() {
         navHelper.openArmStatsUser()
-                .loginWithRole(Role.STATS_USER);
+                .loginWithRole(STATS_USER);
 
         assertTrue(statsUserPage.isElementsInConditionForStatsUser());
     }
@@ -59,7 +58,7 @@ public class _750_24_SAU_01 extends BaseTest {
     @Stories("MMC-SAU-01 Авторизация")
     public void authorizationWithRoleDashboarManager() {
         navHelper.openArmStatsUser()
-                .loginWithRole(Role.DASHBOARD_MANAGER);
+                .loginWithRole(DASHBOARD_MANAGER);
 
         assertTrue(statsUserPage.isElementsInConditionForDashboardManager());
     }
@@ -70,7 +69,7 @@ public class _750_24_SAU_01 extends BaseTest {
     @Stories("MMC-SAU-01 Авторизация")
     public void authorizationWithRoleDashboarUser() {
         navHelper.openArmStatsUser()
-                .loginWithRole(Role.DASHBOARD_USER);
+                .loginWithRole(DASHBOARD_USER);
 
         assertTrue(statsUserPage.isElementsInConditionForDashboardUser());
     }

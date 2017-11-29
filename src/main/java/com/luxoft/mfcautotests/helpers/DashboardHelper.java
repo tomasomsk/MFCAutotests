@@ -21,11 +21,6 @@ import static org.testng.Assert.assertEquals;
 @Helper
 public class DashboardHelper extends ServicesHelper {
 
-    @InjectLogger
-    Logger log;
-    @Autowired
-    TestEnvironment env;
-
     public MainMmcStatsResponseType getMainMmcStatsResponse(Date date) {
         MainMmcStatsRequestType requestType = new MainMmcStatsRequestType();
         XMLGregorianCalendar xmlGregorianCalendar = convertToXmlGregorianCalendarDate(date);

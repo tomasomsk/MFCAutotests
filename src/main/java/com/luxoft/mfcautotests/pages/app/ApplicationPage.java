@@ -1,6 +1,7 @@
-package com.luxoft.mfcautotests.pages;
+package com.luxoft.mfcautotests.pages.app;
 
 import com.luxoft.mfcautotests.config.annotations.Page;
+import com.luxoft.mfcautotests.pages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;

@@ -1,6 +1,6 @@
 package com.luxoft;
 
-import com.luxoft.annotations.NonDriver;
+import com.luxoft.mfcautotests.config.annotations.NonDriver;
 import com.luxoft.mfcautotests.config.SpringConfig;
 import com.luxoft.mfcautotests.environment.TestEnvironment;
 import com.luxoft.mfcautotests.helpers.NavHelper;
@@ -13,7 +13,6 @@ import org.testng.IHookCallBack;
 import org.testng.IHookable;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 
 import java.lang.reflect.Method;
 

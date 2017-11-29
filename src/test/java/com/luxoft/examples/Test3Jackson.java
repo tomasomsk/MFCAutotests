@@ -2,7 +2,7 @@ package com.luxoft.examples;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.luxoft.BaseTest;
-import com.luxoft.annotations.NonDriver;
+import com.luxoft.mfcautotests.config.annotations.NonDriver;
 import com.luxoft.mfcautotests.services.dashboard.jsonresponse.MainInfo;
 import org.testng.annotations.Test;
 

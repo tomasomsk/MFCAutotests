@@ -1,7 +1,7 @@
 package com.luxoft.tests._750_27.pddb;
 
 import com.luxoft.BaseTest;
-import com.luxoft.annotations.NonDriver;
+import com.luxoft.mfcautotests.config.annotations.NonDriver;
 import com.luxoft.mfcautotests.database.DaoPostgres;
 import com.luxoft.mfcautotests.helpers.DashboardHelper;
 import com.luxoft.mfcautotests.services.dashboard.dashboardsupportservice.ru.mos.mmc.mmc.dashboard.MainMmcStatsResponseType;

@@ -1,6 +1,7 @@
-package com.luxoft.mfcautotests.pages;
+package com.luxoft.mfcautotests.pages.stats;
 
 import com.luxoft.mfcautotests.config.annotations.Page;
+import com.luxoft.mfcautotests.pages.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 

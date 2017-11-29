@@ -6,7 +6,7 @@ import com.luxoft.mfcautotests.helpers.NavHelper;
 import com.luxoft.mfcautotests.model.Role;
 import com.luxoft.mfcautotests.model.User;
 import com.luxoft.mfcautotests.pages.LoginPage;
-import com.luxoft.mfcautotests.pages.SearchPage;
+import com.luxoft.mfcautotests.pages.app.SearchPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.Test;
 

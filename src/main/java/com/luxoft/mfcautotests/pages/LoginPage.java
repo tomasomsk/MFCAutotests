@@ -32,7 +32,7 @@ public class LoginPage extends BasePage{
     public LoginPage logout() {
         log.info("Logging out");
         waitUntilClickable(logoutLink).click();
-        if(alertIsPresent()) {
+        if(isAlertPresent()) {
             driverUtils.getDriver().switchTo().alert().accept();
         }
         return this;

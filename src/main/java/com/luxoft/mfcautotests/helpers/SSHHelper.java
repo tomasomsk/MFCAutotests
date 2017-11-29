@@ -8,6 +8,7 @@ import com.luxoft.mfcautotests.config.annotations.Helper;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Helper
@@ -44,7 +45,7 @@ public class SSHHelper extends BaseHelper {
         executeShell("ps aux | grep -v grep | grep \"/opt/webapps/" + moduleName + "/\" | awk '{print $2}' | head -1", env.sshUserName, env.sshPassword, serverUrl);
     }
 
-    private void executeShell(String shellScriptCommand, String userName, String password, String server) {
+    public String executeShell(String shellScriptCommand, String userName, String password, String server) {
         List<String> result = new ArrayList<String>();
         try {
             log.info("Creating session, user: " + userName);
@@ -81,5 +82,12 @@ public class SSHHelper extends BaseHelper {
         } catch (JSchException | IOException e) {
             e.printStackTrace();
         }
+        return String.join(", ", result);
+    }
+
+    public Date getDateFromServer(String serverUrl) {
+        log.info("Getting date from server " + serverUrl);
+        String serverDate = executeShell("date +%d.%m.%Y' '%R", "appsuser", "appsuser", serverUrl);
+        return getDateFromString(serverDate, "dd.MM.yyyy HH:mm");
     }
 }

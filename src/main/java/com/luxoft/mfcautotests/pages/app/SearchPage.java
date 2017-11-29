@@ -1,13 +1,14 @@
-package com.luxoft.mfcautotests.pages;
+package com.luxoft.mfcautotests.pages.app;
 
 import com.luxoft.mfcautotests.config.annotations.Page;
+import com.luxoft.mfcautotests.pages.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Page
-public class SearchPage extends BasePage {
+public class SearchPage extends ApplicationPage {
 
     @Autowired
     ApplicationPage applicationPage;

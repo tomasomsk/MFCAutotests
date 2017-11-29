@@ -1,4 +1,4 @@
-package com.luxoft.mfcautotests.pages;
+package com.luxoft.mfcautotests.pages.app;
 
 import com.luxoft.mfcautotests.config.annotations.Page;
 import com.luxoft.mfcautotests.model.BoxWithInsuranceCompany;
@@ -9,7 +9,7 @@ import java.util.Comparator;
 import java.util.List;
 
 @Page
-public class DmsPage extends ApplicationPage<DmsPage> {
+public class DmsPage extends ApplicationPage {
 
     @FindBy(css = "#selectedPolicyId b")
     public WebElement dmsType;
@@ -39,5 +39,4 @@ public class DmsPage extends ApplicationPage<DmsPage> {
 
         return companies;
     }
-
 }

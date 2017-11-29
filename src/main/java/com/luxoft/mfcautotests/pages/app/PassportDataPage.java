@@ -1,4 +1,4 @@
-package com.luxoft.mfcautotests.pages;
+package com.luxoft.mfcautotests.pages.app;
 
 import com.luxoft.mfcautotests.config.annotations.Page;
 

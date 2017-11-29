@@ -1,13 +1,18 @@
-package com.luxoft.mfcautotests.pages;
+package com.luxoft.mfcautotests.pages.stats;
 
 import com.luxoft.mfcautotests.config.annotations.Page;
+import com.luxoft.mfcautotests.pages.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 @Page
 public class StatsAdminPage extends BasePage {
+
+    @Autowired
+    DailyReportPage dailyReportPage;
 
     @FindBy(linkText = "Многофункциональный центр трудовой миграции")
     public WebElement mmcLink;
@@ -39,41 +44,13 @@ public class StatsAdminPage extends BasePage {
     @FindBy(linkText = "Повторная загрузка данных от внешних систем")
     public WebElement reloadStatsPermissionLink;
 
-    @FindBy(xpath = "//li[text()='Ежедневный отчет']")
-    public WebElement dailyReportLabel;
-
-    @FindBy(css = "#statsDate")
-    public WebElement reportDateField;
-
-    @FindBy(css = ".calendar-link")
-    public WebElement calendarLink;
-
-    @FindBy(css = "[ng-click='createReportBtn.click()']")
-    public WebElement createReportButton;
-
-    @FindBy(name= "statsSource")
-    public WebElement statsSourceDropDown;
-
-    @FindBy (css = ".table.reports-table th")
-    public List<WebElement> tableHeader;
-
-    @FindBy (css = "[ng-click='goBackBtn.click()']")
-    public WebElement goBackButton;
-
-    @FindBy (css = "#viewDashBoardItem")
-    public WebElement viewDashBoardItemCheckBox;
-
-    @FindBy (xpath = "//label[text()='Отчетная дата']")
-    public WebElement reportDateLabel;
-
-
-
     public boolean isElementsInConditionForStatsAdmin() {
         return isDisplayed(mmcLink, userName, logoutLink, screenName, version, staticTextSelectTypeOfReport,staticTextTypeOfReport) &&
         isClickable(logoutLink, dailyReportLink, monthlyReportLink, reloadStatsPermissionLink);
     }
 
-    public void openDailyReport() {
+    public DailyReportPage openDailyReport() {
         waitUntilClickable(dailyReportLink).click();
+        return dailyReportPage;
     }
 }

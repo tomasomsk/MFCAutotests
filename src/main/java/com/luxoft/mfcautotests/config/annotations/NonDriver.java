@@ -1,4 +1,4 @@
-package com.luxoft.annotations;
+package com.luxoft.mfcautotests.config.annotations;
 
 import org.springframework.stereotype.Component;
 
