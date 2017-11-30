@@ -32,9 +32,11 @@ public class _750_24_SAU_02 extends BaseTest {
 
     @BeforeMethod
     public void setup() {
-        if (! driverUtils.getDriver().getCurrentUrl().contains("mmcstatsadmin/daily_stats.htm")) {
+        if (!driverUtils.getDriver().getCurrentUrl().contains("mmcstatsadmin")) {
             navHelper.openArmStatsAdmin()
                     .loginWithRole(Role.STATS_ADMIN);
+        }
+        if (!driverUtils.getDriver().getCurrentUrl().contains("mmcstatsadmin/daily_stats.htm")) {
             statsAdminPage.openDailyReport();
         }
     }
@@ -44,7 +46,7 @@ public class _750_24_SAU_02 extends BaseTest {
     @Title("Внешний вид экрана Ежелневного отчета")
     @Features("750-24 Требования к ручному вводу и просмотру данных отчетности")
     @Stories("MMC-SAU-02 Ежедневный отчет (АРМ Администратора отчетов)")
-    public void  dailyReportScreenSpecificationTest() {
+    public void dailyReportScreenSpecificationTest() {
         dailyReportPage.checkDailyReportPageElements();
     }
 
@@ -61,7 +63,7 @@ public class _750_24_SAU_02 extends BaseTest {
     @Features("750-24 Требования к ручному вводу и просмотру данных отчетности")
     @Stories("MMC-SAU-02 Ежедневный отчет (АРМ Администратора отчетов)")
     public void dateSelectionTest() {
-
+        dailyReportPage.checkDateSelection();
     }
 
 

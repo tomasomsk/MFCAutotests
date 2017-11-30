@@ -55,7 +55,7 @@ public class FrameWork<T> {
     }
 
     public String getStringFromDate(Date date, String pattern) {
-        log.info("Getting String from Date");
+//        log.info("Getting String from Date");
         SimpleDateFormat sf = new SimpleDateFormat(pattern);
         return sf.format(date);
     }

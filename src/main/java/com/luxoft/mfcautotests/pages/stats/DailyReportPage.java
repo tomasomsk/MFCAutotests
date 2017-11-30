@@ -1,6 +1,7 @@
 package com.luxoft.mfcautotests.pages.stats;
 
 import com.luxoft.mfcautotests.config.annotations.Page;
+import com.luxoft.mfcautotests.config.forpages.ClickableConfig;
 import com.luxoft.mfcautotests.pages.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -51,25 +52,41 @@ public class DailyReportPage extends BasePage {
     @FindBy(xpath = "//button[text()='Назад']")
     public WebElement goBackButton;
 
-    @FindBy(css = ".calendar-link")
-    public WebElement calendarLink;
-
+//    @FindBy(css = )
 
     public void checkDailyReportPageElements() {
         String[] expectedHeaders = new String[]{"№\n" + "п/п", "Наименование показателя", "На отчетную дату", "С начала\n" + "года",
                 "За год", "Размерность", "Тип\n" + "заполнения", "Источник данных"};
-        Set<String> expectedTableColumns = new HashSet<>(Arrays.asList(expectedHeaders));
-        Set<String> actualTableColumns = new HashSet<>();
-        for (WebElement temp : actualHeaders) {
-            actualTableColumns.add(temp.getText());
+        Set<String> expectedTableColumnsNames = new HashSet<>(Arrays.asList(expectedHeaders));
+        Set<String> actualTableColumnsNames = new HashSet<>();
+        for (WebElement columnName : actualHeaders) {
+            actualTableColumnsNames.add(columnName.getText());
         }
-
         boolean firstCondition = isDisplayed(dailyTypeOfReportLabel, linkToStatsAdminArm, reportDateLable, reportDateField, dataSourceLabel,
                 dataSourceDropDown, dashboardItemsLabel, saveButton);
-        boolean secondCondition = isNotClickable(reportDateField, dataSourceDropDown, dashboardItemsCheckBox, saveButton);
-        boolean thirdCondition = isClickable(reportDateCalendarLink, createReportButton, goBackButton);
-        boolean fourthCondition = actualTableColumns.equals(expectedTableColumns);
+        boolean secondCondition = false;
+        boolean thirdCondition = false;
+        boolean fourthCondition = false;
+        boolean fifthCondition = false;
 
-        assertTrue(firstCondition && secondCondition && thirdCondition && fourthCondition);
+        if (firstCondition) {
+            secondCondition = isNotClickable(reportDateField, dashboardItemsCheckBox, saveButton, goBackButton);
+        }
+        if (secondCondition) {
+            thirdCondition = isClickable(reportDateCalendarLink, createReportButton, goBackButton);
+        }
+        if (thirdCondition) {
+            fourthCondition = actualTableColumnsNames.equals(expectedTableColumnsNames);
+        }
+        if (fourthCondition) {
+            ClickableConfig selectConfig = new ClickableConfig("select2-container-disabled");
+            fifthCondition = isNotClickable(dataSourceDropDown, selectConfig);
+        }
+
+        assertTrue(fifthCondition);
+    }
+
+    public void checkDateSelection() {
+
     }
 }

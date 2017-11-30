@@ -3,6 +3,7 @@ package com.luxoft.mfcautotests.pages;
 import com.luxoft.mfcautotests.FrameWork;
 import com.luxoft.mfcautotests.config.annotations.InjectLogger;
 import com.luxoft.mfcautotests.config.annotations.Page;
+import com.luxoft.mfcautotests.config.forpages.ClickableConfig;
 import com.luxoft.mfcautotests.utils.DriverUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
@@ -16,6 +17,9 @@ import org.springframework.context.annotation.Lazy;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static com.luxoft.mfcautotests.config.forpages.ClickableConfig.*;
+import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 @Page
 public class BasePage<T> extends FrameWork {
@@ -49,7 +53,7 @@ public class BasePage<T> extends FrameWork {
         try {
             for (WebElement checkedElement : elements) {
                 log.info("Checking, that link [" + getLocator(checkedElement) + "] is clickable");
-                driverUtils.getWait().until(ExpectedConditions.elementToBeClickable(checkedElement));
+                driverUtils.getWait().until(elementToBeClickable(checkedElement));
             }
             return true;
         } catch (Exception e) {
@@ -58,77 +62,104 @@ public class BasePage<T> extends FrameWork {
     }
 
     public boolean isNotClickable(WebElement... elements) {
-        List<WebElement> elementsChecked = new ArrayList<>();
-        List<WebElement> elementsToCheckByClass = new ArrayList<>();
-        List<WebElement> elementsToCheckByClick = new ArrayList<>();
-        List<WebElement> elementsToCheckBySendKeys = new ArrayList<>();
-
         for (WebElement checkedElement : elements) {
-            log.info("Checking, that element [" + getLocator(checkedElement) + "] is not clickable by isEnabled()");
-            if (checkedElement.isEnabled()) {
-                elementsToCheckByClass.add(checkedElement);
-            } else {
-                elementsChecked.add(checkedElement);
+            if (!isNotClickable(checkedElement, defaultConfig)) {
+                return false;
             }
         }
-        if (!elementsToCheckByClass.isEmpty()) {
-            for (WebElement checkedByClassElement : elementsToCheckByClass) {
-                log.info("Checking, that element [" + getLocator(checkedByClassElement) + "] is not clickable by class");
-                String classOfElement = checkedByClassElement.getAttribute("class");
-                List<String> classes = new ArrayList<>(Arrays.asList(classOfElement.split(" ")));
-                if (!classes.contains("select2-container-disabled")) {
-                    elementsToCheckByClick.add(checkedByClassElement);
-                } else {
-                    elementsChecked.add(checkedByClassElement);
-                }
-            }
-        }
-        if (!elementsToCheckByClick.isEmpty()) {
-            for (WebElement checkedByClickElement : elementsToCheckByClick) {
-                log.info("Checking, that element [" + getLocator(checkedByClickElement) + "] is not clickable by clicking it");
-                try {
-                    checkedByClickElement.click();
-                    elementsToCheckBySendKeys.add(checkedByClickElement);
-                } catch (Exception e) {
-                    elementsChecked.add(checkedByClickElement);
-                }
-            }
-        }
-        if (!elementsToCheckBySendKeys.isEmpty()) {
-            for (WebElement checkedBySendKeysElement : elementsToCheckBySendKeys) {
-                log.info("Checking, that element [" + getLocator(checkedBySendKeysElement) + "] is not clickable by sending keys");
-                try {
-                    checkedBySendKeysElement.sendKeys("checking");
-                    return false;
-                } catch (Exception e) {
-                    elementsChecked.add(checkedBySendKeysElement);
-                }
-            }
-        }
-        return elementsChecked.size() == elements.length;
-    }
+        return true;
 
-//    public boolean isNotClickable(WebElement... elements) {
-//        boolean result = false;
+
+//        List<WebElement> elementsChecked = new ArrayList<>();
+//        List<WebElement> elementsToCheckByClass = new ArrayList<>();
+//        List<WebElement> elementsToCheckByClick = new ArrayList<>();
+//        List<WebElement> elementsToCheckBySendKeys = new ArrayList<>();
 //
-//        for (WebElement temp : elements) {
-//            log.info("Checking, that element [" + getLocator(temp) + "] is not clickable");
-//            if (temp.isEnabled()) {
-//                return false;
+//        for (WebElement checkedElement : elements) {
+//            log.info("Checking, that element [" + getLocator(checkedElement) + "] is not clickable by isEnabled()");
+//            if (checkedElement.isEnabled()) {
+//                elementsToCheckByClass.add(checkedElement);
 //            } else {
-//                result = true;
+//                elementsChecked.add(checkedElement);
 //            }
 //        }
-//        return result;
-//    }
+//        if (!elementsToCheckByClass.isEmpty()) {
+//            for (WebElement checkedByClassElement : elementsToCheckByClass) {
+//                log.info("Checking, that element [" + getLocator(checkedByClassElement) + "] is not clickable by class");
+//                String classOfElement = checkedByClassElement.getAttribute("class");
+//                List<String> classes = new ArrayList<>(Arrays.asList(classOfElement.split(" ")));
+//                if (!classes.contains("select2-container-disabled")) {
+//                    elementsToCheckByClick.add(checkedByClassElement);
+//                } else {
+//                    elementsChecked.add(checkedByClassElement);
+//                }
+//            }
+//        }
+//        if (!elementsToCheckBySendKeys.isEmpty()) {
+//            for (WebElement checkedBySendKeysElement : elementsToCheckBySendKeys) {
+//                log.info("Checking, that element [" + getLocator(checkedBySendKeysElement) + "] is not clickable by sending keys");
+//                try {
+//                    checkedBySendKeysElement.sendKeys("checking");
+//                    elementsToCheckByClick.add(checkedBySendKeysElement);
+//                } catch (Exception e) {
+//                    elementsChecked.add(checkedBySendKeysElement);
+//                }
+//            }
+//        }
+//        if (!elementsToCheckByClick.isEmpty()) {
+//            WebDriverWait wait = new WebDriverWait(driverUtils.getDriver(), 1);
+//            for (WebElement checkedByClickElement : elementsToCheckByClick) {
+//                log.info("Checking, that element [" + getLocator(checkedByClickElement) + "] is not clickable by clicking it");
+//                try {
+//                    checkedByClickElement.click();
+//                    return false;
+//                } catch (Exception e) {
+//                    elementsChecked.add(checkedByClickElement);
+//                }
+//            }
+//        }
+//        return elementsChecked.size() == elements.length;
+    }
+
+    public boolean isNotClickable(WebElement element, ClickableConfig clickableConfig) {
+
+        if (!clickableConfig.equals(defaultConfig)) {
+            log.info("Checking, that element [" + getLocator(element) + "] is not clickable by class");
+            String classOfElement = element.getAttribute("class");
+            List<String> classes = new ArrayList<>(Arrays.asList(classOfElement.split(" ")));
+            if (classes.contains(clickableConfig.getElementDisabledMarker())) {
+                return true;
+            }
+        }
+
+        log.info("Checking, that element [" + getLocator(element) + "] is not clickable by isEnabled()");
+        if (!element.isEnabled()) {
+            return true;
+        }
+
+        log.info("Checking, that element [" + getLocator(element) + "] is not clickable by sending keys");
+        try {
+            element.sendKeys("checking");
+        } catch (Exception e) {
+            return true;
+        }
+
+        log.info("Checking, that element [" + getLocator(element) + "] is not clickable by clicking it");
+        try {
+            element.click();
+            return false;
+        } catch (Exception e) {
+            return true;
+        }
+    }
 
     public WebElement waitUntilClickable(WebElement element) {
-        driverUtils.getWait().until(ExpectedConditions.elementToBeClickable(element));
+        driverUtils.getWait().until(elementToBeClickable(element));
         return element;
     }
 
     public By waitUntilPresent(By locator) {
-        driverUtils.getWait().until(ExpectedConditions.presenceOfElementLocated(locator));
+        driverUtils.getWait().until(presenceOfElementLocated(locator));
         return locator;
     }
 
@@ -173,7 +204,7 @@ public class BasePage<T> extends FrameWork {
 
     public boolean isAlertPresent() {
         try {
-            Alert a = new WebDriverWait(driverUtils.getDriver(), 3).until(ExpectedConditions.alertIsPresent());
+            Alert a = new WebDriverWait(driverUtils.getDriver(), 3).until(alertIsPresent());
             if (a != null) {
                 return true;
             } else {

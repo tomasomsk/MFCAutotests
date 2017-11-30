@@ -35,8 +35,8 @@ public class DriverUtils {
 
     private void createDriver(){
             driver = (WebDriver) context.getBean("webDriver");
-            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            wait = new WebDriverWait(driver, 30);
+            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+            wait = new WebDriverWait(driver, 15);
     }
 
     public void killDriver() {
