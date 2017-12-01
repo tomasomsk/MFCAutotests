@@ -23,11 +23,6 @@ public class BaseHelper<T> extends FrameWork {
     @Autowired
     TestEnvironment env;
 
-    public Date addDaysToDate(Date date, int countOfDays) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        calendar.add(Calendar.DATE, countOfDays);
-        return calendar.getTime();
-    }
+
 
 }
