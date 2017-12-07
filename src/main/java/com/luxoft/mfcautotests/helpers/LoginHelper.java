@@ -15,29 +15,28 @@ public class LoginHelper extends BaseHelper {
     LoginPage loginPage;
 
     public void loginWithRole(Role role) {
-        String login = null;
+        String usrName = null;
         String password = env.passwordToArms;
 
         switch (role) {
-            case OOO: login = env.oooLogin;
+            case OOO: usrName = env.oooLogin;
             break;
-            case OBO: login = env.oboLogin;
+            case OBO: usrName = env.oboLogin;
             break;
-            case OVP: login = env.ovpLogin;
+            case OVP: usrName = env.ovpLogin;
             break;
-            case INSURANCE_ADMIN: login = env.insuranceAdminLogin;
+            case INSURANCE_ADMIN: usrName = env.insuranceAdminLogin;
             break;
-            case STATS_USER: login = env.statsUserLogin;
+            case STATS_USER: usrName = env.statsUserLogin;
             break;
-            case STATS_ADMIN: login = env.statsAdminLogin;
+            case STATS_ADMIN: usrName = env.statsAdminLogin;
             break;
-            case DASHBOARD_USER: login = env.dashboardUserLogin;
+            case DASHBOARD_USER: usrName = env.dashboardUserLogin;
             break;
-            case DASHBOARD_MANAGER: login = env.dashboardManagerLogin;
+            case DASHBOARD_MANAGER: usrName = env.dashboardManagerLogin;
             break;
         }
-
-        createUser(login, password, role);
+        createUser(usrName, password, role);
         loginPage.login(user);
     }
 

@@ -1,18 +1,14 @@
 package com.luxoft.mfcautotests.helpers;
 
 import com.luxoft.mfcautotests.config.annotations.Helper;
-import com.luxoft.mfcautotests.config.annotations.InjectLogger;
-import com.luxoft.mfcautotests.environment.TestEnvironment;
 import com.luxoft.mfcautotests.services.dashboard.dashboardsupportservice.ru.mos.mmc.mmc.dashboard.MainMmcStatsRequestType;
 import com.luxoft.mfcautotests.services.dashboard.dashboardsupportservice.ru.mos.mmc.mmc.dashboard.MainMmcStatsResponseType;
 import com.luxoft.mfcautotests.services.dashboard.dashboardsupportservice.ru.mos.mmc.mmc.dashboard.ObjectFactory;
 import org.apache.http.HttpResponse;
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.xml.bind.*;
+import javax.xml.bind.JAXBElement;
 import javax.xml.datatype.XMLGregorianCalendar;
-import java.io.*;
+import java.io.StringWriter;
 import java.util.*;
 
 import static com.luxoft.mfcautotests.services.dashboard.dashboardsupportservice.ru.mos.mmc.mmc.dashboard.MainMmcStatsResponseType.Item;

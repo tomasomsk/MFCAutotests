@@ -2,19 +2,22 @@ package com.luxoft.mfcautotests.pages.stats;
 
 import com.luxoft.mfcautotests.config.annotations.Page;
 import com.luxoft.mfcautotests.config.forpages.ClickableConfig;
-import com.luxoft.mfcautotests.config.forpages.ElementToFind;
+import com.luxoft.mfcautotests.helpers.StatsHelper;
 import com.luxoft.mfcautotests.pages.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.testng.Assert;
 import java.util.*;
-import java.util.stream.IntStream;
-
-import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
 @Page
 public class DailyReportPage extends BasePage {
+
+    @Autowired
+    StatsHelper statsHelper;
+
+    Date defaultDate;
 
     @FindBy(xpath = "//li[text()='Ежедневный отчет']")
     public WebElement dailyTypeOfReportLabel;
@@ -55,8 +58,9 @@ public class DailyReportPage extends BasePage {
     @FindBy(xpath = "//button[text()='Назад']")
     public WebElement goBackButton;
 
-    @FindBy(css = ".day")
-    public List<WebElement> daysInCalendar;
+    @FindBy(css = ".ajax-loader")
+    public WebElement loadingIndicator;
+
 
     public void checkDailyReportPageElements() {
         String[] expectedHeaders = new String[]{"№\n" + "п/п", "Наименование показателя", "На отчетную дату", "С начала\n" + "года",
@@ -66,90 +70,60 @@ public class DailyReportPage extends BasePage {
         for (WebElement columnName : actualHeaders) {
             actualTableColumnsNames.add(columnName.getText());
         }
-        boolean firstCondition = isDisplayed(dailyTypeOfReportLabel, linkToStatsAdminArm, reportDateLable, reportDateField, dataSourceLabel,
+        boolean firstCondition;
+        boolean secondCondition;
+        boolean thirdCondition;
+        boolean fourthCondition;
+        boolean fifthCondition;
+        ClickableConfig selectConfig = new ClickableConfig("select2-container-disabled");
+
+        firstCondition = isDisplayed(dailyTypeOfReportLabel, linkToStatsAdminArm, reportDateLable, reportDateField, dataSourceLabel,
                 dataSourceDropDown, dashboardItemsLabel, saveButton);
-        boolean secondCondition = false;
-        boolean thirdCondition = false;
-        boolean fourthCondition = false;
-        boolean fifthCondition = false;
+        secondCondition = isNotClickable(reportDateField, dashboardItemsCheckBox, saveButton);
+        thirdCondition = isClickable(reportDateCalendarLink, createReportButton, goBackButton);
+        fourthCondition = actualTableColumnsNames.equals(expectedTableColumnsNames);
+        fifthCondition = isNotClickable(dataSourceDropDown, selectConfig);
 
-        if (firstCondition) {
-            secondCondition = isNotClickable(reportDateField, dashboardItemsCheckBox, saveButton, goBackButton);
-        }
-        if (secondCondition) {
-            thirdCondition = isClickable(reportDateCalendarLink, createReportButton, goBackButton);
-        }
-        if (thirdCondition) {
-            fourthCondition = actualTableColumnsNames.equals(expectedTableColumnsNames);
-        }
-        if (fourthCondition) {
-            ClickableConfig selectConfig = new ClickableConfig("select2-container-disabled");
-            fifthCondition = isNotClickable(dataSourceDropDown, selectConfig);
-        }
+        assertTrue(firstCondition && secondCondition && thirdCondition && fourthCondition && fifthCondition);
+    }
 
-        assertTrue(fifthCondition);
+    public void checkDefaultDate() {
+        String reportDateFromUi = getReportDate();
+        if (statsHelper.dateFromServerLessThenEightAm()) {
+            defaultDate = addDaysToDate(new Date(), -2);
+            checkDate(defaultDate, reportDateFromUi);
+        } else {
+            defaultDate = addDaysToDate(new Date(), -1);
+            checkDate(defaultDate, reportDateFromUi);
+        }
+    }
+
+    public void checkDate(Date expectedDate, String reportDateFromUi) {
+        String expectedDateString = getStringFromDate(expectedDate, "dd.MM.yyyy");
+        Assert.assertEquals(reportDateFromUi, expectedDateString);
     }
 
     public void checkDateSelection() {
-        reportDateCalendarLink.click();
-        Date currentDate = addDaysToDate(new Date(), 0);
-        ClickableConfig calendarDaysClickableConfig = new ClickableConfig("disabled");
-        assertTrue(isDatesDisabled(currentDate, daysInCalendar, daysInCalendar.size(), calendarDaysClickableConfig));
-
-//        List<Integer> daysInCalendar = new ArrayList<>();
-//
-//        for (int i = 0; i < daysInCalendar.size(); i++) {
-//            daysInCalendar.add(Integer.valueOf(daysInCalendar.get(i).getText()));
-//        }
-//
-//        Date currentDate = new Date();
-//        //The day of current date
-//        int currentDay = Integer.parseInt(getStringFromDate(currentDate, "dd"));
-//        //Indexes of day in List of days from UI calendar
-//        ElementToFind dayToFind = new ElementToFind(currentDay);
-//        Integer[] currentDayPositionsInCalendar = (Integer[]) getPositionsOfElementInList(dayToFind, daysInCalendar);
-//        //Day from max index
-//        int maxDayPosition = Collections.max(Arrays.asList(currentDayPositionsInCalendar));
-//        //Check that current date and dates after current is disabled
-//        ClickableConfig clickableConfig = new ClickableConfig("disabled");
-//        for (int i = maxDayPosition; i < daysInCalendar.size(); i++) {
-//            assertTrue(isNotClickable(daysInCalendar.get(i), clickableConfig));
-//        }
-    }
-
-    public boolean isDatesDisabled(Date fromDate, List<WebElement> calendar, int countDaysToCheck, ClickableConfig clickableConfig) {
-        //Create list of days from UI calendar
-        List<Integer> daysInCalendar = new ArrayList<>();
-        for (int i = 0; i < calendar.size(); i++) {
-            daysInCalendar.add(Integer.valueOf(calendar.get(i).getText()));
-        }
-        //The day of parameter 'fromDate'
-        int desiredDay = Integer.parseInt(getStringFromDate(fromDate, "dd"));
-        //Indexes of desired day in List of days from UI calendar
-        ElementToFind dayToFind = new ElementToFind(desiredDay);
-        Integer[] currentDayPositionsInCalendar = (Integer[]) getPositionsOfElementInList(dayToFind, daysInCalendar);
-        //Day with max index
-        int dayMaxPosition = Collections.max(Arrays.asList(currentDayPositionsInCalendar));
-        //Check that current date and dates after/before current is disabled
-//        ClickableConfig clickableConfig = new ClickableConfig();
-        for (int i = dayMaxPosition; i < countDaysToCheck; i++) {
-            if (!isNotClickable(calendar.get(i), clickableConfig)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public Object getPositionsOfElementInList(ElementToFind element, List list) {
-        if (element.getType().equalsIgnoreCase("int")) {
-            return getPositionsOfIntElementInList(element, list);
+        String date = reportDateField.getAttribute("value");
+        Date defaultDate = getDateFromString(date, "dd.MM.yyyy");
+        if (statsHelper.dateFromServerLessThenEightAm()) {
+            Date yesterdayDate = addDaysToDate(new Date(), -1);
+            checkThatDatesDisabledFrom(yesterdayDate, reportDateCalendarLink);
         } else {
-            throw new RuntimeException("Unknown type of element to find");
+            Date currentDate = new Date();
+            checkThatDatesDisabledFrom(currentDate, reportDateCalendarLink);
         }
+        setDateInCalendar(defaultDate, reportDateCalendarLink);
     }
 
-    private Integer[] getPositionsOfIntElementInList(ElementToFind element, List<Integer> list) {
-        return IntStream.range(0, list.size())
-                .filter(i -> list.get(i) == element.getIntValue()).boxed().toArray(Integer[]::new);
+
+    public String getReportDate() {
+        return reportDateField.getAttribute("value");
     }
+
+
+
+//    public void checkThatDatesDisabledFrom(Date date, int countDaysToCheck) {
+//        checkThatDatesDisabledFrom(date, countDaysToCheck, reportDateCalendarLink);
+//    }
 }

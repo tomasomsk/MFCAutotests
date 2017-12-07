@@ -1,7 +1,6 @@
 package com.luxoft.tests._750_24.sau;
 
 import com.luxoft.BaseTest;
-import com.luxoft.mfcautotests.config.annotations.NonDriver;
 import com.luxoft.mfcautotests.helpers.StatsHelper;
 import com.luxoft.mfcautotests.model.Role;
 import com.luxoft.mfcautotests.model.User;
@@ -14,6 +13,8 @@ import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.Title;
+
+import java.util.Date;
 
 import static org.testng.AssertJUnit.assertTrue;
 
@@ -55,7 +56,7 @@ public class _750_24_SAU_02 extends BaseTest {
     @Features("750-24 Требования к ручному вводу и просмотру данных отчетности")
     @Stories("MMC-SAU-02 Ежедневный отчет (АРМ Администратора отчетов)")
     public void defaultReportDateTest() {
-        statsHelper.checkDefaultDateForDailyStats();
+        dailyReportPage.checkDefaultDate();
     }
 
     @Test
@@ -65,6 +66,4 @@ public class _750_24_SAU_02 extends BaseTest {
     public void dateSelectionTest() {
         dailyReportPage.checkDateSelection();
     }
-
-
 }

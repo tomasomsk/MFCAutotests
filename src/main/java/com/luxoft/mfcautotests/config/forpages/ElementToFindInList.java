@@ -3,15 +3,15 @@ package com.luxoft.mfcautotests.config.forpages;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ElementToFind {
+public class ElementToFindInList {
 
     private String type;
     private int intValue;
 
-    public ElementToFind() {
+    public ElementToFindInList() {
     }
 
-    public ElementToFind(int intValue) {
+    public ElementToFindInList(int intValue) {
         this.intValue = intValue;
         type = "int";
     }

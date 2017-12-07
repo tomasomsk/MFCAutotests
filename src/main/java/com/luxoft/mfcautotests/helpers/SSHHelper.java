@@ -5,6 +5,7 @@ import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 import com.luxoft.mfcautotests.config.annotations.Helper;
+import com.luxoft.mfcautotests.config.forhelpers.ModuleOnServer;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -18,31 +19,58 @@ public class SSHHelper extends BaseHelper {
         //If property exist and doesn't commented in property file
         if (!env.mmcRegServerUrl_1.equalsIgnoreCase("${mmcRegServerUrl_1}")) {
             log.info("Restarting mmc module on server " + env.mmcRegServerUrl_1);
-            restartModuleOnServer("mmc", env.mmcRegServerUrl_1);
+            restartModuleOnServer(new ModuleOnServer("mmc", env.mmcRegServerUrl_1));
         }
         if (!env.mmcRegServerUrl_2.equalsIgnoreCase("${mmcRegServerUrl_2}")) {
             log.info("Restarting mmc module on server " + env.mmcRegServerUrl_2);
-            restartModuleOnServer("mmc", env.mmcRegServerUrl_2);
+            restartModuleOnServer(new ModuleOnServer("mmc", env.mmcRegServerUrl_2));
         }
     }
 
-    private void restartModuleOnServer(String moduleName, String serverUrl) {
-        String command = "/etc/init.d/" + moduleName + " stop";
-        log.info("Stopping mmc module on server " + serverUrl);
-        executeShell(command, env.sshUserName, env.sshPassword, serverUrl);
-
-        sleep(10_000);
-
-        command = "/etc/init.d/" + moduleName + " start";
-        log.info("Starting mmc module on server " + serverUrl);
-        executeShell(command, env.sshUserName, env.sshPassword, serverUrl);
-
-        checkThatModuleStarts(moduleName, serverUrl);
+    public void restartModuleOnServer(ModuleOnServer module) {
+        List<ModuleOnServer> modules = new ArrayList<>();
+        modules.add(module);
+        restartModuleOnServer(modules);
+//        String command = "/etc/init.d/" + moduleName + " stop";
+//        log.info("Stopping mmc module on server " + serverUrl);
+//        executeShell(command, env.sshUserName, env.sshPassword, serverUrl);
+//
+//        sleep(10_000);
+//
+//        command = "/etc/init.d/" + moduleName + " start";
+//        log.info("Starting mmc module on server " + serverUrl);
+//        executeShell(command, env.sshUserName, env.sshPassword, serverUrl);
+//
+//        checkThatModuleStarts(moduleName, serverUrl);
     }
 
-    private void checkThatModuleStarts(String moduleName, String serverUrl) {
+    public void restartModuleOnServer(List<ModuleOnServer> modules) {
+        for (ModuleOnServer module : modules) {
+            stopModule(module);
+            sleep(10_000);
+            startModule(module);
+            checkThatModuleStarts(module);
+        }
+    }
+
+    public void stopModule(ModuleOnServer module) {
+        String command = "/etc/init.d/" + module.getName() + " stop";
+        log.info("Stopping " +  module.getName() + " module on server " + module.getServer());
+        executeShell(command, env.sshUserName, env.sshPassword, module.getServer());
+    }
+
+    public void startModule(ModuleOnServer module) {
+        String command;
+        command = "/etc/init.d/" + module.getName() + " start";
+        log.info("Starting " + module.getName() + " module on server " + module.getServer());
+        executeShell(command, env.sshUserName, env.sshPassword, module.getServer());
+    }
+
+
+    private void checkThatModuleStarts(ModuleOnServer module) {
         log.info("Checking that module has been started (OUTPUT should be > 0)");
-        executeShell("ps aux | grep -v grep | grep \"/opt/webapps/" + moduleName + "/\" | awk '{print $2}' | head -1", env.sshUserName, env.sshPassword, serverUrl);
+        executeShell("ps aux | grep -v grep | grep \"/opt/webapps/" + module.getName() + "/\" | awk '{print $2}' | head -1",
+                env.sshUserName, env.sshPassword, module.getServer());
     }
 
     public String executeShell(String shellScriptCommand, String userName, String password, String server) {

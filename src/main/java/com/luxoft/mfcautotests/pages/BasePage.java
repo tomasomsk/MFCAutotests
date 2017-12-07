@@ -1,25 +1,23 @@
 package com.luxoft.mfcautotests.pages;
 
 import com.luxoft.mfcautotests.FrameWork;
-import com.luxoft.mfcautotests.config.annotations.InjectLogger;
 import com.luxoft.mfcautotests.config.annotations.Page;
 import com.luxoft.mfcautotests.config.forpages.ClickableConfig;
+import com.luxoft.mfcautotests.config.forpages.ElementToFindInList;
 import com.luxoft.mfcautotests.utils.DriverUtils;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.testng.Assert;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import static com.luxoft.mfcautotests.config.forpages.ClickableConfig.*;
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
+import static org.testng.AssertJUnit.assertTrue;
 
 @Page
 public class BasePage<T> extends FrameWork {
@@ -88,9 +86,8 @@ public class BasePage<T> extends FrameWork {
         log.info("Checking, that element [" + getLocator(element) + "] is not clickable by clicking it");
         try {
             element.click();
-            return false;
         } catch (Exception e) {
-            // Do nothing
+            return true;
         }
 
         log.info("Checking, that element [" + getLocator(element) + "] is not clickable by sending keys");
@@ -100,6 +97,99 @@ public class BasePage<T> extends FrameWork {
         } catch (Exception e) {
             return true;
         }
+    }
+
+    public void checkThatDatesDisabledFrom(Date fromDate, WebElement calendarLink) {
+        checkThatDatesDisabledFrom(fromDate, 0, calendarLink);
+    }
+
+    public void checkThatDatesDisabledFrom(Date fromDate, int countDaysToCheck, WebElement calendarLink) {
+        calendarLink.click();
+        //get List of WebElements from UI calendar
+        List<WebElement> daysInCalendarWebElement = getCalendarElementsAsWebElements();
+        //get List of Integer from calendar of WebElements
+        List<Integer> daysInCalendarInteger = getCalendarElementsAsInteger(daysInCalendarWebElement);
+        //Get positions of date we need in List of Integer
+//        GetPositionsInListConfig dayToFind = new GetPositionsInListConfig(getIntFromDate(new Date(), "dd"));
+        Integer[] dayPositionsInCalendar = getDayPositionsInCalendar(fromDate, daysInCalendarInteger);
+        ClickableConfig calendarDaysClickableConfig = new ClickableConfig("disabled");
+        //if we have two same dates in one calendar than we take not old date to check
+        if (isDateOld(daysInCalendarWebElement, dayPositionsInCalendar[0])) {
+            int startIndex = dayPositionsInCalendar[1];
+            int endIndex = daysInCalendarWebElement.size() - startIndex;
+            if (countDaysToCheck == 0) {
+                countDaysToCheck = endIndex;
+            }
+            assertTrue(isDatesDisabled(startIndex, countDaysToCheck, daysInCalendarWebElement, calendarDaysClickableConfig));
+        } else {
+            int startIndex = dayPositionsInCalendar[0];
+            int endIndex = daysInCalendarWebElement.size() - startIndex;
+            if (countDaysToCheck == 0) {
+                countDaysToCheck = endIndex;
+            }
+            System.out.println("start index = " + startIndex);
+            assertTrue(isDatesDisabled(startIndex, countDaysToCheck, daysInCalendarWebElement, calendarDaysClickableConfig));
+        }
+    }
+
+    public boolean isDateOld(List<WebElement> calendar, int position) {
+        return calendar.get(position).getAttribute("class").contains("old");
+    }
+
+    public boolean isDatesDisabled(int startIndex, int countDaysToCheck, List<WebElement> calendar, ClickableConfig clickableConfig) {
+        if (startIndex + countDaysToCheck > calendar.size()) {
+            throw new RuntimeException("DAYS TO CHECK HAS WENT TO THE NEXT MONTH");
+        } else {
+            for (int i = startIndex; i < startIndex + countDaysToCheck; i++) {
+                System.out.println(calendar.get(i).getText());
+                if (!isNotClickable(calendar.get(i), clickableConfig)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
+    public List<WebElement> getCalendarElementsAsWebElements() {
+        return findElements(By.cssSelector(".day"));
+    }
+
+    public List<Integer> getCalendarElementsAsInteger(List<WebElement> daysInCalendarWebElement) {
+        List<Integer> daysInCalendarInteger = new ArrayList<>();
+        for (int i = 0; i < daysInCalendarWebElement.size(); i++) {
+            daysInCalendarInteger.add(Integer.parseInt(daysInCalendarWebElement.get(i).getText()));
+        }
+        return daysInCalendarInteger;
+    }
+
+    public Integer[] getDayPositionsInCalendar(Date date, List<Integer> calendar) {
+        int desiredDay = getIntFromDate(date, "dd");
+        //Indexes of desired day in List of days from UI calendar
+        ElementToFindInList dayToFind = new ElementToFindInList(desiredDay);
+        return (Integer[]) getPositionsOfElementInList(dayToFind, calendar);
+    }
+
+    public void checkDate(Date expectedDate, String reportDateFromUi) {
+        String expectedDateString = getStringFromDate(expectedDate, "dd.MM.yyyy");
+        Assert.assertEquals(reportDateFromUi, expectedDateString);
+    }
+
+    public void setDateInCalendar(Date defaultDate, WebElement calendarLink) {
+        calendarLink.click();
+        int indexOfDay;
+        List<WebElement> daysInCalendarWebElement = getCalendarElementsAsWebElements();
+        //get List of Integer from calendar of WebElements
+        List<Integer> daysInCalendarInteger = getCalendarElementsAsInteger(daysInCalendarWebElement);
+        //Get positions of date we need in List of Integer
+//        GetPositionsInListConfig dayToFind = new GetPositionsInListConfig(getIntFromDate(new Date(), "dd"));
+        Integer[] dayPositionsInCalendar = getDayPositionsInCalendar(defaultDate, daysInCalendarInteger);
+        //if we have two same dates in one calendar than we take not old date to set
+        if (isDateOld(daysInCalendarWebElement, dayPositionsInCalendar[0])) {
+            indexOfDay = dayPositionsInCalendar[1];
+        } else {
+            indexOfDay = dayPositionsInCalendar[0];
+        }
+        daysInCalendarWebElement.get(indexOfDay).click();
     }
 
     public WebElement waitUntilClickable(WebElement element) {
@@ -138,6 +228,10 @@ public class BasePage<T> extends FrameWork {
 
     public WebElement findElement(By locator) {
         return driverUtils.getDriver().findElement(locator);
+    }
+
+    public List<WebElement> findElements(By locator) {
+        return driverUtils.getDriver().findElements(locator);
     }
 
     public T refreshPage() {
