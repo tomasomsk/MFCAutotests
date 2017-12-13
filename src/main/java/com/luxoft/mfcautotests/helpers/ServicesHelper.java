@@ -1,5 +1,7 @@
 package com.luxoft.mfcautotests.helpers;
 
+import com.luxoft.mfcautotests.services.dashboard.dashboardsupportservice.ru.mos.mmc.mmc.dashboard.MainMmcStatsRequestType;
+import com.luxoft.mfcautotests.services.dashboard.dashboardsupportservice.ru.mos.mmc.mmc.dashboard.MainMmcStatsResponseType;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -11,6 +13,7 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.*;
+import java.lang.reflect.ParameterizedType;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -30,7 +33,14 @@ public class ServicesHelper extends BaseHelper {
         return xmlGregorianCalendar;
     }
 
-    StringWriter marshalAsString(Class marshallerClass, JAXBElement request) {
+    public <T> T getResponseFromService (String serviceUrl, String mimeType, JAXBElement request, Class requestClass, Class responseClass) {
+        StringWriter stringWriter = marshalAsString(request, requestClass);
+        HttpResponse response = sendPostRequestToService(stringWriter, serviceUrl, mimeType);
+        StringBuilder responseAsStringBuilder = getResponseAsStringBuilder(response);
+        return (T) unmarshalResponse(responseAsStringBuilder, responseClass);
+    }
+
+    StringWriter marshalAsString(JAXBElement request, Class marshallerClass) {
         log.info("Marshaling request as StringWriter");
         StringWriter stringWriter = new StringWriter();
         JAXBContext jaxbContext;
@@ -94,4 +104,6 @@ public class ServicesHelper extends BaseHelper {
         }
         return unmarshalledResponse;
     }
+
+
 }

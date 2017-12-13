@@ -14,6 +14,9 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_SING
 @Scope(SCOPE_SINGLETON)
 public class TestEnvironment {
 
+    @Value("${resourcesPath}")
+    public static String resourcesPath;
+
     //URLs
     @Value("${baseUrl}")
     public String baseUrl;

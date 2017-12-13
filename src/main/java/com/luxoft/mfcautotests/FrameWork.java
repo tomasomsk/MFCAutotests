@@ -86,6 +86,8 @@ public class FrameWork<T> {
     public Integer[] getPositionsOfIntElementInList(ElementToFindInList element, List<Integer> list) {
         return IntStream.range(0, list.size())
                 .filter(i -> list.get(i) == element.getIntValue()).boxed().toArray(Integer[]::new);
+
+        //list.stream().filter(listItem -> element.getIntValue.equals(listItem)).collect(Collectors.toList()) От Витали
     }
 
 

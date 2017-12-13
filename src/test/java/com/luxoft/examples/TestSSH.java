@@ -25,13 +25,13 @@ public class TestSSH extends BaseTest {
 //                new ModuleOnServer("mmc-bank-service", "zln-mfc-tst1-auto.luxoft.com")
         new ModuleOnServer("mmcvvs", "zln-mfc-tst2-auto.luxoft.com"),
         new ModuleOnServer("mmc-core", "zln-mfc-tst1-auto.luxoft.com"),
-//        new ModuleOnServer("mmc-gate", "lc-mfc-tst14.luxoft.com"),
+        new ModuleOnServer("mmc-bank-service", "zln-mfc-tst1-auto.luxoft.com"),
 //        new ModuleOnServer("mmcvvs", "lc-mfc-tst.luxoft.com")
         };
 
         List<ModuleOnServer> modules = new ArrayList<>(Arrays.asList(modulesOnServers));
 
-        sshHelper.restartModuleOnServer(modules);
+        sshHelper.restartModules(modules);
     }
 
 }

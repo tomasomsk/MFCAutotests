@@ -26,17 +26,8 @@ public class DashboardHelper extends ServicesHelper {
         ObjectFactory objectFactory = new ObjectFactory();
         JAXBElement request = objectFactory.createMainMmcStatsRequest(requestType);
 
-
-        StringWriter stringWriter = marshalAsString(MainMmcStatsRequestType.class, request);
-
-
-        HttpResponse response = sendPostRequestToService(stringWriter, env.baseUrlWs + env.dashboardUrl + "getMainMmcStats", "application/xml");
-
-
-        StringBuilder responseAsStringBuilder = getResponseAsStringBuilder(response);
-
-
-        return (MainMmcStatsResponseType) unmarshalResponse(responseAsStringBuilder, MainMmcStatsResponseType.class);
+        return getResponseFromService(env.baseUrlWs + env.dashboardUrl + "getMainMmcStats", "application/xml",
+                request, MainMmcStatsRequestType.class, MainMmcStatsResponseType.class);
     }
 
     public void assertThatResponseContainsItemsOfMainStats(List<Item> item) {
