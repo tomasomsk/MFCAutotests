@@ -15,7 +15,7 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_SING
 public class TestEnvironment {
 
     @Value("${resourcesPath}")
-    public static String resourcesPath;
+    public String resourcesPath;
 
     //URLs
     @Value("${baseUrl}")

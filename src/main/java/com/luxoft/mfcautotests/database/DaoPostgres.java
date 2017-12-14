@@ -1,5 +1,6 @@
 package com.luxoft.mfcautotests.database;
 
+import com.luxoft.mfcautotests.FrameWork;
 import com.luxoft.mfcautotests.config.annotations.InjectLogger;
 import com.luxoft.mfcautotests.environment.TestEnvironment;
 import com.luxoft.mfcautotests.model.InsuranceCompany;
@@ -8,16 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
+import javax.ws.rs.DELETE;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 @Component
 @PropertySource({"classpath:environment.properties"})
-public class DaoPostgres implements DaoFactory {
+public class DaoPostgres extends FrameWork implements DaoFactory {
 
-    @InjectLogger
-    Logger log;
     @Autowired
     TestEnvironment env;
 
@@ -52,7 +55,7 @@ public class DaoPostgres implements DaoFactory {
         } catch (SQLException e) {
             e.getMessage();
             e.printStackTrace();
-            return null;
+            throw new RuntimeException("Can't execute query with resultSet");
         }
     }
 
@@ -142,7 +145,7 @@ public class DaoPostgres implements DaoFactory {
     public void deleteMainStatsData(int daysToMinusFromCurrentDate) {
         String deleteQuery = "BEGIN; " +
                 "DELETE FROM an_report_item_data WHERE andup_data_upload_id IN" +
-                    "(SELECT andup_data_upload_id FROM an_data_upload WHERE andup_period_start = CURRENT_DATE - interval '" + daysToMinusFromCurrentDate + " day' + interval '8 hour');" +
+                "(SELECT andup_data_upload_id FROM an_data_upload WHERE andup_period_start = CURRENT_DATE - interval '" + daysToMinusFromCurrentDate + " day' + interval '8 hour');" +
                 "DELETE FROM an_data_upload WHERE andup_period_start = CURRENT_DATE - interval '" + daysToMinusFromCurrentDate + " day' + interval '8 hour';" +
                 "END;";
 
@@ -180,4 +183,55 @@ public class DaoPostgres implements DaoFactory {
 
         return insuranceCompanies;
     }
+
+    public void insertInAnDataUpload(int type, LocalDateTime periodStart) {
+        String insertQuerry = "INSERT INTO an_data_upload (andut_data_upload_type_id, andup_committed, andup_period_start, " +
+                "andup_period_end) VALUES (" + type + ", CURRENT_TIMESTAMP, '" + periodStart + "', '" + periodStart.plusDays(1) + "');";
+
+        getDbWsConnection();
+
+        log.info("Creating querry to insert in an_data_upload");
+        executeQueryWithUpdate(insertQuerry);
+
+        closeStatementAndConnection();
+    }
+
+    public void deleteFromAnDataUpload(int type, LocalDateTime periodStart) {
+        String deleteQuerry = "DELETE FROM an_data_upload WHERE andut_data_upload_type_id =" + type + " AND " +
+                "andup_period_start = '" + periodStart + "' ";
+    }
+
+    public int selectMaxValueFromColumnInTable(String tableName, String columnName) {
+        String selectQuerry = "SELECT MAX (" + columnName + ") FROM " + tableName + "";
+
+        getDbWsConnection();
+
+        log.info("Creating querry to SELECT MAX value from column " + columnName + " in table " + tableName);
+        ResultSet resultSet = executeQueryWithResultSet(selectQuerry);
+        try {
+            resultSet.next();
+            return resultSet.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("CAN'T SELECT MAX FROM TABLE");
+        }
+        finally {
+            closeStatementAndConnection();
+        }
+    }
+
+    public List<Integer> dataUploadIds
+
+    public void insertInAnReportItemData(int dataUploadId, String itemId, String value) {
+        String insertQuerry = "INSERT INTO an_report_item_data (andup_data_upload_id, anrei_report_item_id, anred_value) " +
+                "VALUES (" + dataUploadId + ", " + itemId + ", " + value + ")";
+
+        getDbWsConnection();
+
+        log.info("Creating querry to insert in an_report_item_data");
+        executeQueryWithUpdate(insertQuerry);
+
+        closeStatementAndConnection();
+    }
 }
+

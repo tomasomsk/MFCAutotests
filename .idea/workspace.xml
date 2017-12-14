@@ -5,28 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2706b0b-e23c-4530-b3b4-8f31224cf27d" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_virtuald_curvesapi_1_04.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_17.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_17.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_17.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_2_6_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/model/MfcStatsGroup.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/model/MfcStatsItem.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/excel/statistic/MMC-150-24~1.xlsx" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/excel/statistic/dailyStatsItems.xlsx" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestExcel.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestDate.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestSql.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_17.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_16.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_17.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_16.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_17.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_16.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/MFCAutotests.iml" afterPath="$PROJECT_DIR$/MFCAutotests.iml" />
       <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/FrameWork.java" afterPath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/FrameWork.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/database/DaoPostgres.java" afterPath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/database/DaoPostgres.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/environment/TestEnvironment.java" afterPath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/environment/TestEnvironment.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/DashboardHelper.java" afterPath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/DashboardHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/SSHHelper.java" afterPath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/SSHHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/ServicesHelper.java" afterPath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/ServicesHelper.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/StatsHelper.java" afterPath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/StatsHelper.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/model/MfcStatsItem.java" afterPath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/model/MfcStatsItem.java" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/environment.properties" afterPath="$PROJECT_DIR$/src/main/resources/environment.properties" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestSSH.java" afterPath="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestSSH.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/excel/statistic/dailyStatsItems.xlsx" afterPath="$PROJECT_DIR$/src/main/resources/excel/statistic/dailyStatsItems.xlsx" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestExcel.java" afterPath="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestExcel.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/luxoft/tests/_750_24/sau/_750_24_SAU_02.java" afterPath="$PROJECT_DIR$/src/test/java/com/luxoft/tests/_750_24/sau/_750_24_SAU_02.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -42,180 +37,61 @@
       <file leaf-file-name="_750_24_SAU_02.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/tests/_750_24/sau/_750_24_SAU_02.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="721">
-              <caret line="66" column="32" lean-forward="false" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
-              <folding>
-                <element signature="e#1676#1677#0" expanded="true" />
-                <element signature="e#1738#1739#0" expanded="true" />
-                <element signature="e#1995#1996#0" expanded="true" />
-                <element signature="e#2045#2046#0" expanded="true" />
-                <element signature="e#2283#2284#0" expanded="true" />
-                <element signature="e#2335#2336#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestEnvironment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/environment/TestEnvironment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-              <folding>
-                <element signature="e#578#596#1" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="environment.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/environment.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="33" />
+            <state relative-caret-position="356">
+              <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MfcStatsGroup.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/model/MfcStatsGroup.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="11" selection-end-column="57" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#287#288#0" expanded="true" />
-                <element signature="e#314#315#0" expanded="true" />
-                <element signature="e#366#367#0" expanded="true" />
-                <element signature="e#402#403#0" expanded="true" />
-                <element signature="e#442#443#0" expanded="true" />
-                <element signature="e#474#475#0" expanded="true" />
-                <element signature="e#544#545#0" expanded="true" />
-                <element signature="e#594#595#0" expanded="true" />
-                <element signature="e#656#657#0" expanded="true" />
-                <element signature="e#708#709#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MfcStatsItem.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MfcStatsItem.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/model/MfcStatsItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="51" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="24" selection-end-column="51" />
+            <state relative-caret-position="340">
+              <caret line="98" column="34" lean-forward="false" selection-start-line="98" selection-start-column="34" selection-end-line="98" selection-end-column="34" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#875#876#0" expanded="true" />
-                <element signature="e#921#922#0" expanded="true" />
-                <element signature="e#951#952#0" expanded="true" />
-                <element signature="e#980#981#0" expanded="true" />
-                <element signature="e#1011#1012#0" expanded="true" />
-                <element signature="e#1038#1039#0" expanded="true" />
-                <element signature="e#1097#1098#0" expanded="true" />
-                <element signature="e#1152#1153#0" expanded="true" />
-                <element signature="e#1206#1207#0" expanded="true" />
-                <element signature="e#1256#1257#0" expanded="true" />
-                <element signature="e#1307#1308#0" expanded="true" />
-                <element signature="e#1354#1355#0" expanded="true" />
-                <element signature="e#1390#1391#0" expanded="true" />
-                <element signature="e#1422#1423#0" expanded="true" />
-                <element signature="e#1460#1461#0" expanded="true" />
-                <element signature="e#1494#1495#0" expanded="true" />
-                <element signature="e#1531#1532#0" expanded="true" />
-                <element signature="e#1564#1565#0" expanded="true" />
-                <element signature="e#1596#1597#0" expanded="true" />
-                <element signature="e#1627#1628#0" expanded="true" />
-                <element signature="e#1665#1666#0" expanded="true" />
-                <element signature="e#1699#1700#0" expanded="true" />
-                <element signature="e#1738#1739#0" expanded="true" />
-                <element signature="e#1773#1774#0" expanded="true" />
-                <element signature="e#1810#1811#0" expanded="true" />
-                <element signature="e#1843#1844#0" expanded="true" />
-                <element signature="e#1884#1885#0" expanded="true" />
-                <element signature="e#1921#1922#0" expanded="true" />
-                <element signature="e#1957#1958#0" expanded="true" />
-                <element signature="e#1989#1990#0" expanded="true" />
-                <element signature="e#2035#2036#0" expanded="true" />
-                <element signature="e#2065#2066#0" expanded="true" />
-                <element signature="e#2106#2107#0" expanded="true" />
-                <element signature="e#2142#2143#0" expanded="true" />
-                <element signature="e#2182#2183#0" expanded="true" />
-                <element signature="e#2214#2215#0" expanded="true" />
-                <element signature="e#2764#2765#0" expanded="true" />
-                <element signature="e#2806#2807#0" expanded="true" />
-                <element signature="e#2860#2861#0" expanded="true" />
-                <element signature="e#2906#2907#0" expanded="true" />
-                <element signature="e#2958#2959#0" expanded="true" />
-                <element signature="e#3002#3003#0" expanded="true" />
-                <element signature="e#3047#3048#0" expanded="true" />
-                <element signature="e#3087#3088#0" expanded="true" />
-                <element signature="e#3141#3142#0" expanded="true" />
-                <element signature="e#3187#3188#0" expanded="true" />
-                <element signature="e#3243#3244#0" expanded="true" />
-                <element signature="e#3291#3292#0" expanded="true" />
-                <element signature="e#3343#3344#0" expanded="true" />
-                <element signature="e#3387#3388#0" expanded="true" />
-                <element signature="e#3447#3448#0" expanded="true" />
-                <element signature="e#3499#3500#0" expanded="true" />
-                <element signature="e#3549#3550#0" expanded="true" />
-                <element signature="e#3591#3592#0" expanded="true" />
-                <element signature="e#3649#3650#0" expanded="true" />
-                <element signature="e#3687#3688#0" expanded="true" />
+                <element signature="e#2376#2377#0" expanded="true" />
+                <element signature="e#2422#2423#0" expanded="true" />
+                <element signature="e#2471#2472#0" expanded="true" />
+                <element signature="e#2515#2516#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestExcel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestExcel.java">
+      <file leaf-file-name="StatsHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/StatsHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
-              <caret line="22" column="8" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+            <state relative-caret-position="509">
+              <caret line="160" column="9" lean-forward="false" selection-start-line="160" selection-start-column="9" selection-end-line="160" selection-end-column="9" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#dateFromServerLessThenEightAm#0;class#StatsHelper#0" expanded="false" />
+                <element signature="method#getMfcDailyStatsFromExcel#0;class#StatsHelper#0" expanded="false" />
+                <element signature="method#switchDataSourceValue#0;class#StatsHelper#0" expanded="false" />
+                <element signature="method#getValueFromCell#0;class#StatsHelper#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CellType.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi/3.17/poi-3.17.jar!/org/apache/poi/ss/usermodel/CellType.class">
+      <file leaf-file-name="DaoPostgres.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/database/DaoPostgres.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="14" column="11" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_750_27_PDDB_1.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/tests/_750_27/pddb/_750_27_PDDB_1.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="41" column="97" lean-forward="false" selection-start-line="41" selection-start-column="97" selection-end-line="41" selection-end-column="97" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BasePage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/pages/BasePage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1445">
-              <caret line="22" column="44" lean-forward="false" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FrameWork.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/FrameWork.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1275">
-              <caret line="89" column="110" lean-forward="false" selection-start-line="89" selection-start-column="110" selection-end-line="89" selection-end-column="110" />
-              <folding />
+            <state relative-caret-position="314">
+              <caret line="222" column="38" lean-forward="false" selection-start-line="222" selection-start-column="38" selection-end-line="222" selection-end-column="38" />
+              <folding>
+                <element signature="method#getConnectionToDb#0;class#DaoPostgres#0" expanded="false" />
+                <element signature="method#getDbWsConnection#0;class#DaoPostgres#0" expanded="false" />
+                <element signature="method#getDbConnection#0;class#DaoPostgres#0" expanded="false" />
+                <element signature="method#executeQueryWithResultSet#0;class#DaoPostgres#0" expanded="false" />
+                <element signature="method#executeQueryWithUpdate#0;class#DaoPostgres#0" expanded="false" />
+                <element signature="method#closeStatementAndConnection#0;class#DaoPostgres#0" expanded="false" />
+                <element signature="method#insertMainStatsData#0;class#DaoPostgres#0" expanded="false" />
+                <element signature="method#selectDmsCompaniesSortByAdminUiSeq#0;class#DaoPostgres#0" expanded="false" />
+                <element signature="method#insertInAnDataUpload#0;class#DaoPostgres#0" expanded="false" />
+                <element signature="method#deleteFromAnDataUpload#0;class#DaoPostgres#0" expanded="false" />
+                <element signature="method#selectMaxValueFromColumnInTable#0;class#DaoPostgres#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -282,9 +158,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/InsuranceAdminHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/pages/InsuranceAdminPage.java" />
-        <option value="$PROJECT_DIR$/testsxmls/750-39.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/QMSHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/pages/DmsPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/pages/StatsUserPage.java" />
@@ -309,14 +182,11 @@
         <option value="$PROJECT_DIR$/src/test/java/com/luxoft/examples/ObservableExample.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/luxoft/examples/Example.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/utils/DriverUtils.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestDate.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/TestDate.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/config/forpages/ClickableConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/BaseHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/config/forpages/ElementToFind.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/LoginHelper.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/luxoft/tests/_750_24/sau/_750_24_SAU_02.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/StatsHelper.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/luxoft/BaseTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/pages/BasePage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/pages/stats/DailyReportPage.java" />
@@ -326,13 +196,19 @@
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/SSHHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/DashboardHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/ServicesHelper.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/environment.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/environment/TestEnvironment.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/model/Section.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/environment/TestEnvironment.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestDate.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/FrameWork.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestExcel.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/environment.properties" />
+        <option value="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestSql.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/model/MfcDailyStatsItem.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/model/MfcStatsItem.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestExcel.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/luxoft/tests/_750_24/sau/_750_24_SAU_02.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/StatsHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/database/DaoPostgres.java" />
       </list>
     </option>
   </component>
@@ -377,8 +253,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1678" />
-    <option name="height" value="1010" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -398,8 +274,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -449,6 +324,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="mfcautotests" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MFCAutotests" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MFCAutotests" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mfcautotests" type="462c0819:PsiDirectoryNode" />
               <item name="drivers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -459,6 +343,15 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="mfcautotests" type="462c0819:PsiDirectoryNode" />
               <item name="environment" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MFCAutotests" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MFCAutotests" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mfcautotests" type="462c0819:PsiDirectoryNode" />
+              <item name="helpers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MFCAutotests" type="b2602c69:ProjectViewProjectNode" />
@@ -556,14 +449,15 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BusinessProcess" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.29957807" />
@@ -611,21 +505,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TestExcel">
+  <component name="RunManager" selected="TestNG._750_24_SAU_02.creatingReport">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
     </configuration>
-    <configuration name="TestExcel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSql" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.luxoft.examples.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.luxoft.examples.TestExcel" />
+      <option name="MAIN_CLASS_NAME" value="com.luxoft.examples.TestSql" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -678,7 +572,7 @@
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
     </configuration>
-    <configuration name="TestSSH.testSsh" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSql.testSql" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.luxoft.examples.*" />
@@ -690,8 +584,8 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" value="com.luxoft.examples" />
-      <option name="MAIN_CLASS_NAME" value="com.luxoft.examples.TestSSH" />
-      <option name="METHOD_NAME" value="testSsh" />
+      <option name="MAIN_CLASS_NAME" value="com.luxoft.examples.TestSql" />
+      <option name="METHOD_NAME" value="testSql" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -710,7 +604,7 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="_750_24_SAU_02" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="_750_24_SAU_02.creatingReport" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.luxoft.tests._750_24.sau.*" />
@@ -723,39 +617,7 @@
       <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" value="com.luxoft.tests._750_24.sau" />
       <option name="MAIN_CLASS_NAME" value="com.luxoft.tests._750_24.sau._750_24_SAU_02" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
-    <configuration name="_750_24_SAU_02.defaultReportDateTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.luxoft.tests._750_24.sau.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="MFCAutotests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="com.luxoft.tests._750_24.sau" />
-      <option name="MAIN_CLASS_NAME" value="com.luxoft.tests._750_24.sau._750_24_SAU_02" />
-      <option name="METHOD_NAME" value="defaultReportDateTest" />
+      <option name="METHOD_NAME" value="creatingReport" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -806,7 +668,7 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="_750_27_PDDB_1.RequestMainMmcStatsWithTomorrowDateTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="_750_27_PDDB_1.RequestMainMmcStatsWithCurrentDateTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.luxoft.tests._750_27.pddb.*" />
@@ -819,7 +681,39 @@
       <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" value="com.luxoft.tests._750_27.pddb" />
       <option name="MAIN_CLASS_NAME" value="com.luxoft.tests._750_27.pddb._750_27_PDDB_1" />
-      <option name="METHOD_NAME" value="RequestMainMmcStatsWithTomorrowDateTest" />
+      <option name="METHOD_NAME" value="RequestMainMmcStatsWithCurrentDateTest" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="_750_27_PDDB_2.RequestMainMmcStatsNotEnoughDataTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.luxoft.tests._750_27.pddb.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="MFCAutotests" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="com.luxoft.tests._750_27.pddb" />
+      <option name="MAIN_CLASS_NAME" value="com.luxoft.tests._750_27.pddb._750_27_PDDB_2" />
+      <option name="METHOD_NAME" value="RequestMainMmcStatsNotEnoughDataTest" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -872,19 +766,19 @@
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="TestNG._750_24_SAU_02.defaultReportDateTest" />
-      <item index="1" class="java.lang.String" itemvalue="TestNG._750_24_SAU_02" />
-      <item index="2" class="java.lang.String" itemvalue="TestNG.TestSSH.testSsh" />
-      <item index="3" class="java.lang.String" itemvalue="TestNG._750_27_PDDB_1.RequestMainMmcStatsWithTomorrowDateTest" />
-      <item index="4" class="java.lang.String" itemvalue="Application.TestExcel" />
+      <item index="0" class="java.lang.String" itemvalue="TestNG._750_24_SAU_02.creatingReport" />
+      <item index="1" class="java.lang.String" itemvalue="TestNG._750_27_PDDB_1.RequestMainMmcStatsWithCurrentDateTest" />
+      <item index="2" class="java.lang.String" itemvalue="TestNG._750_27_PDDB_2.RequestMainMmcStatsNotEnoughDataTest" />
+      <item index="3" class="java.lang.String" itemvalue="Application.TestSql" />
+      <item index="4" class="java.lang.String" itemvalue="TestNG.TestSql.testSql" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.TestExcel" />
-        <item index="1" class="java.lang.String" itemvalue="TestNG._750_27_PDDB_1.RequestMainMmcStatsWithTomorrowDateTest" />
-        <item index="2" class="java.lang.String" itemvalue="TestNG.TestSSH.testSsh" />
-        <item index="3" class="java.lang.String" itemvalue="TestNG._750_24_SAU_02" />
-        <item index="4" class="java.lang.String" itemvalue="TestNG._750_24_SAU_02.defaultReportDateTest" />
+        <item index="0" class="java.lang.String" itemvalue="TestNG._750_24_SAU_02.creatingReport" />
+        <item index="1" class="java.lang.String" itemvalue="TestNG.TestSql.testSql" />
+        <item index="2" class="java.lang.String" itemvalue="TestNG._750_27_PDDB_2.RequestMainMmcStatsNotEnoughDataTest" />
+        <item index="3" class="java.lang.String" itemvalue="Application.TestSql" />
+        <item index="4" class="java.lang.String" itemvalue="TestNG._750_27_PDDB_1.RequestMainMmcStatsWithCurrentDateTest" />
       </list>
     </recent_temporary>
   </component>
@@ -923,7 +817,11 @@
       <workItem from="1512628463108" duration="2456000" />
       <workItem from="1512640589461" duration="3110000" />
       <workItem from="1512720641136" duration="3698000" />
-      <workItem from="1512737819358" duration="32464000" />
+      <workItem from="1512737819358" duration="35869000" />
+      <workItem from="1513147469179" duration="5614000" />
+      <workItem from="1513155385901" duration="636000" />
+      <workItem from="1513158183620" duration="12398000" />
+      <workItem from="1513234133254" duration="18194000" />
     </task>
     <task id="LOCAL-00001" summary="TestingFrameworkMFC">
       <created>1505367218553</created>
@@ -1030,46 +928,54 @@
       <option name="project" value="LOCAL" />
       <updated>1512644215613</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="750_24 (in progress), 750_27 (complete), 750_39 (complete)&#10;Refactoring in progress">
+      <created>1513143056332</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1513143056332</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestSSH_testSsh - 2017.12.06 at 16h 14m 55s.xml">
-      <configuration name="TestSSH.testSsh" configurationId="TestNG" />
+    <history-entry file="TestSql_testSql - 2017.12.14 at 16h 08m 36s.xml">
+      <configuration name="TestSql.testSql" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TestSSH_testSsh - 2017.12.06 at 17h 31m 53s.xml">
-      <configuration name="TestSSH.testSsh" configurationId="TestNG" />
+    <history-entry file="_750_24_SAU_02_creatingReport - 2017.12.14 at 16h 37m 39s.xml">
+      <configuration name="_750_24_SAU_02.creatingReport" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TestSSH_testSsh - 2017.12.06 at 20h 45m 23s.xml">
-      <configuration name="TestSSH.testSsh" configurationId="TestNG" />
+    <history-entry file="_750_24_SAU_02_creatingReport - 2017.12.14 at 16h 38m 53s.xml">
+      <configuration name="_750_24_SAU_02.creatingReport" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TestSSH_testSsh - 2017.12.06 at 20h 47m 29s.xml">
-      <configuration name="TestSSH.testSsh" configurationId="TestNG" />
+    <history-entry file="_750_24_SAU_02_creatingReport - 2017.12.14 at 16h 45m 19s.xml">
+      <configuration name="_750_24_SAU_02.creatingReport" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TestSSH_testSsh - 2017.12.06 at 20h 57m 06s.xml">
-      <configuration name="TestSSH.testSsh" configurationId="TestNG" />
+    <history-entry file="_750_24_SAU_02_creatingReport - 2017.12.14 at 16h 47m 52s.xml">
+      <configuration name="_750_24_SAU_02.creatingReport" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TestSSH_testSsh - 2017.12.07 at 12h 37m 03s.xml">
-      <configuration name="TestSSH.testSsh" configurationId="TestNG" />
+    <history-entry file="_750_24_SAU_02_creatingReport - 2017.12.14 at 16h 48m 30s.xml">
+      <configuration name="_750_24_SAU_02.creatingReport" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TestSSH_testSsh - 2017.12.08 at 15h 04m 48s.xml">
-      <configuration name="TestSSH.testSsh" configurationId="TestNG" />
+    <history-entry file="_750_24_SAU_02_creatingReport - 2017.12.14 at 16h 50m 55s.xml">
+      <configuration name="_750_24_SAU_02.creatingReport" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="_750_27_PDDB_1_RequestMainMmcStatsWithTomorrowDateTest - 2017.12.07 at 17h 09m 57s.xml">
-      <configuration name="_750_27_PDDB_1.RequestMainMmcStatsWithTomorrowDateTest" configurationId="TestNG" />
+    <history-entry file="_750_24_SAU_02_creatingReport - 2017.12.14 at 17h 20m 39s.xml">
+      <configuration name="_750_24_SAU_02.creatingReport" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="_750_27_PDDB_1_RequestMainMmcStatsWithTomorrowDateTest - 2017.12.08 at 15h 42m 28s.xml">
-      <configuration name="_750_27_PDDB_1.RequestMainMmcStatsWithTomorrowDateTest" configurationId="TestNG" />
+    <history-entry file="_750_24_SAU_02_creatingReport - 2017.12.14 at 17h 23m 34s.xml">
+      <configuration name="_750_24_SAU_02.creatingReport" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="_750_27_PDDB_1_RequestMainMmcStatsWithTomorrowDateTest - 2017.12.08 at 15h 47m 24s.xml">
-      <configuration name="_750_27_PDDB_1.RequestMainMmcStatsWithTomorrowDateTest" configurationId="TestNG" />
+    <history-entry file="_750_24_SAU_02_creatingReport - 2017.12.14 at 17h 24m 14s.xml">
+      <configuration name="_750_24_SAU_02.creatingReport" configurationId="TestNG" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="549297000" />
+    <option name="totallyTimeSpent" value="589544000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1081,12 +987,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3220697" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10501066" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32108107" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32108107" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1748401" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18123667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1185,129 +1091,11 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="150" />
+      <option name="time" value="161" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/examples/Example.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/tests/_750_27/pddb/_750_27_PDDB_2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/JAVA/jdk/src.zip!/java/util/Calendar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="523" column="28" lean-forward="false" selection-start-line="523" selection-start-column="28" selection-end-line="523" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/JAVA/jdk/src.zip!/java/util/Date.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="978" column="69" lean-forward="true" selection-start-line="978" selection-start-column="69" selection-end-line="978" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/pages/InsuranceAdminPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="88" column="108" lean-forward="false" selection-start-line="88" selection-start-column="15" selection-end-line="88" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/pages/stats/StatsAdminPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/utils/DriverUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="38" column="47" lean-forward="false" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-support/3.5.3/selenium-support-3.5.3.jar!/org/openqa/selenium/support/pagefactory/internal/LocatingElementHandler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-support/3.5.3/selenium-support-3.5.3.jar!/org/openqa/selenium/support/ui/ExpectedConditions.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-606">
-          <caret line="416" column="49" lean-forward="false" selection-start-line="416" selection-start-column="42" selection-end-line="416" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.11/testng-6.11.jar!/org/testng/internal/MethodInvocationHelper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/config/postProcessors/InitPagesPostProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/BaseHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-remote-driver/3.5.3/selenium-remote-driver-3.5.3.jar!/org/openqa/selenium/remote/RemoteWebElement.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="112" column="0" lean-forward="false" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/JAVA/jdk/src.zip!/java/util/stream/IntStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12">
-          <caret line="302" column="33" lean-forward="true" selection-start-line="302" selection-start-column="33" selection-end-line="302" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/config/forpages/ClickableConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-api/3.5.3/selenium-api-3.5.3.jar!/org/openqa/selenium/WebDriver.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/TestDate.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/UIHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1357,30 +1145,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/BaseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="34" selection-end-column="5" />
-          <folding>
-            <element signature="e#1160#1161#0" expanded="false" />
-            <element signature="e#1200#1201#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/StatsHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/config/forpages/ElementToFindInList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1396,12 +1164,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="21" lean-forward="false" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-          <folding>
-            <element signature="e#382#383#0" expanded="false" />
-            <element signature="e#409#410#0" expanded="false" />
-            <element signature="e#442#443#0" expanded="false" />
-            <element signature="e#471#472#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1427,60 +1189,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/DashboardHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="88" lean-forward="false" selection-start-line="29" selection-start-column="88" selection-end-line="29" selection-end-column="88" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/ServicesHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="39" column="77" lean-forward="false" selection-start-line="39" selection-start-column="77" selection-end-line="39" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/drivers/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="244" column="25" lean-forward="false" selection-start-line="244" selection-start-column="25" selection-end-line="244" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/pages/stats/DailyReportPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="105" column="16" lean-forward="false" selection-start-line="105" selection-start-column="16" selection-end-line="105" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/tests/_750_24/sau/_750_24_SAU_02.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="721">
-          <caret line="66" column="32" lean-forward="false" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
-          <folding>
-            <element signature="e#1676#1677#0" expanded="true" />
-            <element signature="e#1738#1739#0" expanded="true" />
-            <element signature="e#1995#1996#0" expanded="true" />
-            <element signature="e#2045#2046#0" expanded="true" />
-            <element signature="e#2283#2284#0" expanded="true" />
-            <element signature="e#2335#2336#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1492,61 +1204,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/environment/TestEnvironment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-          <folding>
-            <element signature="e#578#596#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestSSH.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="20" column="27" lean-forward="true" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/tests/_750_27/pddb/_750_27_PDDB_1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="41" column="97" lean-forward="false" selection-start-line="41" selection-start-column="97" selection-end-line="41" selection-end-column="97" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/pages/BasePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1445">
-          <caret line="22" column="44" lean-forward="false" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/FrameWork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="89" column="110" lean-forward="false" selection-start-line="89" selection-start-column="110" selection-end-line="89" selection-end-column="110" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/environment.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi/3.17/poi-3.17.jar!/org/apache/poi/ss/usermodel/CellType.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
+        <state relative-caret-position="187">
           <caret line="14" column="11" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1554,105 +1222,311 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
           <caret line="407" column="51" lean-forward="false" selection-start-line="407" selection-start-column="51" selection-end-line="407" selection-end-column="51" />
-          <folding>
-            <element signature="e#15007#15008#0" expanded="true" />
-            <element signature="e#15098#15099#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestExcel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/DashboardHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="22" column="8" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="289">
+          <caret line="29" column="88" lean-forward="false" selection-start-line="29" selection-start-column="88" selection-end-line="29" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/examples/Test2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/JAVA/jdk/src.zip!/java/util/stream/Stream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3791">
+          <caret line="269" column="18" lean-forward="false" selection-start-line="269" selection-start-column="18" selection-end-line="269" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/model/MfcStatsGroup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="11" selection-end-column="57" />
+        <state relative-caret-position="170">
+          <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#314#315#0" expanded="false" />
+            <element signature="e#366#367#0" expanded="false" />
+            <element signature="e#402#403#0" expanded="false" />
+            <element signature="e#442#443#0" expanded="false" />
+            <element signature="e#474#475#0" expanded="false" />
+            <element signature="e#544#545#0" expanded="false" />
+            <element signature="e#594#595#0" expanded="false" />
+            <element signature="e#656#657#0" expanded="false" />
+            <element signature="e#708#709#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi-ooxml/3.17/poi-ooxml-3.17.jar!/org/apache/poi/POIXMLDocumentPart.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi-ooxml/3.17/poi-ooxml-3.17.jar!/org/apache/poi/xssf/usermodel/XSSFWorkbook.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="219" column="0" lean-forward="false" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="245" column="25" lean-forward="false" selection-start-line="245" selection-start-column="25" selection-end-line="245" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi-ooxml/3.16/poi-ooxml-3.16.jar!/org/apache/poi/xssf/usermodel/XSSFCell.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="406" column="19" lean-forward="false" selection-start-line="406" selection-start-column="11" selection-end-line="406" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi/3.16/poi-3.16.jar!/org/apache/poi/ss/usermodel/CellType.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="11" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/JAVA/jdk/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="2866" column="18" lean-forward="false" selection-start-line="2866" selection-start-column="18" selection-end-line="2866" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/database/DaoFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/JAVA/jdk/src.zip!/java/time/LocalDate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3829">
+          <caret line="136" column="19" lean-forward="false" selection-start-line="136" selection-start-column="19" selection-end-line="136" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/JAVA/jdk/src.zip!/java/time/format/DateTimeFormatter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="1371" column="58" lean-forward="false" selection-start-line="1371" selection-start-column="45" selection-end-line="1371" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/tests/_750_27/pddb/_750_27_PDDB_1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="41" column="97" lean-forward="false" selection-start-line="41" selection-start-column="97" selection-end-line="41" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestDate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="42" lean-forward="false" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/examples/Test3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/examples/Test3Jackson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/environment/TestEnvironment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="17" column="31" lean-forward="false" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/utils/DriverUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/tests/_750_27/pddb/_750_27_PDDB_2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="20" column="28" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="20" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/environment.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="60" column="21" lean-forward="false" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/BaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/pages/BasePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="22" column="44" lean-forward="false" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestExcel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="66" column="48" lean-forward="true" selection-start-line="66" selection-start-column="48" selection-end-line="66" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/pages/stats/DailyReportPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/BaseHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/FrameWork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="20" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#287#288#0" expanded="true" />
-            <element signature="e#314#315#0" expanded="true" />
-            <element signature="e#366#367#0" expanded="true" />
-            <element signature="e#402#403#0" expanded="true" />
-            <element signature="e#442#443#0" expanded="true" />
-            <element signature="e#474#475#0" expanded="true" />
-            <element signature="e#544#545#0" expanded="true" />
-            <element signature="e#594#595#0" expanded="true" />
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#708#709#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestSql.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/ServicesHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="108" column="1" lean-forward="true" selection-start-line="108" selection-start-column="1" selection-end-line="108" selection-end-column="1" />
+          <folding>
+            <element signature="method#convertToXmlGregorianCalendarDate#0;class#ServicesHelper#0" expanded="false" />
+            <element signature="method#getResponseFromService#0;class#ServicesHelper#0" expanded="false" />
+            <element signature="method#marshalAsString#0;class#ServicesHelper#0" expanded="false" />
+            <element signature="method#sendPostRequestToService#0;class#ServicesHelper#0" expanded="false" />
+            <element signature="method#getResponseAsStringBuilder#0;class#ServicesHelper#0" expanded="false" />
+            <element signature="method#unmarshalResponse#0;class#ServicesHelper#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/model/MfcStatsItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="51" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="24" selection-end-column="51" />
+        <state relative-caret-position="340">
+          <caret line="98" column="34" lean-forward="false" selection-start-line="98" selection-start-column="34" selection-end-line="98" selection-end-column="34" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#875#876#0" expanded="true" />
-            <element signature="e#921#922#0" expanded="true" />
-            <element signature="e#951#952#0" expanded="true" />
-            <element signature="e#980#981#0" expanded="true" />
-            <element signature="e#1011#1012#0" expanded="true" />
-            <element signature="e#1038#1039#0" expanded="true" />
-            <element signature="e#1097#1098#0" expanded="true" />
-            <element signature="e#1152#1153#0" expanded="true" />
-            <element signature="e#1206#1207#0" expanded="true" />
-            <element signature="e#1256#1257#0" expanded="true" />
-            <element signature="e#1307#1308#0" expanded="true" />
-            <element signature="e#1354#1355#0" expanded="true" />
-            <element signature="e#1390#1391#0" expanded="true" />
-            <element signature="e#1422#1423#0" expanded="true" />
-            <element signature="e#1460#1461#0" expanded="true" />
-            <element signature="e#1494#1495#0" expanded="true" />
-            <element signature="e#1531#1532#0" expanded="true" />
-            <element signature="e#1564#1565#0" expanded="true" />
-            <element signature="e#1596#1597#0" expanded="true" />
-            <element signature="e#1627#1628#0" expanded="true" />
-            <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="e#1699#1700#0" expanded="true" />
-            <element signature="e#1738#1739#0" expanded="true" />
-            <element signature="e#1773#1774#0" expanded="true" />
-            <element signature="e#1810#1811#0" expanded="true" />
-            <element signature="e#1843#1844#0" expanded="true" />
-            <element signature="e#1884#1885#0" expanded="true" />
-            <element signature="e#1921#1922#0" expanded="true" />
-            <element signature="e#1957#1958#0" expanded="true" />
-            <element signature="e#1989#1990#0" expanded="true" />
-            <element signature="e#2035#2036#0" expanded="true" />
-            <element signature="e#2065#2066#0" expanded="true" />
-            <element signature="e#2106#2107#0" expanded="true" />
-            <element signature="e#2142#2143#0" expanded="true" />
-            <element signature="e#2182#2183#0" expanded="true" />
-            <element signature="e#2214#2215#0" expanded="true" />
-            <element signature="e#2764#2765#0" expanded="true" />
-            <element signature="e#2806#2807#0" expanded="true" />
-            <element signature="e#2860#2861#0" expanded="true" />
-            <element signature="e#2906#2907#0" expanded="true" />
-            <element signature="e#2958#2959#0" expanded="true" />
-            <element signature="e#3002#3003#0" expanded="true" />
-            <element signature="e#3047#3048#0" expanded="true" />
-            <element signature="e#3087#3088#0" expanded="true" />
-            <element signature="e#3141#3142#0" expanded="true" />
-            <element signature="e#3187#3188#0" expanded="true" />
-            <element signature="e#3243#3244#0" expanded="true" />
-            <element signature="e#3291#3292#0" expanded="true" />
-            <element signature="e#3343#3344#0" expanded="true" />
-            <element signature="e#3387#3388#0" expanded="true" />
-            <element signature="e#3447#3448#0" expanded="true" />
-            <element signature="e#3499#3500#0" expanded="true" />
-            <element signature="e#3549#3550#0" expanded="true" />
-            <element signature="e#3591#3592#0" expanded="true" />
-            <element signature="e#3649#3650#0" expanded="true" />
-            <element signature="e#3687#3688#0" expanded="true" />
+            <element signature="e#2376#2377#0" expanded="true" />
+            <element signature="e#2422#2423#0" expanded="true" />
+            <element signature="e#2471#2472#0" expanded="true" />
+            <element signature="e#2515#2516#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/tests/_750_24/sau/_750_24_SAU_02.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/StatsHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="160" column="9" lean-forward="false" selection-start-line="160" selection-start-column="9" selection-end-line="160" selection-end-column="9" />
+          <folding>
+            <element signature="method#dateFromServerLessThenEightAm#0;class#StatsHelper#0" expanded="false" />
+            <element signature="method#getMfcDailyStatsFromExcel#0;class#StatsHelper#0" expanded="false" />
+            <element signature="method#switchDataSourceValue#0;class#StatsHelper#0" expanded="false" />
+            <element signature="method#getValueFromCell#0;class#StatsHelper#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/database/DaoPostgres.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="222" column="38" lean-forward="false" selection-start-line="222" selection-start-column="38" selection-end-line="222" selection-end-column="38" />
+          <folding>
+            <element signature="method#getConnectionToDb#0;class#DaoPostgres#0" expanded="false" />
+            <element signature="method#getDbWsConnection#0;class#DaoPostgres#0" expanded="false" />
+            <element signature="method#getDbConnection#0;class#DaoPostgres#0" expanded="false" />
+            <element signature="method#executeQueryWithResultSet#0;class#DaoPostgres#0" expanded="false" />
+            <element signature="method#executeQueryWithUpdate#0;class#DaoPostgres#0" expanded="false" />
+            <element signature="method#closeStatementAndConnection#0;class#DaoPostgres#0" expanded="false" />
+            <element signature="method#insertMainStatsData#0;class#DaoPostgres#0" expanded="false" />
+            <element signature="method#selectDmsCompaniesSortByAdminUiSeq#0;class#DaoPostgres#0" expanded="false" />
+            <element signature="method#insertInAnDataUpload#0;class#DaoPostgres#0" expanded="false" />
+            <element signature="method#deleteFromAnDataUpload#0;class#DaoPostgres#0" expanded="false" />
+            <element signature="method#selectMaxValueFromColumnInTable#0;class#DaoPostgres#0" expanded="false" />
           </folding>
         </state>
       </provider>

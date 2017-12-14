@@ -1,6 +1,8 @@
 package com.luxoft.tests._750_24.sau;
 
 import com.luxoft.BaseTest;
+import com.luxoft.mfcautotests.config.annotations.NonDriver;
+import com.luxoft.mfcautotests.database.DaoPostgres;
 import com.luxoft.mfcautotests.helpers.StatsHelper;
 import com.luxoft.mfcautotests.model.Role;
 import com.luxoft.mfcautotests.model.User;
@@ -14,6 +16,7 @@ import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.Title;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import static org.testng.AssertJUnit.assertTrue;
@@ -30,17 +33,20 @@ public class _750_24_SAU_02 extends BaseTest {
     LoginPage loginPage;
     @Autowired
     StatsHelper statsHelper;
+    @Autowired
+    DaoPostgres daoPostgres;
 
-    @BeforeMethod
-    public void setup() {
-        if (!driverUtils.getDriver().getCurrentUrl().contains("mmcstatsadmin")) {
-            navHelper.openArmStatsAdmin()
-                    .loginWithRole(Role.STATS_ADMIN);
-        }
-        if (!driverUtils.getDriver().getCurrentUrl().contains("mmcstatsadmin/daily_stats.htm")) {
-            statsAdminPage.openDailyReport();
-        }
-    }
+
+//    @BeforeMethod
+//    public void setup() {
+//        if (!driverUtils.getDriver().getCurrentUrl().contains("mmcstatsadmin")) {
+//            navHelper.openArmStatsAdmin()
+//                    .loginWithRole(Role.STATS_ADMIN);
+//        }
+//        if (!driverUtils.getDriver().getCurrentUrl().contains("mmcstatsadmin/daily_stats.htm")) {
+//            statsAdminPage.openDailyReport();
+//        }
+//    }
 
 
     @Test
@@ -66,4 +72,17 @@ public class _750_24_SAU_02 extends BaseTest {
     public void dateSelectionTest() {
         dailyReportPage.checkDateSelection();
     }
+
+    @Test
+    @NonDriver
+    @Title("Формирование отчета")
+    @Features("750-24 Требования к ручному вводу и просмотру данных отчетности")
+    @Stories("MMC-SAU-02 Ежедневный отчет (АРМ Администратора отчетов)")
+    public void creatingReport() {
+
+    }
+
+
 }
+
+

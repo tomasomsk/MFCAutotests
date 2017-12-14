@@ -14,19 +14,15 @@ public class MfcStatsItem {
     String calculationLogicCurrentYear;
     String calculationLogicLastYear;
     String dimension;
-    String fillingType; // 1 (AUTO) Автоматизировано через сервисы интеграции, 2 (MANUAL) Вручную, 3 (OVERRIDE) Вручную правка администратором
-    String dataSource; // an_data_source
+    int fillingType; // 1 (AUTO) Автоматизировано через сервисы интеграции, 2 (MANUAL) Вручную, 3 (OVERRIDE) Вручную правка администратором
+    int dataSource; // an_data_source
     int itemCode; //1 - только ежедневный, 2 - ежедневный и ежемесячный, 3 - только ежемесячный
     String isDashboard; // Y, N
     String itemIdPeriod;
     String itemIdYear;
     String itemIdPrevYear;
     String parameter;
-    List<MfcStatsItem> subItem = new ArrayList<>();
-
-    public void addSubItem(MfcStatsItem mfcStatsItem) {
-        this.subItem.add(mfcStatsItem);
-    }
+    String value;
 
     public int getNumber() {
         return number;
@@ -36,27 +32,15 @@ public class MfcStatsItem {
         return name;
     }
 
-    public String getCalculationLogicAccountingPeriod() {
-        return calculationLogicAccountingPeriod;
-    }
-
-    public String getCalculationLogicCurrentYear() {
-        return calculationLogicCurrentYear;
-    }
-
-    public String getCalculationLogicLastYear() {
-        return calculationLogicLastYear;
-    }
-
     public String getDimension() {
         return dimension;
     }
 
-    public String getFillingType() {
+    public int getFillingType() {
         return fillingType;
     }
 
-    public String getDataSource() {
+    public int getDataSource() {
         return dataSource;
     }
 
@@ -84,8 +68,8 @@ public class MfcStatsItem {
         return parameter;
     }
 
-    public List<MfcStatsItem> getSubItem() {
-        return subItem;
+    public String getValue() {
+        return value;
     }
 
     public void setNumber(int number) {
@@ -112,11 +96,11 @@ public class MfcStatsItem {
         this.dimension = dimension;
     }
 
-    public void setFillingType(String fillingType) {
+    public void setFillingType(int fillingType) {
         this.fillingType = fillingType;
     }
 
-    public void setDataSource(String dataSource) {
+    public void setDataSource(int dataSource) {
         this.dataSource = dataSource;
     }
 
@@ -144,7 +128,8 @@ public class MfcStatsItem {
         this.parameter = parameter;
     }
 
-    public void setSubItem(List<MfcStatsItem> subItem) {
-        this.subItem = subItem;
+    public void setValue(String value) {
+        this.value = value;
     }
+
 }

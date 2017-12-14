@@ -3,6 +3,7 @@ package com.luxoft.mfcautotests;
 import com.luxoft.mfcautotests.config.annotations.InjectLogger;
 import com.luxoft.mfcautotests.config.forpages.ElementToFindInList;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -86,8 +87,6 @@ public class FrameWork<T> {
     public Integer[] getPositionsOfIntElementInList(ElementToFindInList element, List<Integer> list) {
         return IntStream.range(0, list.size())
                 .filter(i -> list.get(i) == element.getIntValue()).boxed().toArray(Integer[]::new);
-
-        //list.stream().filter(listItem -> element.getIntValue.equals(listItem)).collect(Collectors.toList()) От Витали
     }
 
 
