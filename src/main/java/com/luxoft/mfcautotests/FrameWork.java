@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -89,5 +91,8 @@ public class FrameWork<T> {
                 .filter(i -> list.get(i) == element.getIntValue()).boxed().toArray(Integer[]::new);
     }
 
-
+    public String formatDate(LocalDateTime date) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return formatter.format(date);
+    }
 }

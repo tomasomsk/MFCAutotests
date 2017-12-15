@@ -5,23 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2706b0b-e23c-4530-b3b4-8f31224cf27d" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestDate.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestSql.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_17.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_16.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_17.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_16.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_17.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_16.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_42_1_4.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__postgresql_postgresql_9_1_901_jdbc4.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/MFCAutotests.iml" afterPath="$PROJECT_DIR$/MFCAutotests.iml" />
       <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/FrameWork.java" afterPath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/FrameWork.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/database/DaoFactory.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/database/DaoPostgres.java" afterPath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/database/DaoPostgres.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/environment/TestEnvironment.java" afterPath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/environment/TestEnvironment.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/StatsHelper.java" afterPath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/StatsHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/model/MfcStatsItem.java" afterPath="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/model/MfcStatsItem.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/environment.properties" afterPath="$PROJECT_DIR$/src/main/resources/environment.properties" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/excel/statistic/dailyStatsItems.xlsx" afterPath="$PROJECT_DIR$/src/main/resources/excel/statistic/dailyStatsItems.xlsx" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestExcel.java" afterPath="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestExcel.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/luxoft/tests/_750_24/sau/_750_24_SAU_02.java" afterPath="$PROJECT_DIR$/src/test/java/com/luxoft/tests/_750_24/sau/_750_24_SAU_02.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestSql.java" afterPath="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestSql.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -47,9 +42,10 @@
       <file leaf-file-name="MfcStatsItem.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/model/MfcStatsItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="98" column="34" lean-forward="false" selection-start-line="98" selection-start-column="34" selection-end-line="98" selection-end-column="34" />
+            <state relative-caret-position="168">
+              <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
               <folding>
+                <element signature="e#1308#1309#0" expanded="true" />
                 <element signature="e#2376#2377#0" expanded="true" />
                 <element signature="e#2422#2423#0" expanded="true" />
                 <element signature="e#2471#2472#0" expanded="true" />
@@ -62,8 +58,8 @@
       <file leaf-file-name="StatsHelper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/StatsHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="160" column="9" lean-forward="false" selection-start-line="160" selection-start-column="9" selection-end-line="160" selection-end-column="9" />
+            <state relative-caret-position="-114">
+              <caret line="130" column="70" lean-forward="false" selection-start-line="130" selection-start-column="70" selection-end-line="130" selection-end-column="70" />
               <folding>
                 <element signature="method#dateFromServerLessThenEightAm#0;class#StatsHelper#0" expanded="false" />
                 <element signature="method#getMfcDailyStatsFromExcel#0;class#StatsHelper#0" expanded="false" />
@@ -77,21 +73,136 @@
       <file leaf-file-name="DaoPostgres.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/database/DaoPostgres.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="222" column="38" lean-forward="false" selection-start-line="222" selection-start-column="38" selection-end-line="222" selection-end-column="38" />
+            <state relative-caret-position="1988">
+              <caret line="256" column="0" lean-forward="true" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
               <folding>
-                <element signature="method#getConnectionToDb#0;class#DaoPostgres#0" expanded="false" />
-                <element signature="method#getDbWsConnection#0;class#DaoPostgres#0" expanded="false" />
-                <element signature="method#getDbConnection#0;class#DaoPostgres#0" expanded="false" />
-                <element signature="method#executeQueryWithResultSet#0;class#DaoPostgres#0" expanded="false" />
-                <element signature="method#executeQueryWithUpdate#0;class#DaoPostgres#0" expanded="false" />
-                <element signature="method#closeStatementAndConnection#0;class#DaoPostgres#0" expanded="false" />
-                <element signature="method#insertMainStatsData#0;class#DaoPostgres#0" expanded="false" />
-                <element signature="method#selectDmsCompaniesSortByAdminUiSeq#0;class#DaoPostgres#0" expanded="false" />
-                <element signature="method#insertInAnDataUpload#0;class#DaoPostgres#0" expanded="false" />
-                <element signature="method#deleteFromAnDataUpload#0;class#DaoPostgres#0" expanded="false" />
-                <element signature="method#selectMaxValueFromColumnInTable#0;class#DaoPostgres#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <marker date="1513340088498" expanded="true" signature="2954:3272" ph="INSERT INTO an_data_upload... " />
+                <marker date="1513340088498" expanded="true" signature="3294:3474" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="3393:3446" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="3496:3676" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="3595:3648" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="3698:3881" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="3797:3850" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="3903:4086" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="4002:4055" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="4108:4290" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="4207:4260" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="4312:4494" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="4411:4464" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="4516:4698" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="4615:4668" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="4720:4902" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="4819:4872" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="4924:5107" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="5023:5076" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="5129:5312" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="5228:5281" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="5334:5517" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="5433:5486" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="5539:5722" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="5638:5691" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="5744:5927" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="5843:5896" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="5949:6132" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="6048:6101" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="6154:6337" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="6253:6306" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="6359:6541" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="6458:6511" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="6563:6746" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="6662:6715" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="6768:6951" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="6867:6920" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="6973:7156" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="7072:7125" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="7178:7360" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="7277:7330" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="7382:7565" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="7481:7534" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="7587:7770" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="7686:7739" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="7792:7973" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="7891:7944" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="7995:8176" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="8094:8147" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="8198:8381" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="8297:8350" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="8403:8586" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="8502:8555" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="8608:8791" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="8707:8760" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="8813:8996" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="8912:8965" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="9018:9201" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="9117:9170" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="9223:9406" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="9322:9375" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="9428:9611" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="9527:9580" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="9633:9816" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="9732:9785" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="9838:10021" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="9937:9990" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="10043:10226" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="10142:10195" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="10248:10431" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="10347:10400" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="10453:10636" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="10552:10605" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="10658:10841" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="10757:10810" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="10863:11046" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="10962:11015" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="11068:11251" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="11167:11220" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="11273:11456" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="11372:11425" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="11478:11661" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="11577:11630" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="11683:11866" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="11782:11835" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="11888:12071" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="11987:12040" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="12093:12276" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="12192:12245" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="12298:12481" ph="INSERT INTO an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="12397:12450" ph="SELECT MAX (... an_data_upload" />
+                <marker date="1513340088498" expanded="true" signature="12941:13184" ph="DELETE FROM an_report_item_data... " />
+                <marker date="1513340088498" expanded="true" signature="13206:13344" ph="DELETE FROM an_data_upload... " />
+                <marker date="1513340088498" expanded="true" signature="18513:18642" ph="INSERT INTO an_data_upload... " />
+                <marker date="1513340088498" expanded="true" signature="19352:19458" ph="INSERT INTO an_report_item_data... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FrameWork.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/FrameWork.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="407">
+              <caret line="93" column="17" lean-forward="false" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestSql.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestSql.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="475">
+              <caret line="42" column="65" lean-forward="false" selection-start-line="42" selection-start-column="65" selection-end-line="42" selection-end-column="65" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -108,8 +219,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>stats</find>
-      <find>path</find>
       <find>class</find>
       <find>Strin</find>
       <find>toStr</find>
@@ -138,6 +247,8 @@
       <find>getDateFromString</find>
       <find>stringfro</find>
       <find>getDate</find>
+      <find>post</find>
+      <find>jdbc</find>
     </findStrings>
     <replaceStrings>
       <replace>env</replace>
@@ -158,7 +269,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/QMSHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/pages/DmsPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/pages/StatsUserPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestLoginWithRole.java" />
@@ -188,7 +298,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/config/forpages/ElementToFind.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/LoginHelper.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/luxoft/BaseTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/pages/BasePage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/pages/stats/DailyReportPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/config/forhelpers/MouleOnServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/config/forhelpers/ModuleOnServer.java" />
@@ -197,17 +306,19 @@
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/DashboardHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/ServicesHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/model/Section.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/environment/TestEnvironment.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestDate.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/FrameWork.java" />
         <option value="$PROJECT_DIR$/src/main/resources/environment.properties" />
-        <option value="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestSql.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/model/MfcDailyStatsItem.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/model/MfcStatsItem.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestExcel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/database/DaoFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/pages/BasePage.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/luxoft/tests/_750_24/sau/_750_24_SAU_02.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/StatsHelper.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/FrameWork.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestSql.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/database/DaoPostgres.java" />
       </list>
     </option>
@@ -463,7 +574,7 @@
     <property name="project.structure.side.proportion" value="0.29957807" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/java/com/luxoft" />
     <property name="extract.method.default.visibility" value="public" />
-    <property name="settings.editor.selected.configurable" value="vcs.Subversion.Presentation" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -505,7 +616,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG._750_24_SAU_02.creatingReport">
+  <component name="RunManager" selected="TestNG.TestSql.testSql">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -774,8 +885,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="TestNG._750_24_SAU_02.creatingReport" />
-        <item index="1" class="java.lang.String" itemvalue="TestNG.TestSql.testSql" />
+        <item index="0" class="java.lang.String" itemvalue="TestNG.TestSql.testSql" />
+        <item index="1" class="java.lang.String" itemvalue="TestNG._750_24_SAU_02.creatingReport" />
         <item index="2" class="java.lang.String" itemvalue="TestNG._750_27_PDDB_2.RequestMainMmcStatsNotEnoughDataTest" />
         <item index="3" class="java.lang.String" itemvalue="Application.TestSql" />
         <item index="4" class="java.lang.String" itemvalue="TestNG._750_27_PDDB_1.RequestMainMmcStatsWithCurrentDateTest" />
@@ -821,7 +932,7 @@
       <workItem from="1513147469179" duration="5614000" />
       <workItem from="1513155385901" duration="636000" />
       <workItem from="1513158183620" duration="12398000" />
-      <workItem from="1513234133254" duration="18194000" />
+      <workItem from="1513234133254" duration="39320000" />
     </task>
     <task id="LOCAL-00001" summary="TestingFrameworkMFC">
       <created>1505367218553</created>
@@ -935,43 +1046,50 @@
       <option name="project" value="LOCAL" />
       <updated>1513143056332</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="750_24 (in progress), 750_27 (complete), 750_39 (complete)&#10;Creating insert statistic to DB">
+      <created>1513257536874</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1513257536874</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestSql_testSql - 2017.12.14 at 16h 08m 36s.xml">
+    <history-entry file="TestSql_testSql - 2017.12.15 at 16h 52m 10s.xml">
       <configuration name="TestSql.testSql" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="_750_24_SAU_02_creatingReport - 2017.12.14 at 16h 37m 39s.xml">
-      <configuration name="_750_24_SAU_02.creatingReport" configurationId="TestNG" />
+    <history-entry file="TestSql_testSql - 2017.12.15 at 16h 54m 15s.xml">
+      <configuration name="TestSql.testSql" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="_750_24_SAU_02_creatingReport - 2017.12.14 at 16h 38m 53s.xml">
-      <configuration name="_750_24_SAU_02.creatingReport" configurationId="TestNG" />
+    <history-entry file="TestSql_testSql - 2017.12.15 at 17h 04m 22s.xml">
+      <configuration name="TestSql.testSql" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="_750_24_SAU_02_creatingReport - 2017.12.14 at 16h 45m 19s.xml">
-      <configuration name="_750_24_SAU_02.creatingReport" configurationId="TestNG" />
+    <history-entry file="TestSql_testSql - 2017.12.15 at 17h 06m 26s.xml">
+      <configuration name="TestSql.testSql" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="_750_24_SAU_02_creatingReport - 2017.12.14 at 16h 47m 52s.xml">
-      <configuration name="_750_24_SAU_02.creatingReport" configurationId="TestNG" />
+    <history-entry file="TestSql_testSql - 2017.12.15 at 17h 06m 54s.xml">
+      <configuration name="TestSql.testSql" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="_750_24_SAU_02_creatingReport - 2017.12.14 at 16h 48m 30s.xml">
-      <configuration name="_750_24_SAU_02.creatingReport" configurationId="TestNG" />
+    <history-entry file="TestSql_testSql - 2017.12.15 at 17h 08m 02s.xml">
+      <configuration name="TestSql.testSql" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="_750_24_SAU_02_creatingReport - 2017.12.14 at 16h 50m 55s.xml">
-      <configuration name="_750_24_SAU_02.creatingReport" configurationId="TestNG" />
+    <history-entry file="TestSql_testSql - 2017.12.15 at 17h 13m 41s.xml">
+      <configuration name="TestSql.testSql" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="_750_24_SAU_02_creatingReport - 2017.12.14 at 17h 20m 39s.xml">
-      <configuration name="_750_24_SAU_02.creatingReport" configurationId="TestNG" />
+    <history-entry file="TestSql_testSql - 2017.12.15 at 17h 17m 04s.xml">
+      <configuration name="TestSql.testSql" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="_750_24_SAU_02_creatingReport - 2017.12.14 at 17h 23m 34s.xml">
-      <configuration name="_750_24_SAU_02.creatingReport" configurationId="TestNG" />
+    <history-entry file="TestSql_testSql - 2017.12.15 at 17h 38m 10s.xml">
+      <configuration name="TestSql.testSql" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="_750_24_SAU_02_creatingReport - 2017.12.14 at 17h 24m 14s.xml">
-      <configuration name="_750_24_SAU_02.creatingReport" configurationId="TestNG" />
+    <history-entry file="TestSql_testSql - 2017.12.15 at 17h 41m 55s.xml">
+      <configuration name="TestSql.testSql" configurationId="TestNG" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="589544000" />
+    <option name="totallyTimeSpent" value="610670000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1084,25 +1202,19 @@
     <MESSAGE value="750_24, 750_27 (complete), 750_39" />
     <MESSAGE value="750_24 (in progress), 750_27 (complete), 750_39 (complete)" />
     <MESSAGE value="750_24 (in progress), 750_27 (complete), 750_39 (complete)&#10;Refactoring in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="750_24 (in progress), 750_27 (complete), 750_39 (complete)&#10;Refactoring in progress" />
+    <MESSAGE value="750_24 (in progress), 750_27 (complete), 750_39 (complete)&#10;Creating insert statistic to DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="750_24 (in progress), 750_27 (complete), 750_39 (complete)&#10;Creating insert statistic to DB" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="161" />
+      <option name="time" value="171" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/UIHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/tests/_750_39/assk/_750_39_ASSK_01_01.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -1193,6 +1305,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1208,6 +1321,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="20" column="27" lean-forward="true" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1282,14 +1396,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="245" column="25" lean-forward="false" selection-start-line="245" selection-start-column="25" selection-end-line="245" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi-ooxml/3.16/poi-ooxml-3.16.jar!/org/apache/poi/xssf/usermodel/XSSFCell.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
@@ -1308,14 +1414,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="2866" column="18" lean-forward="false" selection-start-line="2866" selection-start-column="18" selection-end-line="2866" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/database/DaoFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1410,14 +1508,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/pages/BasePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="22" column="44" lean-forward="false" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestExcel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -1442,26 +1532,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/FrameWork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="20" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestSql.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/ServicesHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1477,16 +1547,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/model/MfcStatsItem.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/pages/BasePage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="98" column="34" lean-forward="false" selection-start-line="98" selection-start-column="34" selection-end-line="98" selection-end-column="34" />
-          <folding>
-            <element signature="e#2376#2377#0" expanded="true" />
-            <element signature="e#2422#2423#0" expanded="true" />
-            <element signature="e#2471#2472#0" expanded="true" />
-            <element signature="e#2515#2516#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="306">
+          <caret line="45" column="66" lean-forward="true" selection-start-line="45" selection-start-column="66" selection-end-line="45" selection-end-column="66" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1498,10 +1563,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://D:/JAVA/jdk/src.zip!/java/lang/Double.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="536" column="45" lean-forward="true" selection-start-line="536" selection-start-column="37" selection-end-line="536" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/model/MfcStatsItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <element signature="e#1308#1309#0" expanded="true" />
+            <element signature="e#2376#2377#0" expanded="true" />
+            <element signature="e#2422#2423#0" expanded="true" />
+            <element signature="e#2471#2472#0" expanded="true" />
+            <element signature="e#2515#2516#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/FrameWork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="93" column="17" lean-forward="false" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/helpers/StatsHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="160" column="9" lean-forward="false" selection-start-line="160" selection-start-column="9" selection-end-line="160" selection-end-column="9" />
+        <state relative-caret-position="-114">
+          <caret line="130" column="70" lean-forward="false" selection-start-line="130" selection-start-column="70" selection-end-line="130" selection-end-column="70" />
           <folding>
             <element signature="method#dateFromServerLessThenEightAm#0;class#StatsHelper#0" expanded="false" />
             <element signature="method#getMfcDailyStatsFromExcel#0;class#StatsHelper#0" expanded="false" />
@@ -1511,22 +1606,131 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/luxoft/examples/TestSql.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="42" column="65" lean-forward="false" selection-start-line="42" selection-start-column="65" selection-end-line="42" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/database/DaoFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/luxoft/mfcautotests/database/DaoPostgres.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="222" column="38" lean-forward="false" selection-start-line="222" selection-start-column="38" selection-end-line="222" selection-end-column="38" />
+        <state relative-caret-position="1988">
+          <caret line="256" column="0" lean-forward="true" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
           <folding>
-            <element signature="method#getConnectionToDb#0;class#DaoPostgres#0" expanded="false" />
-            <element signature="method#getDbWsConnection#0;class#DaoPostgres#0" expanded="false" />
-            <element signature="method#getDbConnection#0;class#DaoPostgres#0" expanded="false" />
-            <element signature="method#executeQueryWithResultSet#0;class#DaoPostgres#0" expanded="false" />
-            <element signature="method#executeQueryWithUpdate#0;class#DaoPostgres#0" expanded="false" />
-            <element signature="method#closeStatementAndConnection#0;class#DaoPostgres#0" expanded="false" />
-            <element signature="method#insertMainStatsData#0;class#DaoPostgres#0" expanded="false" />
-            <element signature="method#selectDmsCompaniesSortByAdminUiSeq#0;class#DaoPostgres#0" expanded="false" />
-            <element signature="method#insertInAnDataUpload#0;class#DaoPostgres#0" expanded="false" />
-            <element signature="method#deleteFromAnDataUpload#0;class#DaoPostgres#0" expanded="false" />
-            <element signature="method#selectMaxValueFromColumnInTable#0;class#DaoPostgres#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <marker date="1513340088498" expanded="true" signature="2954:3272" ph="INSERT INTO an_data_upload... " />
+            <marker date="1513340088498" expanded="true" signature="3294:3474" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="3393:3446" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="3496:3676" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="3595:3648" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="3698:3881" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="3797:3850" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="3903:4086" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="4002:4055" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="4108:4290" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="4207:4260" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="4312:4494" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="4411:4464" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="4516:4698" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="4615:4668" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="4720:4902" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="4819:4872" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="4924:5107" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="5023:5076" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="5129:5312" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="5228:5281" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="5334:5517" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="5433:5486" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="5539:5722" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="5638:5691" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="5744:5927" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="5843:5896" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="5949:6132" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="6048:6101" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="6154:6337" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="6253:6306" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="6359:6541" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="6458:6511" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="6563:6746" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="6662:6715" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="6768:6951" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="6867:6920" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="6973:7156" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="7072:7125" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="7178:7360" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="7277:7330" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="7382:7565" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="7481:7534" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="7587:7770" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="7686:7739" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="7792:7973" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="7891:7944" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="7995:8176" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="8094:8147" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="8198:8381" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="8297:8350" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="8403:8586" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="8502:8555" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="8608:8791" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="8707:8760" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="8813:8996" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="8912:8965" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="9018:9201" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="9117:9170" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="9223:9406" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="9322:9375" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="9428:9611" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="9527:9580" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="9633:9816" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="9732:9785" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="9838:10021" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="9937:9990" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="10043:10226" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="10142:10195" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="10248:10431" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="10347:10400" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="10453:10636" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="10552:10605" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="10658:10841" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="10757:10810" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="10863:11046" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="10962:11015" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="11068:11251" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="11167:11220" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="11273:11456" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="11372:11425" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="11478:11661" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="11577:11630" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="11683:11866" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="11782:11835" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="11888:12071" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="11987:12040" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="12093:12276" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="12192:12245" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="12298:12481" ph="INSERT INTO an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="12397:12450" ph="SELECT MAX (... an_data_upload" />
+            <marker date="1513340088498" expanded="true" signature="12941:13184" ph="DELETE FROM an_report_item_data... " />
+            <marker date="1513340088498" expanded="true" signature="13206:13344" ph="DELETE FROM an_data_upload... " />
+            <marker date="1513340088498" expanded="true" signature="18513:18642" ph="INSERT INTO an_data_upload... " />
+            <marker date="1513340088498" expanded="true" signature="19352:19458" ph="INSERT INTO an_report_item_data... " />
           </folding>
         </state>
       </provider>

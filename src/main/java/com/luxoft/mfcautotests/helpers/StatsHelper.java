@@ -4,7 +4,6 @@ import com.luxoft.mfcautotests.config.annotations.Helper;
 import com.luxoft.mfcautotests.database.DaoPostgres;
 import com.luxoft.mfcautotests.model.MfcStatsGroup;
 import com.luxoft.mfcautotests.model.MfcStatsItem;
-import com.luxoft.mfcautotests.pages.stats.DailyReportPage;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
@@ -149,14 +148,28 @@ public class StatsHelper extends ServicesHelper {
         dataSourceSeparatedItems.add(itemsWithSourcePpot);
         dataSourceSeparatedItems.add(itemsWithSourceTesting);
 
-        int dataUploadId = 0;
+        List<Integer> dataUploadIds = daoPostgres.selectDataUploadIdsForDate(periodStart);
+        daoPostgres.deleteFromAnReportItemData(dataUploadIds);
+        daoPostgres.deleteFromAnDataUpload(periodStart);
+
+
+
+        int dataUploadId;
         for (int i = 0; i < dataSourceSeparatedItems.size(); i++) {
             int fillingType = dataSourceSeparatedItems.get(i).get(0).getFillingType();
             List<MfcStatsItem> items = dataSourceSeparatedItems.get(i);
             daoPostgres.insertInAnDataUpload(fillingType, periodStart);
             dataUploadId = daoPostgres.selectMaxValueFromColumnInTable("an_data_upload", "andup_data_upload_id");
             for (int k = 0; k < items.size(); k++) {
-                daoPostgres.insertInAnReportItemData(dataUploadId, items.get(k).getItemIdPeriod(), items.get(k).getValue());
+                if (!"x".equalsIgnoreCase(items.get(k).getItemIdPeriod())) {
+                    daoPostgres.insertInAnReportItemData(dataUploadId, items.get(k).getItemIdPeriod(), items.get(k).getValue());
+                }
+                if (!"x".equalsIgnoreCase(items.get(k).getItemIdYear())) {
+                    daoPostgres.insertInAnReportItemData(dataUploadId, items.get(k).getItemIdYear(), items.get(k).getValue());
+                }
+                if (!"x".equalsIgnoreCase(items.get(k).getItemIdPrevYear())) {
+                    daoPostgres.insertInAnReportItemData(dataUploadId, items.get(k).getItemIdPrevYear(), items.get(k).getValue());
+                }
             }
         }
     }

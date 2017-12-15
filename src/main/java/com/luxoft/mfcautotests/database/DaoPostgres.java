@@ -1,83 +1,77 @@
 package com.luxoft.mfcautotests.database;
 
 import com.luxoft.mfcautotests.FrameWork;
-import com.luxoft.mfcautotests.config.annotations.InjectLogger;
 import com.luxoft.mfcautotests.environment.TestEnvironment;
 import com.luxoft.mfcautotests.model.InsuranceCompany;
-import org.apache.log4j.Logger;
+import com.luxoft.mfcautotests.model.MfcStatsItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
-import javax.ws.rs.DELETE;
 import java.sql.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 @Component
 @PropertySource({"classpath:environment.properties"})
-public class DaoPostgres extends FrameWork implements DaoFactory {
+public class DaoPostgres extends FrameWork{
 
     @Autowired
     TestEnvironment env;
 
-    private Connection dbConnection;
-    private PreparedStatement preparedStatement;
+//    private Connection dbConnection;
+//    private PreparedStatement preparedStatement;
 
-    private void getConnectionToDb(String url, String port, String dbName, String userName, String password) {
+    public Connection getConnectionToDb(String url, String port, String dbName, String userName, String password) {
         try {
             Class.forName(env.dbPostgreSqlDriverRegistration);
-            this.dbConnection = DriverManager.getConnection(env.dbPostgreSqlDriver + url + port + dbName, userName, password);
+            return DriverManager.getConnection(env.dbPostgreSqlDriver + url + port + dbName, userName, password);
         } catch (ClassNotFoundException | SQLException e) {
             log.error("Error while getting connection to DB");
             e.printStackTrace();
         }
     }
 
-    private void getDbWsConnection() {
+    private Connection getDbWsConnection() {
         log.info("Getting connection to DB_WS");
-        getConnectionToDb(env.dbWsUrl, env.dbWsPort, env.dbWsName, env.dbWsUserName, env.dbWsPassword);
+        return getConnectionToDb(env.dbWsUrl, env.dbWsPort, env.dbWsName, env.dbWsUserName, env.dbWsPassword);
     }
 
-    private void getDbConnection() {
+    private Connection getDbConnection() {
         log.info("Getting connection to DB");
-        getConnectionToDb(env.dbUrl, env.dbPort, env.dbName, env.dbUserName, env.dbPassword);
+        return getConnectionToDb(env.dbUrl, env.dbPort, env.dbName, env.dbUserName, env.dbPassword);
     }
 
-    public ResultSet executeQueryWithResultSet(String query) {
-        try {
-            preparedStatement = dbConnection.prepareStatement(query);
-            log.info("Executing query");
-            return preparedStatement.executeQuery();
-        } catch (SQLException e) {
-            e.getMessage();
-            e.printStackTrace();
-            throw new RuntimeException("Can't execute query with resultSet");
-        }
-    }
-
-    public int executeQueryWithUpdate(String query) {
-        try {
-            preparedStatement = dbConnection.prepareStatement(query);
-            log.info("Executing query");
-            return preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.getMessage();
-            e.printStackTrace();
-            return -100;
-        }
-    }
-
-    private void closeStatementAndConnection() {
+//    public ResultSet executeQueryWithResultSet(String query) {
+//        try {
+//            preparedStatement = dbConnection.prepareStatement(query);
+//            log.info("Executing query");
+//            return preparedStatement.executeQuery();
+//        } catch (SQLException e) {
+//            e.getMessage();
+//            e.printStackTrace();
+//            throw new RuntimeException("Can't execute query with resultSet");
+//        }
+//    }
+//
+//    public int executeQueryWithUpdate(String query) {
+//        try {
+//            preparedStatement = dbConnection.prepareStatement(query);
+//            log.info("Executing query");
+//            return preparedStatement.executeUpdate();
+//        } catch (SQLException e) {
+//            e.getMessage();
+//            e.printStackTrace();
+//            return -100;
+//        }
+//    }
+//
+    private void closeConnection(PreparedStatement preparedStatement) {
         try {
             if (preparedStatement != null) {
-                this.preparedStatement.close();
-            }
-            if (dbConnection != null) {
-                this.dbConnection.close();
+                preparedStatement.close();
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -134,12 +128,14 @@ public class DaoPostgres extends FrameWork implements DaoFactory {
                 "INSERT INTO an_report_item_data (andup_data_upload_id, anrei_report_item_id, anred_value) VALUES ((SELECT MAX (andup_data_upload_id) FROM an_data_upload), 5363,trunc(random() * 1000));" +
                 "END;";
 
-        getDbWsConnection();
-
         log.info("Creating query 'insert mainMmcStats'");
-        executeQueryWithUpdate(insertQuery);
-
-        closeStatementAndConnection();
+        try {
+            PreparedStatement st = getDbWsConnection().prepareStatement(insertQuery);
+            st.execute();
+            closeConnection(st);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void deleteMainStatsData(int daysToMinusFromCurrentDate) {
@@ -148,13 +144,14 @@ public class DaoPostgres extends FrameWork implements DaoFactory {
                 "(SELECT andup_data_upload_id FROM an_data_upload WHERE andup_period_start = CURRENT_DATE - interval '" + daysToMinusFromCurrentDate + " day' + interval '8 hour');" +
                 "DELETE FROM an_data_upload WHERE andup_period_start = CURRENT_DATE - interval '" + daysToMinusFromCurrentDate + " day' + interval '8 hour';" +
                 "END;";
-
-        getDbWsConnection();
-
-        log.info("Creating query 'delete mainMmcStats'");
-        executeQueryWithUpdate(deleteQuery);
-
-        closeStatementAndConnection();
+        try {
+            Connection connection = getDbWsConnection();
+            PreparedStatement st = connection.prepareStatement(deleteQuery);
+            st.execute();
+            closeConnection(st);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<InsuranceCompany> selectDmsCompaniesSortByAdminUiSeq() {
@@ -163,6 +160,7 @@ public class DaoPostgres extends FrameWork implements DaoFactory {
                 "ORDER BY paidi_dms_admin_ui_seq_no ASC";
 
         getDbConnection();
+
         log.info("Creating query 'SELECT Insurance Companies sorting by admin_ui sequence ASC'");
         ResultSet resultSet = executeQueryWithResultSet(selectQuery);
 
@@ -186,52 +184,138 @@ public class DaoPostgres extends FrameWork implements DaoFactory {
 
     public void insertInAnDataUpload(int type, LocalDateTime periodStart) {
         String insertQuerry = "INSERT INTO an_data_upload (andut_data_upload_type_id, andup_committed, andup_period_start, " +
-                "andup_period_end) VALUES (" + type + ", CURRENT_TIMESTAMP, '" + periodStart + "', '" + periodStart.plusDays(1) + "');";
+                "andup_period_end) VALUES (" + type + ", CURRENT_TIMESTAMP, '" + formatDate(periodStart) + "', '" + periodStart.plusDays(1) + "')";
 
-        getDbWsConnection();
+        getDbConnection();
 
-        log.info("Creating querry to insert in an_data_upload");
+        log.info("Creating query to insert in an_data_upload");
         executeQueryWithUpdate(insertQuerry);
 
         closeStatementAndConnection();
     }
 
-    public void deleteFromAnDataUpload(int type, LocalDateTime periodStart) {
-        String deleteQuerry = "DELETE FROM an_data_upload WHERE andut_data_upload_type_id =" + type + " AND " +
-                "andup_period_start = '" + periodStart + "' ";
+    public void deleteFromAnDataUpload(LocalDateTime periodStart) {
+        String deleteQuery = "DELETE FROM an_data_upload WHERE andup_period_start = '" + formatDate(periodStart) + "'";
+        System.out.println(deleteQuery);
+
+        getDbWsConnection();
+
+        log.info("Creating query 'delete from an_data_upload'");
+        executeQueryWithUpdate(deleteQuery);
+
+        closeStatementAndConnection();
     }
 
     public int selectMaxValueFromColumnInTable(String tableName, String columnName) {
-        String selectQuerry = "SELECT MAX (" + columnName + ") FROM " + tableName + "";
+        String selectQuery = "SELECT MAX (" + columnName + ") FROM " + tableName + "";
 
         getDbWsConnection();
 
         log.info("Creating querry to SELECT MAX value from column " + columnName + " in table " + tableName);
-        ResultSet resultSet = executeQueryWithResultSet(selectQuerry);
+        ResultSet resultSet = executeQueryWithResultSet(selectQuery);
         try {
             resultSet.next();
             return resultSet.getInt(1);
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException("CAN'T SELECT MAX FROM TABLE");
-        }
-        finally {
+        } finally {
             closeStatementAndConnection();
         }
     }
 
-    public List<Integer> dataUploadIds
+    public List<Integer> selectDataUploadIdsForDate(LocalDateTime periodStart) {
+        String selectQuery = "SELECT andup_data_upload_id FROM an_data_upload WHERE andup_period_start ='" + formatDate(periodStart) + "'";
+        System.out.println(selectQuery);
+
+        getDbWsConnection();
+
+        ResultSet resultSet = executeQueryWithResultSet(selectQuery);
+        List<Integer> dataUploadIds = new ArrayList<>();
+        try {
+            while (resultSet.next()) {
+                int dataUploadId = resultSet.getInt(1);
+                dataUploadIds.add(dataUploadId);
+            }
+            return dataUploadIds;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("CAN'T SELECT DATA_UPLOAD_IDS");
+        } finally {
+            closeStatementAndConnection();
+        }
+    }
 
     public void insertInAnReportItemData(int dataUploadId, String itemId, String value) {
-        String insertQuerry = "INSERT INTO an_report_item_data (andup_data_upload_id, anrei_report_item_id, anred_value) " +
+        String insertQuery = "INSERT INTO an_report_item_data (andup_data_upload_id, anrei_report_item_id, anred_value) " +
                 "VALUES (" + dataUploadId + ", " + itemId + ", " + value + ")";
 
         getDbWsConnection();
 
         log.info("Creating querry to insert in an_report_item_data");
-        executeQueryWithUpdate(insertQuerry);
+        executeQueryWithUpdate(insertQuery);
 
         closeStatementAndConnection();
+    }
+
+    public void deleteFromAnReportItemData(List<Integer> dataUploadIds) {
+        String deleteQuery = "DELETE FROM an_report_item_data WHERE andup_data_upload_id IN " +
+                "(" + getSubstringFromString(dataUploadIds.toString(), "\\[(.*)\\]") + ")";
+        System.out.println(deleteQuery);
+
+        getDbWsConnection();
+
+        log.info("Creating query 'delete from an_report_item_data'");
+        executeQueryWithUpdate(deleteQuery);
+
+        closeStatementAndConnection();
+    }
+
+    public void insertInReportItemDataItemsWithSource(List<MfcStatsItem> mfcStatsItems, LocalDateTime periodStart) {
+        try {
+            String sql = "INSERT INTO an_data_upload (andut_data_upload_type_id, andup_committed, andup_period_start, andup_period_end) VALUES (?, ?, ?, ?)";
+            log.info("Creating query to insert into an_data_upload");
+            getDbWsConnection();
+            PreparedStatement psForAnDataUpload = dbConnection.prepareStatement(sql);
+            psForAnDataUpload.setInt(1, mfcStatsItems.get(0).getFillingType());
+            psForAnDataUpload.setObject(2, LocalDateTime.now());
+            psForAnDataUpload.setObject(3, periodStart);
+            psForAnDataUpload.setObject(4, periodStart.plusDays(1));
+            psForAnDataUpload.executeUpdate();
+
+            int dataUpload = selectMaxValueFromColumnInTable("an_data_upload", "andup_data_upload_id");
+
+            log.info("Creating query to insert into an_report_item_data");
+            sql = "INSERT INTO an_report_item_data (andup_data_upload_id, anrei_report_item_id, anred_value) VALUES (?, ?, ?)";
+            getDbWsConnection();
+            PreparedStatement psForReportItemData = dbConnection.prepareStatement(sql);
+            final int batchSize = 1000;
+            int count = 0;
+            for (MfcStatsItem item : mfcStatsItems) {
+                psForReportItemData.setInt(1, dataUpload);
+                if (!"x".equalsIgnoreCase(item.getItemIdPeriod())) {
+                    psForReportItemData.setDouble(2, Double.parseDouble(item.getItemIdPeriod()));
+                }
+                if (!"x".equalsIgnoreCase(item.getItemIdYear())) {
+                    psForReportItemData.setDouble(2, Double.parseDouble(item.getItemIdYear()));
+                }
+                if (!"x".equalsIgnoreCase(item.getItemIdPrevYear())) {
+                    psForReportItemData.setDouble(2, Double.parseDouble(item.getItemIdPrevYear()));
+                }
+                psForReportItemData.setDouble(3, Double.parseDouble(item.getValue()));
+                psForReportItemData.addBatch();
+
+                if (++count % batchSize == 0) {
+                    psForReportItemData.executeBatch();
+                }
+            }
+            psForReportItemData.executeBatch();
+            psForReportItemData.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            closeStatementAndConnection();
+        }
     }
 }
 
