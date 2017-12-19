@@ -109,25 +109,20 @@ public class BasePage<T> extends FrameWork {
         List<WebElement> daysInCalendarWebElement = getCalendarElementsAsWebElements();
         //get List of Integer from calendar of WebElements
         List<Integer> daysInCalendarInteger = getCalendarElementsAsInteger(daysInCalendarWebElement);
-        //Get positions of date we need in List of Integer
-//        GetPositionsInListConfig dayToFind = new GetPositionsInListConfig(getIntFromDate(new Date(), "dd"));
         Integer[] dayPositionsInCalendar = getDayPositionsInCalendar(fromDate, daysInCalendarInteger);
         ClickableConfig calendarDaysClickableConfig = new ClickableConfig("disabled");
         //if we have two same dates in one calendar than we take not old date to check
         if (isDateOld(daysInCalendarWebElement, dayPositionsInCalendar[0])) {
             int startIndex = dayPositionsInCalendar[1];
-            int endIndex = daysInCalendarWebElement.size() - startIndex;
             if (countDaysToCheck == 0) {
-                countDaysToCheck = endIndex;
+                countDaysToCheck = daysInCalendarWebElement.size() - startIndex;
             }
             assertTrue(isDatesDisabled(startIndex, countDaysToCheck, daysInCalendarWebElement, calendarDaysClickableConfig));
         } else {
             int startIndex = dayPositionsInCalendar[0];
-            int endIndex = daysInCalendarWebElement.size() - startIndex;
             if (countDaysToCheck == 0) {
-                countDaysToCheck = endIndex;
+                countDaysToCheck = daysInCalendarWebElement.size() - startIndex;
             }
-            System.out.println("start index = " + startIndex);
             assertTrue(isDatesDisabled(startIndex, countDaysToCheck, daysInCalendarWebElement, calendarDaysClickableConfig));
         }
     }

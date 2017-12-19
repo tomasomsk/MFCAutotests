@@ -23,6 +23,8 @@ public class MfcStatsItem {
     String itemIdPrevYear;
     String parameter;
     String value;
+    String valueYear;
+    String valuePrevYear;
 
     public int getNumber() {
         return number;
@@ -70,6 +72,14 @@ public class MfcStatsItem {
 
     public String getValue() {
         return value;
+    }
+
+    public String getValueYear() {
+        return valueYear;
+    }
+
+    public String getValuePrevYear() {
+        return valuePrevYear;
     }
 
     public void setNumber(int number) {
@@ -132,4 +142,11 @@ public class MfcStatsItem {
         this.value = value;
     }
 
+    public void setValueYear(String valueYear) {
+        this.valueYear = valueYear;
+    }
+
+    public void setValuePrevYear(String valuePrevYear) {
+        this.valuePrevYear = valuePrevYear;
+    }
 }

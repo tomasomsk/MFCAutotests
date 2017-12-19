@@ -41,6 +41,7 @@ public class TestSql extends BaseTest {
 
 
         LocalDateTime periodStart = LocalDateTime.of(2017, 12, 13, 8, 0, 0);
+        System.out.println(periodStart);
         List<Integer> dataUploadIds = daoPostgres.selectDataUploadIdsForDate(periodStart);
         if (!dataUploadIds.isEmpty()) {
             daoPostgres.deleteFromAnReportItemData(dataUploadIds);

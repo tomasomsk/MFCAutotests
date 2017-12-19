@@ -4,6 +4,7 @@ import com.luxoft.mfcautotests.config.annotations.Helper;
 import com.luxoft.mfcautotests.database.DaoPostgres;
 import com.luxoft.mfcautotests.model.MfcStatsGroup;
 import com.luxoft.mfcautotests.model.MfcStatsItem;
+import com.luxoft.mfcautotests.pages.stats.DailyReportPage;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
@@ -26,8 +27,8 @@ public class StatsHelper extends ServicesHelper {
 
     @Autowired
     SSHHelper sshHelper;
-//    @Autowired
-//    DailyReportPage dailyReportPage;
+    @Autowired
+    DailyReportPage dailyReportPage;
     @Autowired
     DaoPostgres daoPostgres;
 
@@ -65,13 +66,15 @@ public class StatsHelper extends ServicesHelper {
                 XSSFCell itemIdPrevYearCell = row.getCell(13);
                 XSSFCell parameterCell = row.getCell(14);
                 XSSFCell valueCell = row.getCell(15);
+                XSSFCell valueYearCell = row.getCell(16);
+                XSSFCell valuePrevYearCell = row.getCell(17);
 
 
                 if (groupNameCell != null && !"".equals(groupNameCell.getStringCellValue())) {
                     i += 1;
                     MfcStatsGroup mfcStatsGroup = new MfcStatsGroup();
-                    String sectionName = groupNameCell.getStringCellValue();
-                    mfcStatsGroup.setName(sectionName);
+                    String groupName = groupNameCell.getStringCellValue();
+                    mfcStatsGroup.setName(groupName);
                     mfcDailyStats.add(mfcStatsGroup);
                 }
 
@@ -91,10 +94,12 @@ public class StatsHelper extends ServicesHelper {
                     mfcStatsItem.setIsDashboard("Да".equalsIgnoreCase(getValueFromCell(isDashboardCell))
                             ? "Y" : "");
                     mfcStatsItem.setItemIdPeriod(getValueFromCell(itemIdPeriodCell));
-                    mfcStatsItem.setItemIdYear(getValueFromCell(itemIdYearCell));
-                    mfcStatsItem.setItemIdPrevYear(getValueFromCell(itemIdPrevYearCell));
-                    mfcStatsItem.setParameter(getValueFromCell(parameterCell));
                     mfcStatsItem.setValue(getValueFromCell(valueCell));
+                    mfcStatsItem.setItemIdYear(getValueFromCell(itemIdYearCell));
+                    mfcStatsItem.setValueYear(getValueFromCell(valueYearCell));
+                    mfcStatsItem.setItemIdPrevYear(getValueFromCell(itemIdPrevYearCell));
+                    mfcStatsItem.setValuePrevYear(getValueFromCell(valuePrevYearCell));
+                    mfcStatsItem.setParameter(getValueFromCell(parameterCell));
 
                     mfcDailyStats.get(i - 1).addMfcStatsItem(mfcStatsItem);
                 }
@@ -108,8 +113,8 @@ public class StatsHelper extends ServicesHelper {
         }
     }
 
-    public int switchDataSourceValue(String valueFromCell) {
-        switch (valueFromCell.toUpperCase()) {
+    public int switchDataSourceValue(String value) {
+        switch (value.toUpperCase()) {
             case "ЕМИАС" : return 1;
             case "БАНК" : return 2;
             case "ЭЛ. ОЧЕРЕДЬ" : return 3;
@@ -148,30 +153,18 @@ public class StatsHelper extends ServicesHelper {
         dataSourceSeparatedItems.add(itemsWithSourcePpot);
         dataSourceSeparatedItems.add(itemsWithSourceTesting);
 
-        List<Integer> dataUploadIds = daoPostgres.selectDataUploadIdsForDate(periodStart);
-        daoPostgres.deleteFromAnReportItemData(dataUploadIds);
-        daoPostgres.deleteFromAnDataUpload(periodStart);
-
-
-
-        int dataUploadId;
-        for (int i = 0; i < dataSourceSeparatedItems.size(); i++) {
-            int fillingType = dataSourceSeparatedItems.get(i).get(0).getFillingType();
-            List<MfcStatsItem> items = dataSourceSeparatedItems.get(i);
-            daoPostgres.insertInAnDataUpload(fillingType, periodStart);
-            dataUploadId = daoPostgres.selectMaxValueFromColumnInTable("an_data_upload", "andup_data_upload_id");
-            for (int k = 0; k < items.size(); k++) {
-                if (!"x".equalsIgnoreCase(items.get(k).getItemIdPeriod())) {
-                    daoPostgres.insertInAnReportItemData(dataUploadId, items.get(k).getItemIdPeriod(), items.get(k).getValue());
-                }
-                if (!"x".equalsIgnoreCase(items.get(k).getItemIdYear())) {
-                    daoPostgres.insertInAnReportItemData(dataUploadId, items.get(k).getItemIdYear(), items.get(k).getValue());
-                }
-                if (!"x".equalsIgnoreCase(items.get(k).getItemIdPrevYear())) {
-                    daoPostgres.insertInAnReportItemData(dataUploadId, items.get(k).getItemIdPrevYear(), items.get(k).getValue());
-                }
-            }
+        for (List<MfcStatsItem> itemsList : dataSourceSeparatedItems) {
+            daoPostgres.insertInReportItemDataItemsWithSource(itemsList, periodStart);
         }
+    }
+
+    public StatsHelper deleteDailyStatsFromDb(LocalDateTime periodStart) {
+        List<Integer> dataUploadIds = daoPostgres.selectDataUploadIdsForDate(periodStart);
+        if (!dataUploadIds.isEmpty()) {
+            daoPostgres.deleteFromAnReportItemData(dataUploadIds);
+        }
+        daoPostgres.deleteFromAnDataUpload(periodStart);
+        return this;
     }
 
     public List<MfcStatsItem> getItemsWithSource(int sourceType, List<MfcStatsGroup> mfcDailyStats) {

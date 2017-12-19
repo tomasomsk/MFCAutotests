@@ -29,10 +29,10 @@ public class BaseTest extends AbstractTestNGSpringContextTests implements IHooka
     @Lazy
     public NavHelper navHelper;
 
-    @AfterClass
-    public void tearDown() {
-        driverUtils.killDriver();
-    }
+//    @AfterClass
+//    public void tearDown() {
+//        driverUtils.killDriver();
+//    }
 
     @Override
     public void run(IHookCallBack callBack, ITestResult testResult) {
