@@ -31,13 +31,13 @@ public class TestSql extends BaseTest {
 
         List<MfcStatsGroup> mfcDailyStats = statsHelper.getMfcDailyStatsFromExcel();
 
-        List<MfcStatsItem> itemsWithSourceEmias = statsHelper.getItemsWithSource(1, mfcDailyStats);
-        List<MfcStatsItem> itemsWithSourceBank = statsHelper.getItemsWithSource(2, mfcDailyStats);
-        List<MfcStatsItem> itemsWithSourceQms = statsHelper.getItemsWithSource(3, mfcDailyStats);
-        List<MfcStatsItem> itemsWithSourceMfcAuto = statsHelper.getItemsWithSource(5, mfcDailyStats);
-        List<MfcStatsItem> itemsWithSourceMfcManual = statsHelper.getItemsWithSource(6, mfcDailyStats);
-        List<MfcStatsItem> itemsWithSourcePpot = statsHelper.getItemsWithSource(8, mfcDailyStats);
-        List<MfcStatsItem> itemsWithSourceTesting = statsHelper.getItemsWithSource(16, mfcDailyStats);
+//        List<MfcStatsItem> itemsWithSourceEmias = statsHelper.getItemsWithSource(1, mfcDailyStats);
+//        List<MfcStatsItem> itemsWithSourceBank = statsHelper.getItemsWithSource(2, mfcDailyStats);
+//        List<MfcStatsItem> itemsWithSourceQms = statsHelper.getItemsWithSource(3, mfcDailyStats);
+//        List<MfcStatsItem> itemsWithSourceMfcAuto = statsHelper.getItemsWithSource(5, mfcDailyStats);
+//        List<MfcStatsItem> itemsWithSourceMfcManual = statsHelper.getItemsWithSource(6, mfcDailyStats);
+//        List<MfcStatsItem> itemsWithSourcePpot = statsHelper.getItemsWithSource(8, mfcDailyStats);
+//        List<MfcStatsItem> itemsWithSourceTesting = statsHelper.getItemsWithSource(16, mfcDailyStats);
 
 
         LocalDateTime periodStart = LocalDateTime.of(2017, 12, 13, 8, 0, 0);
@@ -47,6 +47,6 @@ public class TestSql extends BaseTest {
             daoPostgres.deleteFromAnReportItemData(dataUploadIds);
         }
         daoPostgres.deleteFromAnDataUpload(periodStart);
-        daoPostgres.insertInReportItemDataItemsWithSource(itemsWithSourceBank, periodStart);
+//        daoPostgres.insertInReportItemDataItemsWithSource(itemsWithSourceBank, periodStart);
     }
 }

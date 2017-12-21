@@ -4,6 +4,7 @@ import com.luxoft.mfcautotests.config.annotations.Helper;
 import com.luxoft.mfcautotests.database.DaoPostgres;
 import com.luxoft.mfcautotests.model.MfcStatsGroup;
 import com.luxoft.mfcautotests.model.MfcStatsItem;
+import com.luxoft.mfcautotests.model.StatsSource;
 import com.luxoft.mfcautotests.pages.stats.DailyReportPage;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.CellType;
@@ -12,11 +13,13 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -32,15 +35,26 @@ public class StatsHelper extends ServicesHelper {
     @Autowired
     DaoPostgres daoPostgres;
 
+    public List<MfcStatsGroup> mfcDailyStats;
+
     public boolean dateFromServerLessThenEightAm() {
         Date dateFromServer = sshHelper.getDateFromServer(env.dbUrl);
         Date currentDateEightOClock = getCurrentDateWithDefinedTime(8, 0, 0);
         return dateFromServer.compareTo(currentDateEightOClock) < 1;
     }
 
+    public boolean currentTimeLessThanEightAm() {
+        return LocalTime.now().compareTo(LocalTime.of(8, 0,0 ,0)) < 0;
+    }
+
     public List<MfcStatsGroup> getMfcDailyStatsFromExcel() {
-        List<MfcStatsGroup> mfcDailyStats = new ArrayList<>();
+        log.info("Getting statistic from Excel");
+
+        if (mfcDailyStats != null) {
+            return mfcDailyStats;
+        }
         try {
+            mfcDailyStats = new ArrayList<>();
             File statsFile = new File(env.resourcesPath + "/excel/statistic/dailyStatsItems.xlsx");
             XSSFWorkbook mfcStats = new XSSFWorkbook(statsFile);
             XSSFSheet mfcStatsSheet = mfcStats.getSheetAt(0);
@@ -127,22 +141,22 @@ public class StatsHelper extends ServicesHelper {
         }
     }
 
-    public static String getValueFromCell(XSSFCell cell) {
+    public String getValueFromCell(XSSFCell cell) {
 
         return Objects.nonNull(cell) ? cell.getCellTypeEnum().equals(CellType.NUMERIC)
                 ? String.valueOf(cell.getNumericCellValue()) : cell.getStringCellValue() : "";
     }
 
     public void insertDailyStatsItemsToDb(LocalDateTime periodStart) {
-        List<MfcStatsGroup> mfcDailyStats = getMfcDailyStatsFromExcel();
+        mfcDailyStats = getMfcDailyStatsFromExcel();
 
-        List<MfcStatsItem> itemsWithSourceEmias = getItemsWithSource(1, mfcDailyStats);
-        List<MfcStatsItem> itemsWithSourceBank = getItemsWithSource(2, mfcDailyStats);
-        List<MfcStatsItem> itemsWithSourceQms = getItemsWithSource(3, mfcDailyStats);
-        List<MfcStatsItem> itemsWithSourceMfcAuto = getItemsWithSource(5, mfcDailyStats);
-        List<MfcStatsItem> itemsWithSourceMfcManual = getItemsWithSource(6, mfcDailyStats);
-        List<MfcStatsItem> itemsWithSourcePpot = getItemsWithSource(8, mfcDailyStats);
-        List<MfcStatsItem> itemsWithSourceTesting = getItemsWithSource(16, mfcDailyStats);
+        List<MfcStatsItem> itemsWithSourceEmias = getItemsWithSource(StatsSource.MED, mfcDailyStats);
+        List<MfcStatsItem> itemsWithSourceBank = getItemsWithSource(StatsSource.BANK, mfcDailyStats);
+        List<MfcStatsItem> itemsWithSourceQms = getItemsWithSource(StatsSource.QMS, mfcDailyStats);
+        List<MfcStatsItem> itemsWithSourceMfcAuto = getItemsWithSource(StatsSource.IS_MMC, mfcDailyStats);
+        List<MfcStatsItem> itemsWithSourceMfcManual = getItemsWithSource(StatsSource.MFC, mfcDailyStats);
+        List<MfcStatsItem> itemsWithSourcePpot = getItemsWithSource(StatsSource.PPOT, mfcDailyStats);
+        List<MfcStatsItem> itemsWithSourceTesting = getItemsWithSource(StatsSource.TESTING, mfcDailyStats);
 
         List<List<MfcStatsItem>> dataSourceSeparatedItems = new ArrayList<>();
         dataSourceSeparatedItems.add(itemsWithSourceEmias);
@@ -167,11 +181,60 @@ public class StatsHelper extends ServicesHelper {
         return this;
     }
 
-    public List<MfcStatsItem> getItemsWithSource(int sourceType, List<MfcStatsGroup> mfcDailyStats) {
+//    public List<MfcStatsItem> getItemsWithSource(int sourceType, List<MfcStatsGroup> mfcDailyStats) {
+//        return mfcDailyStats.stream()
+//                .map(MfcStatsGroup::getMfcStatsItems)
+//                .flatMap(Collection::stream)
+//                .filter(item -> item.getDataSource() == sourceType)
+//                .collect(Collectors.toList());
+//    }
+
+    public List<MfcStatsItem> getItemsWithSource(StatsSource source, List<MfcStatsGroup> mfcDailyStats) {
+        int sourceType;
+        switch(source) {
+            case MED: sourceType = 1;
+            break;
+            case BANK: sourceType = 2;
+            break;
+            case QMS: sourceType = 3;
+            break;
+            case TESTING: sourceType = 16;
+            break;
+            case IS_MMC: sourceType = 5;
+            break;
+            case MFC: sourceType = 6;
+            break;
+            case PAPILON: sourceType = 7;
+            break;
+            case PPOT: sourceType = 8;
+            break;
+            case CALC: sourceType = 9;
+            break;
+            case DEP_ZDRAV: sourceType = 10;
+            break;
+            case MCKO: sourceType = 11;
+            break;
+            case FNS_KAZN: sourceType = 12;
+            break;
+            case FNS: sourceType = 13;
+            break;
+            case UFMS: sourceType = 14;
+            break;
+            default: sourceType = Integer.MAX_VALUE;
+        }
+
         return mfcDailyStats.stream()
                 .map(MfcStatsGroup::getMfcStatsItems)
                 .flatMap(Collection::stream)
                 .filter(item -> item.getDataSource() == sourceType)
+                .collect(Collectors.toList());
+    }
+
+    public List<MfcStatsItem> createSortedListOfMfcStatsItems(List<MfcStatsGroup> mfcDailyStats) {
+        return mfcDailyStats.stream()
+                .map(MfcStatsGroup::getMfcStatsItems)
+                .flatMap(Collection::stream)
+                .sorted(Comparator.comparing(MfcStatsItem::getNumber))
                 .collect(Collectors.toList());
     }
 }

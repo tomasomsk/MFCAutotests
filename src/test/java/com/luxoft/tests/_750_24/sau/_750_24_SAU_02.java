@@ -2,6 +2,7 @@ package com.luxoft.tests._750_24.sau;
 
 import com.luxoft.BaseTest;
 import com.luxoft.mfcautotests.config.annotations.NonDriver;
+import com.luxoft.mfcautotests.config.forpages.ClickableConfig;
 import com.luxoft.mfcautotests.database.DaoPostgres;
 import com.luxoft.mfcautotests.helpers.StatsHelper;
 import com.luxoft.mfcautotests.model.MfcStatsGroup;
@@ -20,12 +21,15 @@ import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.Title;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collection;
-import java.util.Date;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
-import static org.testng.AssertJUnit.assertTrue;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class _750_24_SAU_02 extends BaseTest {
 
@@ -47,7 +51,7 @@ public class _750_24_SAU_02 extends BaseTest {
 
     @BeforeClass
     public void beforeClassSetup() {
-        periodStart = statsHelper.dateFromServerLessThenEightAm() ?
+        periodStart = statsHelper.currentTimeLessThanEightAm() ?
                 LocalDateTime.now().minusDays(2).withHour(8).withMinute(0).withSecond(0).withNano(0) :
                 LocalDateTime.now().minusDays(1).withHour(8).withMinute(0).withSecond(0).withNano(0);
 
@@ -67,24 +71,53 @@ public class _750_24_SAU_02 extends BaseTest {
     }
 
 
-    @Test (priority = 1)
-    @Title("Внешний вид экрана Ежелневного отчета")
+    @Test
+    @Title("Вид экрана Ежелневного отчета")
     @Features("750-24 Требования к ручному вводу и просмотру данных отчетности")
     @Stories("MMC-SAU-02 Ежедневный отчет (АРМ Администратора отчетов)")
     public void dailyReportScreenSpecificationTest() {
-        dailyReportPage.checkDailyReportPageElements();
+        dailyReportPage.checkTableColumnNames();
+
+        assertTrue(dailyReportPage.isDisplayed(
+                dailyReportPage.dailyTypeOfReportLabel,
+                dailyReportPage.linkToStatsAdminArm,
+                dailyReportPage.reportDateLable,
+                dailyReportPage.reportDateField,
+                dailyReportPage.dataSourceLabel,
+                dailyReportPage.dataSourceDropDown,
+                dailyReportPage.dashboardItemsLabel,
+                dailyReportPage.saveButton)
+                &&
+                dailyReportPage.isNotClickable(
+                        dailyReportPage.reportDateField,
+                        dailyReportPage.dashboardItemsCheckBox,
+                        dailyReportPage.saveButton)
+                &&
+                dailyReportPage.isNotClickable(
+                        dailyReportPage.dataSourceDropDown, new ClickableConfig("select2-container-disabled"))
+                &&
+                dailyReportPage.isClickable(
+                        dailyReportPage.reportDateCalendarLink,
+                        dailyReportPage.createReportButton,
+                        dailyReportPage.goBackButton));
     }
 
     @Test
-    @Title("Проверка отчетной даты по умолчанию")
+    @Title("Отчетная дата по умолчанию")
     @Features("750-24 Требования к ручному вводу и просмотру данных отчетности")
     @Stories("MMC-SAU-02 Ежедневный отчет (АРМ Администратора отчетов)")
     public void defaultReportDateTest() {
-        dailyReportPage.checkDefaultDate(periodStart);
+        String reportDateFromUi = dailyReportPage.reportDateField.getAttribute("value");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        String expectedDate = statsHelper.currentTimeLessThanEightAm() ?
+                LocalDateTime.now().minusDays(2).format(formatter) :
+                LocalDateTime.now().minusDays(1).format(formatter);
+
+        assertEquals(reportDateFromUi, expectedDate);
     }
 
     @Test
-    @Title("Проверка выбора даты")
+    @Title("Недоступность дат")
     @Features("750-24 Требования к ручному вводу и просмотру данных отчетности")
     @Stories("MMC-SAU-02 Ежедневный отчет (АРМ Администратора отчетов)")
     public void dateSelectionTest() {
@@ -92,36 +125,67 @@ public class _750_24_SAU_02 extends BaseTest {
     }
 
     @Test
-    @NonDriver
-    @Title("Формирование отчета")
+    @Title("Вид экрана после формирование отчета")
     @Features("750-24 Требования к ручному вводу и просмотру данных отчетности")
     @Stories("MMC-SAU-02 Ежедневный отчет (АРМ Администратора отчетов)")
     public void creatingReport() {
+        dailyReportPage.generateRerport()
+                .checkTableLabel(periodStart);
+
+        assertTrue(dailyReportPage.isClickable(
+                dailyReportPage.uploadToExcelButton,
+                dailyReportPage.uploadToPdfButton,
+                dailyReportPage.saveButton,
+                dailyReportPage.goBackButton,
+                dailyReportPage.dataSourceDropDown,
+                dailyReportPage.dashboardItemsCheckBox));
+    }
+
+    @Test
+    @Title("Сравнение значений в БД и на UI")
+    @Features("750-24 Требования к ручному вводу и просмотру данных отчетности")
+    @Stories("MMC-SAU-02 Ежедневный отчет (АРМ Администратора отчетов)")
+    public void matchingValuesDbUi() {
         dailyReportPage.generateRerport();
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        List<MfcStatsGroup> mfcDailyStatsFromDb = statsHelper.getMfcDailyStatsFromExcel();
+        List<MfcStatsGroup> mfcDailyStatsFromUi = dailyReportPage.getDailyStatsFromUi();
 
-        dailyReportPage.dashboardItemsCheckBox.click();
+        List<MfcStatsItem> mfcDailyStatsFromDbSorted = statsHelper.createSortedListOfMfcStatsItems(mfcDailyStatsFromDb);
+        List<MfcStatsItem> mfcDailyStatsFromUiSorted = statsHelper.createSortedListOfMfcStatsItems(mfcDailyStatsFromUi);
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        assertEquals(mfcDailyStatsFromDbSorted.size(), mfcDailyStatsFromUiSorted.size());
 
-        List<MfcStatsGroup> dailyStatsFromUi = dailyReportPage.getDailyStatsValuesFromUi();
+        IntStream.range(0, mfcDailyStatsFromDbSorted.size())
+                .forEach(i -> mfcDailyStatsFromDbSorted.get(i).equalsAsUiObject(mfcDailyStatsFromUiSorted.get(i)));
+    }
 
+    @Test
+    @Title("Отображение красным не полученных от внешних систем значений")
+    @Features("750-24 Требования к ручному вводу и просмотру данных отчетности")
+    @Stories("MMC-SAU-02 Ежедневный отчет (АРМ Администратора отчетов)")
+    public void redValuesNotFromWs() {
+        dailyReportPage.generateRerport();
+    }
+
+
+
+
+//        List<MfcStatsGroup> dailyStatsFromExcel = statsHelper.getMfcDailyStatsFromExcel();
+//        List<MfcStatsGroup> dailyStatsFromUi = dailyReportPage.getDailyStatsFromUi();
+
+//        dailyStatsFromExcel.stream()
+//                .peek(group -> System.out.print("excel " + group.getName() + " "))
+//                .collect(Collectors.toList());
+//
+//        System.out.println();
+//
 //        dailyStatsFromUi.stream()
-//                .peek(group -> System.out.println("group " + group.getName()))
+//                .peek(group -> System.out.print("ui " + group.getName() + " "))
 //                .map(MfcStatsGroup::getMfcStatsItems)
 //                .flatMap(Collection::stream)
 //                .peek(item -> System.out.println("item " + item.getName()))
 //                .collect(Collectors.toList());
 
-    }
 }
 

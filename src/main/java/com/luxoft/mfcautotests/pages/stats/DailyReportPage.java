@@ -10,14 +10,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.testng.Assert;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.stream.Collectors;
 
-import static org.testng.AssertJUnit.assertTrue;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 @Page
 public class DailyReportPage extends BasePage {
@@ -69,10 +69,21 @@ public class DailyReportPage extends BasePage {
     @FindBy(css = ".ajax-loader")
     public WebElement loadingIndicator;
 
+    @FindBy(css = "[ng-show='stats.isVisible()']")
+    public WebElement tableLabel;
+
+    @FindBy(xpath = "//button[normalize-space(text())='Выгрузить в Exсel']")
+    public WebElement uploadToExcelButton;
+
+    @FindBy(xpath = "//button[normalize-space(text())='Выгрузить в PDF']")
+    public WebElement uploadToPdfButton;
+
     public By tableRowsSelector = By.cssSelector("tr");
 
+    List<MfcStatsGroup> mfcDailyStatsFromUi;
 
-    public void checkDailyReportPageElements() {
+
+    public void checkTableColumnNames() {
         String[] expectedHeaders = new String[]{"№\n" + "п/п", "Наименование показателя", "На отчетную дату", "С начала\n" + "года",
                 "За год", "Размерность", "Тип\n" + "заполнения", "Источник данных"};
         Set<String> expectedTableColumnsNames = new HashSet<>(Arrays.asList(expectedHeaders));
@@ -80,44 +91,13 @@ public class DailyReportPage extends BasePage {
         for (WebElement columnName : actualHeaders) {
             actualTableColumnsNames.add(columnName.getText());
         }
-        boolean firstCondition;
-        boolean secondCondition;
-        boolean thirdCondition;
-        boolean fourthCondition;
-        boolean fifthCondition;
-        ClickableConfig selectConfig = new ClickableConfig("select2-container-disabled");
-
-        firstCondition = isDisplayed(dailyTypeOfReportLabel, linkToStatsAdminArm, reportDateLable, reportDateField, dataSourceLabel,
-                dataSourceDropDown, dashboardItemsLabel, saveButton);
-        secondCondition = isNotClickable(reportDateField, dashboardItemsCheckBox, saveButton);
-        thirdCondition = isClickable(reportDateCalendarLink, createReportButton, goBackButton);
-        fourthCondition = actualTableColumnsNames.equals(expectedTableColumnsNames);
-        fifthCondition = isNotClickable(dataSourceDropDown, selectConfig);
-
-        assertTrue(firstCondition && secondCondition && thirdCondition && fourthCondition && fifthCondition);
-    }
-
-    public void checkDefaultDate(LocalDateTime periodStart) {
-        String reportDateFromUi = reportDateField.getAttribute("value");
-//        if (statsHelper.dateFromServerLessThenEightAm()) {
-//            defaultDate = addDaysToDate(new Date(), -2);
-        checkDate(periodStart, reportDateFromUi);
-//        } else {
-//            defaultDate = addDaysToDate(new Date(), -1);
-//            checkDate(defaultDate, reportDateFromUi);
-//        }
-    }
-
-    public void checkDate(LocalDateTime expectedDate, String reportDateFromUi) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd");
-        String expectedDateString = formatter.format(expectedDate);
-        Assert.assertEquals(reportDateFromUi, expectedDateString);
+        actualTableColumnsNames.equals(expectedTableColumnsNames);
     }
 
     public void checkDateSelection() {
         String date = reportDateField.getAttribute("value");
         Date defaultDate = getDateFromString(date, "dd.MM.yyyy");
-        if (statsHelper.dateFromServerLessThenEightAm()) {
+        if (statsHelper.currentTimeLessThanEightAm()) {
             Date yesterdayDate = addDaysToDate(new Date(), -1);
             checkThatDatesDisabledFrom(yesterdayDate, reportDateCalendarLink);
         } else {
@@ -131,13 +111,33 @@ public class DailyReportPage extends BasePage {
 //        checkThatDatesDisabledFrom(date, countDaysToCheck, reportDateCalendarLink);
 //    }
 
-    public void generateRerport() {
+    public DailyReportPage generateRerport() {
+        log.info("Generating the daily stats report");
+        createReportButton.click();
+        sleep(3000);
+        return this;
     }
 
-    public List<MfcStatsGroup> getDailyStatsValuesFromUi() {
-        log.info("Getting statistic from UI to MfcStatsItem objects");
+    public DailyReportPage checkTableLabel(LocalDateTime periodStart) {
+        log.info("Checking table label");
+        String actualLabelBeforeTable = this.tableLabel.getText();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        String expectedDate = periodStart.format(formatter);
+        String expectedLabelBeforeTable = "Ежедневный отчет о работе Миграционного центра за " + expectedDate;
+        assertEquals(expectedLabelBeforeTable, actualLabelBeforeTable);
+        return this;
+    }
+
+    public List<MfcStatsGroup> getDailyStatsFromUi() {
+        if(!dashboardItemsCheckBox.isSelected()) {
+            dashboardItemsCheckBox.click();
+        }
+        if (mfcDailyStatsFromUi != null) {
+            return mfcDailyStatsFromUi;
+        }
+        log.info("Getting statistic from UI");
         List<WebElement> tableRows = findElements(tableRowsSelector);
-        List<MfcStatsGroup> mfcDailyStatsFromUi = new ArrayList<>();
+        mfcDailyStatsFromUi = new ArrayList<>();
         MfcStatsGroup mfcStatsGroup = null;
 
         for (int i = 0; i < tableRows.size(); i++) {
@@ -178,6 +178,5 @@ public class DailyReportPage extends BasePage {
         }
         return mfcDailyStatsFromUi;
     }
-
 
 }

@@ -9,14 +9,11 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 
-import java.util.Calendar;
-import java.util.Date;
-
 @Helper
 public class BaseHelper<T> extends FrameWork {
 
     @InjectLogger
-    Logger log;
+    public Logger log;
     @Autowired
     @Lazy
     DriverUtils driverUtils;

@@ -32,7 +32,6 @@ public class FrameWork<T> {
     }
 
     public String getSubstringFromString(String input, String pattern) {
-        log.info("Getting substring from string");
         String output = null;
         Pattern ptrn = Pattern.compile(pattern);
         Matcher matcher = ptrn.matcher(input);

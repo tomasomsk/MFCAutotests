@@ -1,5 +1,6 @@
 package com.luxoft;
 
+import com.luxoft.mfcautotests.config.annotations.InjectLogger;
 import com.luxoft.mfcautotests.config.annotations.NonDriver;
 import com.luxoft.mfcautotests.config.SpringConfig;
 import com.luxoft.mfcautotests.environment.TestEnvironment;
@@ -13,7 +14,7 @@ import org.testng.IHookCallBack;
 import org.testng.IHookable;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
-
+import org.apache.log4j.Logger;
 import java.lang.reflect.Method;
 
 @ContextConfiguration(classes = {SpringConfig.class})
@@ -29,10 +30,10 @@ public class BaseTest extends AbstractTestNGSpringContextTests implements IHooka
     @Lazy
     public NavHelper navHelper;
 
-//    @AfterClass
-//    public void tearDown() {
-//        driverUtils.killDriver();
-//    }
+    @AfterClass
+    public void tearDown() {
+        driverUtils.killDriver();
+    }
 
     @Override
     public void run(IHookCallBack callBack, ITestResult testResult) {

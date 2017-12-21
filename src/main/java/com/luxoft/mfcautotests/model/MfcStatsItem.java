@@ -149,4 +149,8 @@ public class MfcStatsItem {
     public void setValuePrevYear(String valuePrevYear) {
         this.valuePrevYear = valuePrevYear;
     }
+
+    public void equalsAsUiObject(MfcStatsItem mfcStatsItem) {
+        this.getName().equalsIgnoreCase(mfcStatsItem.getName());
+    }
 }
