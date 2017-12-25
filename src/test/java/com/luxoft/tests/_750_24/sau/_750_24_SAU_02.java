@@ -1,14 +1,10 @@
 package com.luxoft.tests._750_24.sau;
 
 import com.luxoft.BaseTest;
-import com.luxoft.mfcautotests.config.annotations.NonDriver;
 import com.luxoft.mfcautotests.config.forpages.ClickableConfig;
 import com.luxoft.mfcautotests.database.DaoPostgres;
 import com.luxoft.mfcautotests.helpers.StatsHelper;
-import com.luxoft.mfcautotests.model.MfcStatsGroup;
-import com.luxoft.mfcautotests.model.MfcStatsItem;
-import com.luxoft.mfcautotests.model.Role;
-import com.luxoft.mfcautotests.model.User;
+import com.luxoft.mfcautotests.model.*;
 import com.luxoft.mfcautotests.pages.LoginPage;
 import com.luxoft.mfcautotests.pages.stats.DailyReportPage;
 import com.luxoft.mfcautotests.pages.stats.StatsAdminPage;
@@ -23,10 +19,8 @@ import ru.yandex.qatools.allure.annotations.Title;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -128,7 +122,7 @@ public class _750_24_SAU_02 extends BaseTest {
     @Title("Вид экрана после формирование отчета")
     @Features("750-24 Требования к ручному вводу и просмотру данных отчетности")
     @Stories("MMC-SAU-02 Ежедневный отчет (АРМ Администратора отчетов)")
-    public void creatingReport() {
+    public void creatingReportTest() {
         dailyReportPage.generateRerport()
                 .checkTableLabel(periodStart);
 
@@ -145,27 +139,91 @@ public class _750_24_SAU_02 extends BaseTest {
     @Title("Сравнение значений в БД и на UI")
     @Features("750-24 Требования к ручному вводу и просмотру данных отчетности")
     @Stories("MMC-SAU-02 Ежедневный отчет (АРМ Администратора отчетов)")
-    public void matchingValuesDbUi() {
+    public void matchingValuesDbUiTest() {
         dailyReportPage.generateRerport();
 
         List<MfcStatsGroup> mfcDailyStatsFromDb = statsHelper.getMfcDailyStatsFromExcel();
         List<MfcStatsGroup> mfcDailyStatsFromUi = dailyReportPage.getDailyStatsFromUi();
+        //Remove key indicators
+        mfcDailyStatsFromUi.remove(0);
 
-        List<MfcStatsItem> mfcDailyStatsFromDbSorted = statsHelper.createSortedListOfMfcStatsItems(mfcDailyStatsFromDb);
-        List<MfcStatsItem> mfcDailyStatsFromUiSorted = statsHelper.createSortedListOfMfcStatsItems(mfcDailyStatsFromUi);
+        List<MfcStatsItem> mfcDailyItemsFromDbSorted = statsHelper.createSortedListOfMfcStatsItems(mfcDailyStatsFromDb);
+        List<MfcStatsItem> mfcDailyItemsFromUiSorted = statsHelper.createSortedListOfMfcStatsItems(mfcDailyStatsFromUi);
 
-        assertEquals(mfcDailyStatsFromDbSorted.size(), mfcDailyStatsFromUiSorted.size());
+        List<MfcStatsItemForEquals> statsItemsFromDbForEquals = statsHelper.transformForEquals(mfcDailyItemsFromDbSorted);
+        List<MfcStatsItemForEquals> statsItemsFromUiForEquals = statsHelper.transformForEquals(mfcDailyItemsFromUiSorted);
 
-        IntStream.range(0, mfcDailyStatsFromDbSorted.size())
-                .forEach(i -> mfcDailyStatsFromDbSorted.get(i).equalsAsUiObject(mfcDailyStatsFromUiSorted.get(i)));
+        assertTrue(statsItemsFromDbForEquals.size() == statsItemsFromUiForEquals.size());
+
+        for (int i = 0; i < statsItemsFromDbForEquals.size(); i++) {
+            statsHelper.log.info("Asserting item " + statsItemsFromDbForEquals.get(i).getName() + " with " + statsItemsFromUiForEquals.get(i).getName());
+
+            assertEquals(statsItemsFromDbForEquals.get(i).getName(),
+                    statsItemsFromUiForEquals.get(i).getName());
+//            assertEquals(statsItemsFromDbForEquals.get(i).getDimension(),
+//                    statsItemsFromUiForEquals.get(i).getDimension());
+            assertEquals(statsItemsFromDbForEquals.get(i).getFillingType(),
+                    statsItemsFromUiForEquals.get(i).getFillingType());
+            assertEquals(statsItemsFromDbForEquals.get(i).getDataSource(),
+                    statsItemsFromUiForEquals.get(i).getDataSource());
+            assertEquals(statsItemsFromDbForEquals.get(i).getValue(),
+                    statsItemsFromUiForEquals.get(i).getValue());
+            assertEquals(statsItemsFromDbForEquals.get(i).getValueYear(),
+                    statsItemsFromUiForEquals.get(i).getValueYear());
+            assertEquals(statsItemsFromDbForEquals.get(i).getValuePrevYear(),
+                    statsItemsFromUiForEquals.get(i).getValuePrevYear());
+        }
+
     }
 
     @Test
     @Title("Отображение красным не полученных от внешних систем значений")
     @Features("750-24 Требования к ручному вводу и просмотру данных отчетности")
     @Stories("MMC-SAU-02 Ежедневный отчет (АРМ Администратора отчетов)")
-    public void redValuesNotFromWs() {
+    public void redValuesIfNotFromWsTest() {
         dailyReportPage.generateRerport();
+
+        List<MfcStatsGroup> mfcDailyStatsFromDb = statsHelper.getMfcDailyStatsFromExcel();
+
+        List<MfcStatsItem> handItems = mfcDailyStatsFromDb.stream()
+                .map(MfcStatsGroup::getMfcStatsItems)
+                .flatMap(Collection::stream)
+                .filter(item -> (item.getDataSource() == 6 | item.getDataSource() == 14))
+                .collect(Collectors.toList());
+
+        for (MfcStatsItem handItem : handItems) {
+            assertTrue(dailyReportPage.isValuesForItemRed(handItem.getName()));
+        }
+    }
+
+    @Test
+    public void ttt() {
+        dailyReportPage.generateRerport();
+
+        List<MfcStatsGroup> mfcDailyStatsFromUi = dailyReportPage.getDailyStatsFromUi();
+
+        String value = mfcDailyStatsFromUi.get(0).getMfcStatsItems().get(0).getValue();
+
+        System.out.println("value = " + value);
+
+        String valueWithoutSpaces = value.replaceAll("\\s", "");
+
+        System.out.println("value without spaces = " + valueWithoutSpaces);
+
+        String valueAfterDouble = String.valueOf(Double.parseDouble(valueWithoutSpaces));
+
+        System.out.println("value after Double = " + valueAfterDouble);
+
+//        List<MfcStatsGroup> fromUi = dailyReportPage.getDailyStatsFromUi();
+//
+//        fromUi.stream()
+//                .map(MfcStatsGroup::getMfcStatsItems)
+//                .flatMap(Collection::stream)
+//                .filter(item -> item.getDataSource() == 14)
+//                .peek(item -> System.out.println("value " + item.getValue() + " valueYear " + item.getValueYear() +
+//                " valuePrevYear " + item.getValuePrevYear()))
+//                .collect(Collectors.toList());
+
     }
 
 

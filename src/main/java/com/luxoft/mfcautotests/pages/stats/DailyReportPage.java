@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -78,7 +79,7 @@ public class DailyReportPage extends BasePage {
     @FindBy(xpath = "//button[normalize-space(text())='Выгрузить в PDF']")
     public WebElement uploadToPdfButton;
 
-    public By tableRowsSelector = By.cssSelector("tr");
+//    public By tableRowsSelector = By.cssSelector("tr");
 
     List<MfcStatsGroup> mfcDailyStatsFromUi;
 
@@ -96,6 +97,7 @@ public class DailyReportPage extends BasePage {
 
     public void checkDateSelection() {
         String date = reportDateField.getAttribute("value");
+        //Default date to set it in, because after clicking on date field date in it is disappearing
         Date defaultDate = getDateFromString(date, "dd.MM.yyyy");
         if (statsHelper.currentTimeLessThanEightAm()) {
             Date yesterdayDate = addDaysToDate(new Date(), -1);
@@ -136,7 +138,7 @@ public class DailyReportPage extends BasePage {
             return mfcDailyStatsFromUi;
         }
         log.info("Getting statistic from UI");
-        List<WebElement> tableRows = findElements(tableRowsSelector);
+        List<WebElement> tableRows = findElements(By.cssSelector("tr"));
         mfcDailyStatsFromUi = new ArrayList<>();
         MfcStatsGroup mfcStatsGroup = null;
 
@@ -162,9 +164,9 @@ public class DailyReportPage extends BasePage {
                 MfcStatsItem mfcStatsItem = new MfcStatsItem();
                 mfcStatsItem.setNumber(Integer.parseInt(tdsInRow.get(0).getText()));
                 mfcStatsItem.setName(tdsInRow.get(1).getText());
-                mfcStatsItem.setValue(tdsInRow.get(2).getText());
-                mfcStatsItem.setValueYear(tdsInRow.get(3).getText());
-                mfcStatsItem.setValuePrevYear(tdsInRow.get(4).getText());
+                mfcStatsItem.setValue(tdsInRow.get(2).findElement(By.cssSelector("input")).getAttribute("value"));
+                mfcStatsItem.setValueYear(tdsInRow.get(3).findElement(By.cssSelector("input")).getAttribute("value"));
+                mfcStatsItem.setValuePrevYear(tdsInRow.get(4).findElement(By.cssSelector("input")).getAttribute("value"));
                 mfcStatsItem.setDimension(tdsInRow.get(5).getText());
                 mfcStatsItem.setFillingType("Авт.".equalsIgnoreCase(tdsInRow.get(6).getText()) ? 1 : 2);
                 mfcStatsItem.setDataSource(statsHelper.switchDataSourceValue(tdsInRow.get(7).getText()));
@@ -179,4 +181,45 @@ public class DailyReportPage extends BasePage {
         return mfcDailyStatsFromUi;
     }
 
+    public boolean isValuesForItemRed(String handItemName) {
+        log.info("Checking that values for manual stats items are red on UI");
+        boolean result = false;
+        List<WebElement> rowsWithItem = driverUtils.getDriver().findElements(By.xpath("//td[normalize-space(text())='" + handItemName + "']/.."));
+        for (WebElement rowWithItem : rowsWithItem) {
+            List<WebElement> tdsFromRow = rowWithItem.findElements(By.cssSelector("td"));
+
+            List<WebElement> redValues = new ArrayList<>();
+            redValues.add(tdsFromRow.get(2).findElement(By.cssSelector("input")));
+            System.out.println("first td value " + tdsFromRow.get(2).getText());
+            System.out.println(" css value " + tdsFromRow.get(2).findElement(By.cssSelector("input")).getCssValue("color") );
+            redValues.add(tdsFromRow.get(3).findElement(By.cssSelector("input")));
+            System.out.println("second td value " + tdsFromRow.get(3).getText());
+            System.out.println(" css value " + tdsFromRow.get(3).findElement(By.cssSelector("input")).getCssValue("color") );
+            redValues.add(tdsFromRow.get(4).findElement(By.cssSelector("input")));
+            System.out.println("third td value " + tdsFromRow.get(4).getText());
+            System.out.println(" css value " + tdsFromRow.get(4).findElement(By.cssSelector("input")).getCssValue("color") );
+            redValues.add(tdsFromRow.get(7));
+            System.out.println("last td value " + tdsFromRow.get(7).getText());
+            System.out.println(" css value " + tdsFromRow.get(7).getCssValue("color") );
+
+            result = checkCssValue(redValues, "color", "rgba(255, 0, 0, 1)");
+            if (!result) {
+                break;
+            }
+        }
+        return result;
+    }
+
+    public boolean checkCssValue(List<WebElement> webElementsList, String cssValue, String value){
+        boolean result = false;
+        for (WebElement webElement : webElementsList) {
+            String res = webElement.getCssValue(cssValue);
+            System.out.println(res);
+            result = res.equalsIgnoreCase(value);
+            if (!result) {
+                break;
+            }
+        }
+        return result;
+    }
 }

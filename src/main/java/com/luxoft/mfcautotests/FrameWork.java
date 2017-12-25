@@ -90,8 +90,8 @@ public class FrameWork<T> {
                 .filter(i -> list.get(i) == element.getIntValue()).boxed().toArray(Integer[]::new);
     }
 
-    public String formatDate(LocalDateTime date) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    public String formatDate(LocalDateTime date, String pattern) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
         return formatter.format(date);
     }
 }

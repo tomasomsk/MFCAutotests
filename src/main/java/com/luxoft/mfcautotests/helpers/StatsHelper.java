@@ -4,6 +4,7 @@ import com.luxoft.mfcautotests.config.annotations.Helper;
 import com.luxoft.mfcautotests.database.DaoPostgres;
 import com.luxoft.mfcautotests.model.MfcStatsGroup;
 import com.luxoft.mfcautotests.model.MfcStatsItem;
+import com.luxoft.mfcautotests.model.MfcStatsItemForEquals;
 import com.luxoft.mfcautotests.model.StatsSource;
 import com.luxoft.mfcautotests.pages.stats.DailyReportPage;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -13,7 +14,6 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;
@@ -44,7 +44,7 @@ public class StatsHelper extends ServicesHelper {
     }
 
     public boolean currentTimeLessThanEightAm() {
-        return LocalTime.now().compareTo(LocalTime.of(8, 0,0 ,0)) < 0;
+        return LocalTime.now().compareTo(LocalTime.of(8, 0, 0, 0)) < 0;
     }
 
     public List<MfcStatsGroup> getMfcDailyStatsFromExcel() {
@@ -129,15 +129,24 @@ public class StatsHelper extends ServicesHelper {
 
     public int switchDataSourceValue(String value) {
         switch (value.toUpperCase()) {
-            case "ЕМИАС" : return 1;
-            case "БАНК" : return 2;
-            case "ЭЛ. ОЧЕРЕДЬ" : return 3;
-            case "ИС ММЦ" : return 5;
-            case "ММЦ (ВРУЧНУЮ)" : return 6;
-            case "УФМС" : return 8;
-            case "РАСЧЕТ" : return 9;
-            case "ИС ТЕСТИР." : return 16;
-            default : return Integer.MAX_VALUE;
+            case "ЕМИАС":
+                return 1;
+            case "БАНК":
+                return 2;
+            case "ЭЛ. ОЧЕРЕДЬ":
+                return 3;
+            case "ИС ММЦ":
+                return 5;
+            case "ММЦ (ВРУЧНУЮ)":
+                return 6;
+            case "РАСЧЕТ":
+                return 9;
+            case "УФМС":
+                return 14;
+            case "ИС ТЕСТИР.":
+                return 16;
+            default:
+                return Integer.MAX_VALUE;
         }
     }
 
@@ -155,7 +164,8 @@ public class StatsHelper extends ServicesHelper {
         List<MfcStatsItem> itemsWithSourceQms = getItemsWithSource(StatsSource.QMS, mfcDailyStats);
         List<MfcStatsItem> itemsWithSourceMfcAuto = getItemsWithSource(StatsSource.IS_MMC, mfcDailyStats);
         List<MfcStatsItem> itemsWithSourceMfcManual = getItemsWithSource(StatsSource.MFC, mfcDailyStats);
-        List<MfcStatsItem> itemsWithSourcePpot = getItemsWithSource(StatsSource.PPOT, mfcDailyStats);
+//        List<MfcStatsItem> itemsWithSourcePpot = getItemsWithSource(StatsSource.PPOT, mfcDailyStats);
+        List<MfcStatsItem> itemsWithSourceUfms = getItemsWithSource(StatsSource.UFMS, mfcDailyStats);
         List<MfcStatsItem> itemsWithSourceTesting = getItemsWithSource(StatsSource.TESTING, mfcDailyStats);
 
         List<List<MfcStatsItem>> dataSourceSeparatedItems = new ArrayList<>();
@@ -164,7 +174,8 @@ public class StatsHelper extends ServicesHelper {
         dataSourceSeparatedItems.add(itemsWithSourceQms);
         dataSourceSeparatedItems.add(itemsWithSourceMfcAuto);
         dataSourceSeparatedItems.add(itemsWithSourceMfcManual);
-        dataSourceSeparatedItems.add(itemsWithSourcePpot);
+//        dataSourceSeparatedItems.add(itemsWithSourcePpot);
+        dataSourceSeparatedItems.add(itemsWithSourceUfms);
         dataSourceSeparatedItems.add(itemsWithSourceTesting);
 
         for (List<MfcStatsItem> itemsList : dataSourceSeparatedItems) {
@@ -191,36 +202,51 @@ public class StatsHelper extends ServicesHelper {
 
     public List<MfcStatsItem> getItemsWithSource(StatsSource source, List<MfcStatsGroup> mfcDailyStats) {
         int sourceType;
-        switch(source) {
-            case MED: sourceType = 1;
-            break;
-            case BANK: sourceType = 2;
-            break;
-            case QMS: sourceType = 3;
-            break;
-            case TESTING: sourceType = 16;
-            break;
-            case IS_MMC: sourceType = 5;
-            break;
-            case MFC: sourceType = 6;
-            break;
-            case PAPILON: sourceType = 7;
-            break;
-            case PPOT: sourceType = 8;
-            break;
-            case CALC: sourceType = 9;
-            break;
-            case DEP_ZDRAV: sourceType = 10;
-            break;
-            case MCKO: sourceType = 11;
-            break;
-            case FNS_KAZN: sourceType = 12;
-            break;
-            case FNS: sourceType = 13;
-            break;
-            case UFMS: sourceType = 14;
-            break;
-            default: sourceType = Integer.MAX_VALUE;
+        switch (source) {
+            case MED:
+                sourceType = 1;
+                break;
+            case BANK:
+                sourceType = 2;
+                break;
+            case QMS:
+                sourceType = 3;
+                break;
+            case TESTING:
+                sourceType = 16;
+                break;
+            case IS_MMC:
+                sourceType = 5;
+                break;
+            case MFC:
+                sourceType = 6;
+                break;
+            case PAPILON:
+                sourceType = 7;
+                break;
+            case PPOT:
+                sourceType = 8;
+                break;
+            case CALC:
+                sourceType = 9;
+                break;
+            case DEP_ZDRAV:
+                sourceType = 10;
+                break;
+            case MCKO:
+                sourceType = 11;
+                break;
+            case FNS_KAZN:
+                sourceType = 12;
+                break;
+            case FNS:
+                sourceType = 13;
+                break;
+            case UFMS:
+                sourceType = 14;
+                break;
+            default:
+                sourceType = Integer.MAX_VALUE;
         }
 
         return mfcDailyStats.stream()
@@ -236,5 +262,58 @@ public class StatsHelper extends ServicesHelper {
                 .flatMap(Collection::stream)
                 .sorted(Comparator.comparing(MfcStatsItem::getNumber))
                 .collect(Collectors.toList());
+    }
+
+    public List<MfcStatsItemForEquals> transformForEquals(List<MfcStatsItem> items) {
+        List<MfcStatsItemForEquals> result = new ArrayList<>();
+
+        for (int i = 0; i < items.size(); i++) {
+            log.info("Transformiing to item for equals " + items.get(i).getName());
+            MfcStatsItemForEquals itemForEquals = new MfcStatsItemForEquals();
+            itemForEquals.setNumber(items.get(i).getNumber());
+            itemForEquals.setName(items.get(i).getName());
+            itemForEquals.setDimension(items.get(i).getDimension());
+            itemForEquals.setFillingType(items.get(i).getFillingType());
+            itemForEquals.setDataSource(items.get(i).getDataSource());
+
+            String value;
+            if (items.get(i).getDataSource() != 9) {
+                value = items.get(i).getValue().replaceAll("\\s", "")
+                        .replaceAll(",", ".");
+                if (!value.equalsIgnoreCase("x") && !value.isEmpty()) {
+                    Double numericValue = Double.parseDouble(value);
+                    value = String.valueOf(numericValue);
+                }
+            } else {
+                value = "";
+            }
+            itemForEquals.setValue(value);
+
+            String valueYear;
+            if (items.get(i).getDataSource() != 9) {
+                valueYear = items.get(i).getValueYear().replaceAll("\\s", "")
+                        .replaceAll(",", ".");
+                if (!valueYear.equalsIgnoreCase("x") && !valueYear.isEmpty()) {
+                    Double numericValueYear = Double.parseDouble(valueYear);
+                    valueYear = String.valueOf(numericValueYear);
+                }
+            } else valueYear = "";
+            itemForEquals.setValueYear(valueYear);
+
+            String valuePrevYear;
+            if (items.get(i).getDataSource() != 9) {
+                valuePrevYear = items.get(i).getValuePrevYear().replaceAll("\\s", "")
+                        .replaceAll(",", ".");
+                if (!valuePrevYear.equalsIgnoreCase("x") && !valuePrevYear.isEmpty()) {
+                    Double numericValuePrevYear = Double.parseDouble(valuePrevYear);
+                    valuePrevYear = String.valueOf(numericValuePrevYear);
+                }
+            } else valuePrevYear = "";
+            itemForEquals.setValuePrevYear(valuePrevYear);
+
+            result.add(itemForEquals);
+        }
+
+        return result;
     }
 }

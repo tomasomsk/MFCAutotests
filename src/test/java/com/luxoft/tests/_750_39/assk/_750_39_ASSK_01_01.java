@@ -35,7 +35,7 @@ public class _750_39_ASSK_01_01 extends BaseTest {
     @Title("Проверка списка СК на соответствие требованиям")
     @Features("750-39 Функции администрирования страховых компаний")
     @Stories("АССК-01-01 Вход в арм администратора страховых компаний")
-    public void checkInsuranceCompanies() {
+    public void checkInsuranceCompaniesTest() {
         navHelper.openInsuranceCompaniesCatalog();
         Set<InsuranceCompany> expectedInsuranceCompanies = insuranceAdminHelper.getExpectedInsuranceCompaniesFromJira();
 

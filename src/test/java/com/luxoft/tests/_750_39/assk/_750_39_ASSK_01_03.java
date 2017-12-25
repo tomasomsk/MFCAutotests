@@ -56,7 +56,7 @@ public class _750_39_ASSK_01_03 extends BaseTest {
     @Title("Перемещение бокса со страховой компанией")
     @Features("750-39 Функции администрирования страховых компаний")
     @Stories("АССК-01-03 Настройка списка страховых компаний")
-    public void checkRelocatedBoxPosition() {
+    public void checkRelocatedBoxPositionTest() {
         insuranceAdminHelper
                 .moveBoxFromLastToFirst();
 
@@ -73,7 +73,7 @@ public class _750_39_ASSK_01_03 extends BaseTest {
     @Title("Сортировка компаний в АРМе Админа СК в соответствии с полем admin_ui_seq_no в БД")
     @Features("750-39 Функции администрирования страховых компаний")
     @Stories("АССК-01-03 Настройка списка страховых компаний")
-    public void checkSoringAtArmAdminUi() {
+    public void soringAtArmAdminUiTest() {
         insuranceAdminHelper.moveBoxFromLastToFirst();
 
         List<String>
@@ -89,7 +89,7 @@ public class _750_39_ASSK_01_03 extends BaseTest {
     @Title("Совпадение полей admin_ui_seq_no и ui_seq_no в БД")
     @Features("750-39 Функции администрирования страховых компаний")
     @Stories("АССК-01-03 Настройка списка страховых компаний")
-    public void checkingThatFieldsForSortingIsEqualsInDb() {
+    public void fieldsForSortingIsEqualsInDbTest() {
         insuranceAdminHelper.moveBoxFromLastToFirst();
 
         List<Integer>
@@ -105,8 +105,7 @@ public class _750_39_ASSK_01_03 extends BaseTest {
     @Title("Сортировка СК в АРМе ООО после перемещения боксов")
     @Features("750-39 Функции администрирования страховых компаний")
     @Stories("АССК-01-03 Настройка списка страховых компаний")
-
-    public void checkSortingInArmOoo() {
+    public void sortingInArmOooTest() {
         insuranceAdminHelper.
                 moveBoxFromLastToFirst();
 

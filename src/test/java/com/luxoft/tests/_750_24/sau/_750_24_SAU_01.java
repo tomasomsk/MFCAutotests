@@ -34,7 +34,7 @@ public class _750_24_SAU_01 extends BaseTest {
     @Title("Авторизация в АРМе Админа статистики с ролью Админ статистики")
     @Features("750-24 Требования к ручному вводу и просмотру данных отчетности")
     @Stories("MMC-SAU-01 Авторизация")
-    public void authorizationWithRoleStatsAdmin() {
+    public void authorizationWithRoleStatsAdminTest() {
         navHelper.openArmStatsAdmin()
                 .loginWithRole(STATS_ADMIN);
 
@@ -45,7 +45,7 @@ public class _750_24_SAU_01 extends BaseTest {
     @Title("Авторизация в АРМе Пользователя статистики с ролью Пользователь статистики")
     @Features("750-24 Требования к ручному вводу и просмотру данных отчетности")
     @Stories("MMC-SAU-01 Авторизация")
-    public void authorizationWithRoleStatsUser() {
+    public void authorizationWithRoleStatsUserTest() {
         navHelper.openArmStatsUser()
                 .loginWithRole(STATS_USER);
 
@@ -56,7 +56,7 @@ public class _750_24_SAU_01 extends BaseTest {
     @Title("Авторизация в АРМе Пользователя статистики с ролью Менеджер дэшборда")
     @Features("750-24 Требования к ручному вводу и просмотру данных отчетности")
     @Stories("MMC-SAU-01 Авторизация")
-    public void authorizationWithRoleDashboarManager() {
+    public void authorizationWithRoleDashboarManagerTest() {
         navHelper.openArmStatsUser()
                 .loginWithRole(DASHBOARD_MANAGER);
 
@@ -67,7 +67,7 @@ public class _750_24_SAU_01 extends BaseTest {
     @Title("Авторизация в АРМе Пользователя статистики с ролью Пользователь дэшборда")
     @Features("750-24 Требования к ручному вводу и просмотру данных отчетности")
     @Stories("MMC-SAU-01 Авторизация")
-    public void authorizationWithRoleDashboarUser() {
+    public void authorizationWithRoleDashboarUserTest() {
         navHelper.openArmStatsUser()
                 .loginWithRole(DASHBOARD_USER);
 

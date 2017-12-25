@@ -2,9 +2,6 @@ package com.luxoft.mfcautotests.model;
 
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Component
 public class MfcStatsItem {
 
@@ -150,7 +147,29 @@ public class MfcStatsItem {
         this.valuePrevYear = valuePrevYear;
     }
 
-    public void equalsAsUiObject(MfcStatsItem mfcStatsItem) {
-        this.getName().equalsIgnoreCase(mfcStatsItem.getName());
+//    public MfcStatsItemUi transformToMfcStatsItemUi() {
+//        MfcStatsItemUi result = new MfcStatsItemUi();
+//        result.setNumber(this.getNumber());
+//        result.setName(this.getName());
+//        result.setDimension(this.getDimension());
+//        result.setFillingType(this.getFillingType());
+//        result.setDataSource(this.getDataSource());
+//        result.setValue(this.getValue());
+//        result.setValueYear(this.getValueYear());
+//        result.setValuePrevYear(this.getValuePrevYear());
+//        return result;
+//    }
+
+    public boolean equalsAsUiObject(MfcStatsItem mfcStatsItem) {
+        boolean result;
+        result = (this.getName().equalsIgnoreCase(mfcStatsItem.getName()) &
+                this.getDimension().equalsIgnoreCase(mfcStatsItem.getDimension()) &
+                this.getFillingType() == mfcStatsItem.getFillingType() &
+                this.getDataSource() == mfcStatsItem.getDataSource() &
+                this.getValue().equalsIgnoreCase(mfcStatsItem.getValue()) &
+                this.getValueYear().equalsIgnoreCase(mfcStatsItem.getValueYear()) &
+                this.getValuePrevYear().equalsIgnoreCase(mfcStatsItem.getValuePrevYear()));
+
+        return result;
     }
 }

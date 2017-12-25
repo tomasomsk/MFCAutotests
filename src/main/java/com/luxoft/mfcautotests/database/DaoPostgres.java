@@ -275,17 +275,20 @@ public class DaoPostgres extends FrameWork {
                 log.info("Inserting item " + item.getParameter());
                 psForReportItemData.setInt(1, dataUpload);
                 if (!"x".equalsIgnoreCase(item.getItemIdPeriod())) {
+                    System.out.println("id " + item.getItemIdPeriod() + "value = " + item.getValue());
                     psForReportItemData.setDouble(2, Double.parseDouble(item.getItemIdPeriod()));
                     psForReportItemData.setDouble(3, Double.parseDouble(item.getValue()));
                     psForReportItemData.addBatch();
                 }
                 if (!"x".equalsIgnoreCase(item.getItemIdYear())) {
+                    System.out.println("id year " + item.getItemIdYear() + "value = " + item.getValueYear());
                     psForReportItemData.setDouble(2, Double.parseDouble(item.getItemIdYear()));
                     psForReportItemData.setDouble(3, Double.parseDouble(item.getValueYear()));
                     psForReportItemData.addBatch();
 
                 }
                 if (!"x".equalsIgnoreCase(item.getItemIdPrevYear())) {
+                    System.out.println("id prev year " + item.getItemIdPrevYear() + "value = " + item.getValuePrevYear());
                     psForReportItemData.setDouble(2, Double.parseDouble(item.getItemIdPrevYear()));
                     psForReportItemData.setDouble(3, Double.parseDouble(item.getValuePrevYear()));
                     psForReportItemData.addBatch();
