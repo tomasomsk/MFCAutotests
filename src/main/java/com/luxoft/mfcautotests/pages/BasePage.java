@@ -107,7 +107,7 @@ public class BasePage<T> extends FrameWork {
         calendarLink.click();
         //get List of WebElements from UI calendar
         List<WebElement> daysInCalendarWebElement = getCalendarElementsAsWebElements();
-        //get List of Integer from calendar of WebElements
+        //get List of Integer from WebElements
         List<Integer> daysInCalendarInteger = getCalendarElementsAsInteger(daysInCalendarWebElement);
         Integer[] dayPositionsInCalendar = getDayPositionsInCalendar(fromDate, daysInCalendarInteger);
         ClickableConfig calendarDaysClickableConfig = new ClickableConfig("disabled");

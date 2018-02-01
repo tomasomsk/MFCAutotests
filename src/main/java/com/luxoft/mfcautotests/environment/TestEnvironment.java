@@ -18,6 +18,8 @@ public class TestEnvironment {
     public String resourcesPath;
 
     //URLs
+    @Value("${loginHost}")
+    public String loginHost;
     @Value("${baseUrl}")
     public String baseUrl;
     @Value("${baseUrlWs}")

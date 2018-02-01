@@ -29,12 +29,11 @@ public class LoginPage extends BasePage{
         submitButton.click();
     }
 
-    public LoginPage logout() {
+    public void logout() {
         log.info("Logging out");
         waitUntilClickable(logoutLink).click();
         if(isAlertPresent()) {
             driverUtils.getDriver().switchTo().alert().accept();
         }
-        return this;
     }
 }

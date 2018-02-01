@@ -1,18 +1,30 @@
 package com.luxoft.mfcautotests;
 
 import com.luxoft.mfcautotests.config.annotations.InjectLogger;
+import com.luxoft.mfcautotests.config.forhelpers.HttpResponseData;
 import com.luxoft.mfcautotests.config.forpages.ElementToFindInList;
+import org.apache.commons.io.IOUtils;
+import org.apache.http.HttpEntity;
+import org.apache.http.client.CookieStore;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.protocol.HttpClientContext;
+import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.cookie.Cookie;
+import org.apache.http.impl.client.*;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
-
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.IntStream;
@@ -94,4 +106,109 @@ public class FrameWork<T> {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
         return formatter.format(date);
     }
+
+    public HttpResponseData sendGetHttpRequest(String url) {
+        return sendGetHttpRequest(url, new HashMap<>());
+    }
+
+    public HttpResponseData sendGetHttpRequest(String url, Map<String, String> urlParameters) {
+        try {
+            CloseableHttpClient client = HttpClients.createDefault();
+            HttpClientContext context = HttpClientContext.create();
+            URIBuilder uriBuilder = new URIBuilder(url);
+
+            if (urlParameters.size() > 0) {
+                for (Map.Entry<String, String> entry : urlParameters.entrySet()) {
+                    uriBuilder.setParameter(entry.getKey(), entry.getValue());
+                }
+            }
+
+            url = uriBuilder.build().toString();
+
+            log.info("Sending http get request " + url);
+
+            HttpGet httpGet = new HttpGet(url);
+            CloseableHttpResponse response = client.execute(httpGet, context);
+            CookieStore cookieStore = context.getCookieStore();
+            List<Cookie> cookies = cookieStore.getCookies();
+
+            HttpEntity entity = response.getEntity();
+            String data = IOUtils.toString(entity.getContent(), "UTF-8");
+            Document document = Jsoup.parse(data);
+
+            HttpResponseData responseData = new HttpResponseData();
+            responseData.setResponseData(document)
+                    .setCookies(cookies);
+
+            response.close();
+
+            return responseData;
+        } catch (IOException | URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public HttpResponseData sendPostHttpRequest(String url) {
+        return sendPostHttpRequest(url, new ArrayList<>());
+    }
+
+    public HttpResponseData sendPostHttpRequest(String url, List<BasicNameValuePair> postParameters) {
+        return sendPostHttpRequest(url, postParameters, new Cookie[0]);
+    }
+
+    public HttpResponseData sendPostHttpRequest(String url, List<BasicNameValuePair> postParameters, Cookie[] cookies) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (BasicNameValuePair parameter : postParameters) {
+            stringBuilder.append(parameter.getName())
+                    .append(" = ")
+                    .append(parameter.getValue())
+                    .append("; ");
+        }
+
+        log.info("Sending http post request " + url + " with parameters: " + stringBuilder.toString());
+
+        CloseableHttpClient client;
+        HttpResponseData httpResponseData = new HttpResponseData();
+        HttpClientContext context = HttpClientContext.create();
+        if (cookies.length > 0) {
+            BasicCookieStore cookieStore = new BasicCookieStore();
+            cookieStore.addCookies(cookies);
+            client = HttpClientBuilder.create()
+                    .setRedirectStrategy(new LaxRedirectStrategy())
+                    .setDefaultCookieStore(cookieStore)
+                    .build();
+        } else {
+            client = HttpClientBuilder.create()
+                    .setRedirectStrategy(new LaxRedirectStrategy())
+                    .build();
+        }
+        HttpPost post = new HttpPost(url);
+        post.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36 ql66u54b");
+
+        try {
+            if (postParameters.size() > 0) {
+                post.setEntity(new UrlEncodedFormEntity(postParameters));
+            }
+
+            CloseableHttpResponse response = client.execute(post, context);
+
+            CookieStore cookieStore = context.getCookieStore();
+            List<Cookie> cookiesFromResponse = cookieStore.getCookies();
+
+            HttpEntity entity = response.getEntity();
+            String data = IOUtils.toString(entity.getContent(), "UTF-8");
+
+            Document document = Jsoup.parse(data);
+
+            httpResponseData.setResponseData(document)
+                    .setCookies(cookiesFromResponse);
+
+            response.close();
+
+            return httpResponseData;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

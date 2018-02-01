@@ -13,7 +13,7 @@ public class User {
     private String login;
     private String password;
     private ArrayList<Role> roles = new ArrayList<>();
-    private String Arm;
+    private String arm;
 
     public User setLogin(String login) {
         this.login = login;
