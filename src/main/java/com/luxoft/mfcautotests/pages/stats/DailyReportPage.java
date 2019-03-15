@@ -109,10 +109,6 @@ public class DailyReportPage extends BasePage {
         setDateInCalendar(defaultDate, reportDateCalendarLink);
     }
 
-//    public void checkThatDatesDisabledFrom(Date date, int countDaysToCheck) {
-//        checkThatDatesDisabledFrom(date, countDaysToCheck, reportDateCalendarLink);
-//    }
-
     public DailyReportPage generateRerport() {
         log.info("Generating the daily stats report");
         createReportButton.click();

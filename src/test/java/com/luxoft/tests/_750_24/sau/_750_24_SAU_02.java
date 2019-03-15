@@ -48,9 +48,6 @@ public class _750_24_SAU_02 extends BaseTest {
         periodStart = statsHelper.currentTimeLessThanEightAm() ?
                 LocalDateTime.now().minusDays(2).withHour(8).withMinute(0).withSecond(0).withNano(0) :
                 LocalDateTime.now().minusDays(1).withHour(8).withMinute(0).withSecond(0).withNano(0);
-
-//        statsHelper.deleteDailyStatsFromDb(periodStart)
-//                .insertDailyStatsItemsToDb(periodStart);
     }
 
     @BeforeMethod
@@ -153,7 +150,7 @@ public class _750_24_SAU_02 extends BaseTest {
         List<MfcStatsItemForEquals> statsItemsFromDbForEquals = statsHelper.transformForEquals(mfcDailyItemsFromDbSorted);
         List<MfcStatsItemForEquals> statsItemsFromUiForEquals = statsHelper.transformForEquals(mfcDailyItemsFromUiSorted);
 
-        assertTrue(statsItemsFromDbForEquals.size() == statsItemsFromUiForEquals.size());
+        assertEquals(statsItemsFromDbForEquals.size(), statsItemsFromUiForEquals.size());
 
         for (int i = 0; i < statsItemsFromDbForEquals.size(); i++) {
             statsHelper.log.info("Asserting item " + statsItemsFromDbForEquals.get(i).getName() + " with " + statsItemsFromUiForEquals.get(i).getName());
@@ -195,55 +192,5 @@ public class _750_24_SAU_02 extends BaseTest {
             assertTrue(dailyReportPage.isValuesForItemRed(handItem.getName()));
         }
     }
-
-    @Test
-    public void ttt() {
-        dailyReportPage.generateRerport();
-
-        List<MfcStatsGroup> mfcDailyStatsFromUi = dailyReportPage.getDailyStatsFromUi();
-
-        String value = mfcDailyStatsFromUi.get(0).getMfcStatsItems().get(0).getValue();
-
-        System.out.println("value = " + value);
-
-        String valueWithoutSpaces = value.replaceAll("\\s", "");
-
-        System.out.println("value without spaces = " + valueWithoutSpaces);
-
-        String valueAfterDouble = String.valueOf(Double.parseDouble(valueWithoutSpaces));
-
-        System.out.println("value after Double = " + valueAfterDouble);
-
-//        List<MfcStatsGroup> fromUi = dailyReportPage.getDailyStatsFromUi();
-//
-//        fromUi.stream()
-//                .map(MfcStatsGroup::getMfcStatsItems)
-//                .flatMap(Collection::stream)
-//                .filter(item -> item.getDataSource() == 14)
-//                .peek(item -> System.out.println("value " + item.getValue() + " valueYear " + item.getValueYear() +
-//                " valuePrevYear " + item.getValuePrevYear()))
-//                .collect(Collectors.toList());
-
-    }
-
-
-
-
-//        List<MfcStatsGroup> dailyStatsFromExcel = statsHelper.getMfcDailyStatsFromExcel();
-//        List<MfcStatsGroup> dailyStatsFromUi = dailyReportPage.getDailyStatsFromUi();
-
-//        dailyStatsFromExcel.stream()
-//                .peek(group -> System.out.print("excel " + group.getName() + " "))
-//                .collect(Collectors.toList());
-//
-//        System.out.println();
-//
-//        dailyStatsFromUi.stream()
-//                .peek(group -> System.out.print("ui " + group.getName() + " "))
-//                .map(MfcStatsGroup::getMfcStatsItems)
-//                .flatMap(Collection::stream)
-//                .peek(item -> System.out.println("item " + item.getName()))
-//                .collect(Collectors.toList());
-
 }
 
